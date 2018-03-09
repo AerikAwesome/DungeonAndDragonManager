@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonAndDragonManager", "DungeonAndDragonManager\DungeonAndDragonManager.csproj", "{A063953B-D767-43BC-86B8-4C2D5E2E10BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonAndDragonManager", "DungeonAndDragonManager\DungeonAndDragonManager.csproj", "{19967505-E482-420E-B797-35EE6B53D612}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A063953B-D767-43BC-86B8-4C2D5E2E10BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A063953B-D767-43BC-86B8-4C2D5E2E10BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A063953B-D767-43BC-86B8-4C2D5E2E10BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A063953B-D767-43BC-86B8-4C2D5E2E10BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19967505-E482-420E-B797-35EE6B53D612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19967505-E482-420E-B797-35EE6B53D612}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19967505-E482-420E-B797-35EE6B53D612}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19967505-E482-420E-B797-35EE6B53D612}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
