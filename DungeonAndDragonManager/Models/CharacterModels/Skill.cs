@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DungeonAndDragonManager.Models.CharacterModels
@@ -70,25 +71,26 @@ namespace DungeonAndDragonManager.Models.CharacterModels
         }
     }
 
+    [Flags]
     public enum SkillEnum
     {
-        Acrobatics,
-        AnimalHandling,
-        Arcana,
-        Athletics,
-        Deception,
-        History,
-        Insight,
-        Intimidation,
-        Investigation,
-        Medicine,
-        Nature,
-        Perception,
-        Performance,
-        Persuasion,
-        Religion,
-        SleightOfHand,
-        Stealth,
-        Survival
+        Acrobatics = 1,
+        AnimalHandling = 2,
+        Arcana = 4,
+        Athletics = 8,
+        Deception = 16,
+        History = 32,
+        Insight = 64,
+        Intimidation = 128,
+        Investigation = 256,
+        Medicine = 512,
+        Nature = 1024,
+        Perception = 2048,
+        Performance = 4096,
+        Persuasion = 8192,
+        Religion = 16384,
+        SleightOfHand = 32768,
+        Stealth = 65536,
+        Survival = 131072
     }
 }
