@@ -8,11 +8,8 @@
   <ItemGroup>
     <Content Remove="ImportFiles\CreatureList.json" />
     <Content Remove="ImportFiles\ExtraContent.json" />
-    <Content Remove="ImportFiles\FeatsList.json" />
     <Content Remove="ImportFiles\GearList.json" />
     <Content Remove="ImportFiles\ImportFile.json" />
-    <Content Remove="ImportFiles\RaceList.json" />
-    <Content Remove="ImportFiles\SpellList.json" />
   </ItemGroup>
 
 
@@ -33,10 +30,7 @@
     <None Include="ImportFiles\ImportFile.json" />
     <None Include="ImportFiles\CreatureList.json" />
     <None Include="ImportFiles\ExtraContent.json" />
-    <None Include="ImportFiles\FeatsList.json" />
     <None Include="ImportFiles\GearList.json" />
-    <None Include="ImportFiles\RaceList.json" />
-    <None Include="ImportFiles\SpellList.json" />
   </ItemGroup>
 
 </Project>
