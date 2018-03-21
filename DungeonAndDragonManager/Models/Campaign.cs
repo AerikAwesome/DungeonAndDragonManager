@@ -11,6 +11,6 @@ namespace DungeonAndDragonManager.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public virtual ApplicationUser DungeonMaster { get; set; }
-        public virtual ICollection<Character> Party { get; set; }
+        public virtual ICollection<Party> Parties { get; set; }
     }
 }

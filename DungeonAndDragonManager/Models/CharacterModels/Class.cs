@@ -16,5 +16,6 @@ namespace DungeonAndDragonManager.Models.CharacterModels
         public Die HitDie { get; set; }
         public ICollection<AbilityEnum> Saves { get; set; }
         public ICollection<Skill> Skills { get; set; }
+        public virtual ICollection<SubClass> SubClasses { get; set; }
     }
 }
