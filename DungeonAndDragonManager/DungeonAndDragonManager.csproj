@@ -5,6 +5,13 @@
     <UserSecretsId>aspnet-DungeonAndDragonManager-136C463C-698A-43E1-B45F-FF158510EFD3</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="ImportFiles\CreatureList.json" />
+    <Content Remove="ImportFiles\ExtraContent.json" />
+    <Content Remove="ImportFiles\GearList.json" />
+    <Content Remove="ImportFiles\ImportFile.json" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Escape" Version="1.1.0" />
@@ -17,6 +24,13 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.1" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ImportFiles\ImportFile.json" />
+    <None Include="ImportFiles\CreatureList.json" />
+    <None Include="ImportFiles\ExtraContent.json" />
+    <None Include="ImportFiles\GearList.json" />
   </ItemGroup>
 
 </Project>
