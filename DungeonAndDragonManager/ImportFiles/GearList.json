@@ -4,8 +4,8 @@
       "regExpSearch": "/(unarmou?red|naked|nothing|bare|no.?armou?r)/i",
       "name": "Unarmored",
       "source": [
-        ["SRD", 62],
-        ["P", 14]
+        [ "SRD", 62 ],
+        [ "P", 14 ]
       ],
       "type": "",
       "ac": 10,
@@ -14,14 +14,13 @@
       "addMod": true
     },
     {
-      "regExpSearch":
-        "/^((?=.*natural)(?=.*armou?r)|(?=.*(dragon|draconic|scaly))(?=.*(hide|skin|scales|resilience))).*$/i",
+      "regExpSearch": "/^((?=.*natural)(?=.*armou?r)|(?=.*(dragon|draconic|scaly))(?=.*(hide|skin|scales|resilience))).*$/i",
       "name": "Natural Armor",
       "source": [
-        ["SRD", 45],
-        ["P", 102],
-        ["V", 112],
-        ["X", 74]
+        [ "SRD", 45 ],
+        [ "P", 102 ],
+        [ "V", 112 ],
+        [ "X", 74 ]
       ],
       "type": "",
       "ac": 13,
@@ -32,8 +31,8 @@
       "regExpSearch": "/^(?=.*(mage|magic))(?=.*armou?r).*$/i",
       "name": "Mage armor",
       "source": [
-        ["SRD", 160],
-        ["P", 256]
+        [ "SRD", 160 ],
+        [ "P", 256 ]
       ],
       "type": "",
       "ac": 13,
@@ -44,8 +43,8 @@
       "regExpSearch": "/^(?!.*(plate|hide))(?=.*(padding|padded)).*$/i",
       "name": "Padded",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "light",
       "ac": 11,
@@ -58,8 +57,8 @@
       "regExpSearch": "/^(?!.*(padding|padded|studded|studs))(?=.*leather).*$/i",
       "name": "Leather",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "light",
       "ac": 11,
@@ -72,8 +71,8 @@
       "regExpSearch": "/^(?=.*(studded|studs))(?=.*leather).*$/i",
       "name": "Studded Leather",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "light",
       "ac": 12,
@@ -86,8 +85,8 @@
       "regExpSearch": "/^(?!.*(dragon|draconic))(?=.*(hide|skin)).*$/i",
       "name": "Hide",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "medium",
       "ac": 12,
@@ -100,8 +99,8 @@
       "regExpSearch": "/^(?=.*(chain|mail))(?=.*shirt).*$/i",
       "name": "Chain shirt",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "medium",
       "ac": 13,
@@ -113,8 +112,8 @@
       "regExpSearch": "/^(?=.*scale)(?=.*mail).*$/i",
       "name": "Scale mail",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "medium",
       "ac": 14,
@@ -126,8 +125,8 @@
       "regExpSearch": "/^(?=.*breast)(?=.*plate).*$/i",
       "name": "Breastplate",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "medium",
       "ac": 14,
@@ -139,8 +138,8 @@
       "regExpSearch": "/^(?=.*half)(?=.*plate).*$/i",
       "name": "Half plate",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "medium",
       "ac": 15,
@@ -152,8 +151,8 @@
       "regExpSearch": "/^(?=.*ring)(?=.*mail).*$/i",
       "name": "Ring mail",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "heavy",
       "ac": 14,
@@ -165,8 +164,8 @@
       "regExpSearch": "/^(?!.*(scale|plate|ring|shirt))(?=.*(chain|mail)).*$/i",
       "name": "Chain mail",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "heavy",
       "ac": 16,
@@ -178,8 +177,8 @@
       "regExpSearch": "/splint/i",
       "name": "Splint",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "heavy",
       "ac": 17,
@@ -192,8 +191,8 @@
       "regExpSearch": "/^(?!.*(half|breast))(?=.*plate).*$/i",
       "name": "Plate",
       "source": [
-        ["SRD", 63],
-        ["P", 145]
+        [ "SRD", 63 ],
+        [ "P", 145 ]
       ],
       "type": "heavy",
       "ac": 18,
@@ -201,6 +200,26 @@
       "weight": 65,
       "strReq": 15,
       "invName": "Plate armor"
+    },
+    {
+      "regExpSearch": "/^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i",
+      "name": "Spiked armor",
+      "source": [ "S", 121 ],
+      "type": "medium",
+      "ac": 14,
+      "stealthdis": true,
+      "weight": 45,
+      "strReq": 0
+    },
+    {
+      "regExpSearch": "/^(?=.*tortle)(?=.*shell).*$/i",
+      "name": "Tortle's Shell",
+      "source": [ "TP", 4 ],
+      "type": "",
+      "ac": 17,
+      "dex": -10,
+      "stealthdis": false,
+      "strReq": 0
     }
   ],
   "Weapons": [
@@ -208,13 +227,13 @@
       "regExpSearch": "/^(?!.*(great|heavy|big))(?=.*\b(club|bian|tonfa)\b).*$/i",
       "name": "Club",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Simple",
-      "damage": [1, 4, "bludgeoning"],
+      "damage": [ 1, 4, "bludgeoning" ],
       "range": "Melee",
       "weight": 2,
       "description": "Light",
@@ -225,13 +244,13 @@
       "regExpSearch": "/dagger|bishou|\btamo\b|kozuka|\btanto\b/i",
       "name": "Dagger",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Simple",
-      "damage": [1, 4, "piercing"],
+      "damage": [ 1, 4, "piercing" ],
       "range": "Melee, 20/60 ft",
       "weight": 1,
       "description": "Finesse, light, thrown",
@@ -242,13 +261,13 @@
       "regExpSearch": "/^(?=.*(great|heavy|big|weida))(?=.*(club|bian|tonfa)\b).*$|tetsubo/i",
       "name": "Greatclub",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Simple",
-      "damage": [1, 8, "bludgeoning"],
+      "damage": [ 1, 8, "bludgeoning" ],
       "range": "Melee",
       "weight": 10,
       "description": "Two-handed",
@@ -258,13 +277,13 @@
       "regExpSearch": "/^(?=.*(light|hand|short|small|throw))(?=.*(axe|\bfu)\b).*$|\bono\b/i",
       "name": "Handaxe",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Simple",
-      "damage": [1, 6, "slashing"],
+      "damage": [ 1, 6, "slashing" ],
       "range": "Melee, 20/60 ft",
       "weight": 2,
       "description": "Light, thrown",
@@ -275,13 +294,13 @@
       "regExpSearch": "/javelin|\bmau\b|uchi-ne/i",
       "name": "Javelin",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Simple",
-      "damage": [1, 6, "piercing"],
+      "damage": [ 1, 6, "piercing" ],
       "range": "Melee, 30/120 ft",
       "weight": 2,
       "description": "Thrown",
@@ -292,13 +311,13 @@
       "regExpSearch": "/^(?=.*(light|hand|short|small|throw))(?=.*hammer).*$/i",
       "name": "Light hammer",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Simple",
-      "damage": [1, 4, "bludgeoning"],
+      "damage": [ 1, 4, "bludgeoning" ],
       "range": "Melee, 20/60 ft",
       "weight": 2,
       "description": "Light, thrown",
@@ -309,13 +328,13 @@
       "regExpSearch": "/mace\b|\bchui\b|kanabo/i",
       "name": "Mace",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Simple",
-      "damage": [1, 6, "bludgeoning"],
+      "damage": [ 1, 6, "bludgeoning" ],
       "range": "Melee",
       "weight": 4,
       "description": "",
@@ -326,13 +345,13 @@
       "regExpSearch": "/quarterstaff|\bstaff\b|\bbo\b|^gun(.?(\\+|-)\\d+)?$/i",
       "name": "Quarterstaff",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Simple",
-      "damage": [1, 6, "bludgeoning"],
+      "damage": [ 1, 6, "bludgeoning" ],
       "range": "Melee",
       "weight": 4,
       "description": "Versatile (1d8)",
@@ -343,13 +362,13 @@
       "regExpSearch": "/sickle|\bkama\b/i",
       "name": "Sickle",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Simple",
-      "damage": [1, 4, "slashing"],
+      "damage": [ 1, 4, "slashing" ],
       "range": "Melee",
       "weight": 2,
       "description": "Light",
@@ -360,13 +379,13 @@
       "regExpSearch": "/^(?!.*agonizing)(?!.*eldritch)(?=.*(spear|qiang|\byari\b)).*$/i",
       "name": "Spear",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Simple",
-      "damage": [1, 6, "piercing"],
+      "damage": [ 1, 6, "piercing" ],
       "range": "Melee, 20/60 ft",
       "weight": 3,
       "description": "Thrown, versatile (1d8)",
@@ -374,16 +393,15 @@
       "abilitytodamage": true
     },
     {
-      "regExpSearch":
-        "/^((?=.*\b(unarmed|fist|arm|leg|foot|feet|razorclaw|talons)\b)|((?=.*martial)(?=.*arts))|((?=.*tavern)(?=.*brawler))).*$/i",
+      "regExpSearch": "/^((?=.*\b(unarmed|fist|arm|leg|foot|feet|razorclaw|talons)\b)|((?=.*martial)(?=.*arts))|((?=.*tavern)(?=.*brawler))).*$/i",
       "name": "Unarmed strike",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "ability": 1,
       "type": "Natural",
-      "damage": [1, "", "bludgeoning"],
+      "damage": [ 1, "", "bludgeoning" ],
       "range": "Melee",
       "description": "",
       "monkweapon": true,
@@ -393,13 +411,13 @@
       "regExpSearch": "/^(((?=.*light)(?=.*crossbow))|((?!.*(hand|short|great|heavy|bolt))(?=.*\bcrossbow\b))).*$/i",
       "name": "Light crossbow",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "ranged",
       "ability": 2,
       "type": "Simple",
-      "damage": [1, 8, "piercing"],
+      "damage": [ 1, 8, "piercing" ],
       "range": "80/320 ft",
       "weight": 5,
       "description": "Ammunition, loading, two-handed",
@@ -410,13 +428,13 @@
       "regExpSearch": "/dart|shuriken/i",
       "name": "Dart",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "ranged",
       "ability": 2,
       "type": "Simple",
-      "damage": [1, 4, "piercing"],
+      "damage": [ 1, 4, "piercing" ],
       "range": "20/60 ft",
       "weight": 0.25,
       "description": "Finesse, thrown",
@@ -426,13 +444,13 @@
       "regExpSearch": "/^(?!.*crossbow)(((?=.*short)(?=.*bow))|((?!.*(moon|long))(?=.*\bbow\b))).*$|hankyu/i",
       "name": "Shortbow",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "ranged",
       "ability": 2,
       "type": "Simple",
-      "damage": [1, 6, "piercing"],
+      "damage": [ 1, 6, "piercing" ],
       "range": "80/320 ft",
       "weight": 2,
       "description": "Ammunition, two-handed",
@@ -443,13 +461,13 @@
       "regExpSearch": "/sling/i",
       "name": "Sling",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "ranged",
       "ability": 2,
       "type": "Simple",
-      "damage": [1, 4, "bludgeoning"],
+      "damage": [ 1, 4, "bludgeoning" ],
       "range": "30/120 ft",
       "weight": 0.001,
       "description": "Ammunition",
@@ -457,17 +475,16 @@
       "ammo": "bullet"
     },
     {
-      "regExpSearch":
-        "/^(((?=.*battle)(?=.*(axe|\bono|\bfu)\b))|((?!.*(light|hand|short|small|great|heavy|throw))(?=.*\b(axe|fu|masakari)\b))).*$/i",
+      "regExpSearch": "/^(((?=.*battle)(?=.*(axe|\bono|\bfu)\b))|((?!.*(light|hand|short|small|great|heavy|throw))(?=.*\b(axe|fu|masakari)\b))).*$/i",
       "name": "Battleaxe",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 8, "slashing"],
+      "damage": [ 1, 8, "slashing" ],
       "range": "Melee",
       "weight": 4,
       "description": "Versatile (1d10)",
@@ -477,13 +494,13 @@
       "regExpSearch": "/flail|nunchaku/i",
       "name": "Flail",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 8, "bludgeoning"],
+      "damage": [ 1, 8, "bludgeoning" ],
       "range": "Melee",
       "weight": 2,
       "description": "",
@@ -493,13 +510,13 @@
       "regExpSearch": "/glaive|guandao|bisento|naginata/i",
       "name": "Glaive",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 10, "slashing"],
+      "damage": [ 1, 10, "slashing" ],
       "range": "Melee",
       "weight": 6,
       "description": "Heavy, reach, two-handed",
@@ -509,13 +526,13 @@
       "regExpSearch": "/^(?=.*(great|heavy|weida))(?=.*(axe|\bono|\bfu|masakari)\b).*$/i",
       "name": "Greataxe",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 12, "slashing"],
+      "damage": [ 1, 12, "slashing" ],
       "range": "Melee",
       "weight": 7,
       "description": "Heavy, two-handed",
@@ -525,13 +542,13 @@
       "regExpSearch": "/^(?=.*(great|heavy))(?=.*sword).*$|changdao|nodachi/i",
       "name": "Greatsword",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [2, 6, "slashing"],
+      "damage": [ 2, 6, "slashing" ],
       "range": "Melee",
       "weight": 6,
       "description": "Heavy, two-handed",
@@ -541,13 +558,13 @@
       "regExpSearch": "/halberd|\bji\b|kamayari/i",
       "name": "Halberd",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 10, "slashing"],
+      "damage": [ 1, 10, "slashing" ],
       "range": "Melee",
       "weight": 6,
       "description": "Heavy, reach, two-handed",
@@ -557,30 +574,29 @@
       "regExpSearch": "/lance|umayari/i",
       "name": "Lance",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 12, "piercing"],
+      "damage": [ 1, 12, "piercing" ],
       "range": "Melee",
       "weight": 6,
       "description": "Reach, disadvantage to attack within 5 ft, two-handed when not mounted",
       "abilitytodamage": true
     },
     {
-      "regExpSearch":
-        "/katana|\bjian\b|^(((?=.*long)(?=.*sword))|((?!.*(burst|light|hand|short|small|great|heavy))(?=.*\bsword\b))).*$/i",
+      "regExpSearch": "/katana|\bjian\b|^(((?=.*long)(?=.*sword))|((?!.*(burst|light|hand|short|small|great|heavy))(?=.*\bsword\b))).*$/i",
       "name": "Longsword",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 8, "slashing"],
+      "damage": [ 1, 8, "slashing" ],
       "range": "Melee",
       "weight": 3,
       "description": "Versatile (1d10)",
@@ -590,13 +606,13 @@
       "regExpSearch": "/^((?=.*maul)|((?=.*(great|heavy))(?=.*hammer))).*$/i",
       "name": "Maul",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [2, 6, "bludgeoning"],
+      "damage": [ 2, 6, "bludgeoning" ],
       "range": "Melee",
       "weight": 10,
       "description": "Heavy, two-handed",
@@ -606,13 +622,13 @@
       "regExpSearch": "/morningstar/i",
       "name": "Morningstar",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 8, "piercing"],
+      "damage": [ 1, 8, "piercing" ],
       "range": "Melee",
       "weight": 4,
       "description": "",
@@ -622,13 +638,13 @@
       "regExpSearch": "/^(?!.*armou?r)(?!.*\bspike)(?=.*(pike|\bmao\b|nagaeyari)).*$/i",
       "name": "Pike",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 10, "piercing"],
+      "damage": [ 1, 10, "piercing" ],
       "range": "Melee",
       "weight": 18,
       "description": "Heavy, reach, two-handed",
@@ -638,13 +654,13 @@
       "regExpSearch": "/rapier/i",
       "name": "Rapier",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 8, "piercing"],
+      "damage": [ 1, 8, "piercing" ],
       "range": "Melee",
       "weight": 2,
       "description": "Finesse",
@@ -654,13 +670,13 @@
       "regExpSearch": "/scimitar|liuyedao|wakizashi/i",
       "name": "Scimitar",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 6, "slashing"],
+      "damage": [ 1, 6, "slashing" ],
       "range": "Melee",
       "weight": 3,
       "description": "Finesse, light",
@@ -670,13 +686,13 @@
       "regExpSearch": "/^(?=.*short)(?=.*sword).*$|shuangdao/i",
       "name": "Shortsword",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 6, "piercing"],
+      "damage": [ 1, 6, "piercing" ],
       "range": "Melee",
       "weight": 2,
       "description": "Finesse, light",
@@ -687,13 +703,13 @@
       "regExpSearch": "/trident|\bcha\b|magariyari/i",
       "name": "Trident",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 6, "piercing"],
+      "damage": [ 1, 6, "piercing" ],
       "range": "Melee, 20/60 ft",
       "weight": 4,
       "description": "Thrown, versatile (1d8)",
@@ -703,30 +719,29 @@
       "regExpSearch": "/^(((?=.*pick)(?=.*war))|((?!.*(heavy|great|light))(?=.*\bpick\b))).*$|\bkuwa\b/i",
       "name": "War pick",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 8, "piercing"],
+      "damage": [ 1, 8, "piercing" ],
       "range": "Melee",
       "weight": 2,
       "description": "",
       "abilitytodamage": true
     },
     {
-      "regExpSearch":
-        "/^(((?=.*hammer)(?=.*war))|((?!.*(light|hand|short|small|great|heavy|throw|maul))(?=.*\bhammer\b))).*$/i",
+      "regExpSearch": "/^(((?=.*hammer)(?=.*war))|((?!.*(light|hand|short|small|great|heavy|throw|maul))(?=.*\bhammer\b))).*$/i",
       "name": "Warhammer",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 8, "bludgeoning"],
+      "damage": [ 1, 8, "bludgeoning" ],
       "range": "Melee",
       "weight": 2,
       "description": "Versatile (1d10)",
@@ -736,13 +751,13 @@
       "regExpSearch": "/^(?!.*thorn)(?=.*whip).*$/i",
       "name": "Whip",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "melee",
       "ability": 1,
       "type": "Martial",
-      "damage": [1, 4, "slashing"],
+      "damage": [ 1, 4, "slashing" ],
       "range": "Melee",
       "weight": 3,
       "description": "Finesse, reach",
@@ -752,13 +767,13 @@
       "regExpSearch": "/blowgun/i",
       "name": "Blowgun",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "ranged",
       "ability": 2,
       "type": "Martial",
-      "damage": [1, "", "piercing"],
+      "damage": [ 1, "", "piercing" ],
       "range": "25/100 ft",
       "weight": 1,
       "description": "Ammunition, loading",
@@ -769,13 +784,13 @@
       "regExpSearch": "/^(?=.*hand)(?=.*crossbow).*$/i",
       "name": "Hand crossbow",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "ranged",
       "ability": 2,
       "type": "Martial",
-      "damage": [1, 6, "piercing"],
+      "damage": [ 1, 6, "piercing" ],
       "range": "30/120 ft",
       "weight": 3,
       "description": "Ammunition, light, loading",
@@ -786,13 +801,13 @@
       "regExpSearch": "/^(?=.*(great|heavy))(?=.*crossbow).*$/i",
       "name": "Heavy crossbow",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "ranged",
       "ability": 2,
       "type": "Martial",
-      "damage": [1, 10, "piercing"],
+      "damage": [ 1, 10, "piercing" ],
       "range": "100/400 ft",
       "weight": 18,
       "description": "Ammunition, heavy, loading, two-handed",
@@ -803,13 +818,13 @@
       "regExpSearch": "/^(?!.*crossbow)(?=.*long)(?=.*bow).*$|daikyu/i",
       "name": "Longbow",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "ranged",
       "ability": 2,
       "type": "Martial",
-      "damage": [1, 8, "piercing"],
+      "damage": [ 1, 8, "piercing" ],
       "range": "150/600 ft",
       "weight": 2,
       "description": "Ammunition, heavy, two-handed",
@@ -820,13 +835,13 @@
       "regExpSearch": "/\bnet(ting)?\b/i",
       "name": "Net",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "list": "ranged",
       "ability": 2,
       "type": "Martial",
-      "damage": ["\u2015", "", 0],
+      "damage": [ "―", "", 0 ],
       "range": "5/15 ft",
       "weight": 3,
       "description": "Thrown, only 1 attack, up to large creature hit is restrained (PHB 148)",
@@ -836,12 +851,12 @@
       "regExpSearch": "/improvised/i",
       "name": "Improvised weapon",
       "source": [
-        ["SRD", 65],
-        ["P", 147]
+        [ "SRD", 65 ],
+        [ "P", 147 ]
       ],
       "ability": 1,
       "type": "Improvised Weapons",
-      "damage": [1, 4, "bludgeoning"],
+      "damage": [ 1, 4, "bludgeoning" ],
       "range": "Melee, 20/60 ft",
       "description": "Damage die, type, range, etc. are at the DM's discretion",
       "abilitytodamage": true
@@ -850,17 +865,16 @@
       "regExpSearch": "/^(?=.*alchemist)(?=.*fire).*$/i",
       "name": "Alchemist's Fire",
       "source": [
-        ["SRD", 66],
-        ["P", 148]
+        [ "SRD", 66 ],
+        [ "P", 148 ]
       ],
       "list": "improvised",
       "ability": 2,
       "type": "Improvised Weapons",
-      "damage": [1, 4, "fire"],
+      "damage": [ 1, 4, "fire" ],
       "range": "20 ft",
       "weight": 1,
-      "description":
-        "Target +1d4 damage at the start of each of its turn; Can end it as an action with a DC 10 Dex check",
+      "description": "Target +1d4 damage at the start of each of its turn; Can end it as an action with a DC 10 Dex check",
       "abilitytodamage": false,
       "ammo": "alchemist fire"
     },
@@ -868,13 +882,13 @@
       "regExpSearch": "/^(?=.*vial)(?=.*acid).*$/i",
       "name": "Vial of Acid",
       "source": [
-        ["SRD", 66],
-        ["P", 148]
+        [ "SRD", 66 ],
+        [ "P", 148 ]
       ],
       "list": "improvised",
       "ability": 2,
       "type": "Improvised Weapons",
-      "damage": [2, 6, "acid"],
+      "damage": [ 2, 6, "acid" ],
       "range": "20 ft",
       "weight": 1,
       "description": "",
@@ -885,13 +899,13 @@
       "regExpSearch": "/^(?=.*holy)(?=.*water).*$/i",
       "name": "Holy Water",
       "source": [
-        ["SRD", 67],
-        ["P", 151]
+        [ "SRD", 67 ],
+        [ "P", 151 ]
       ],
       "list": "improvised",
       "ability": 2,
       "type": "Improvised Weapons",
-      "damage": [2, 6, "radiant"],
+      "damage": [ 2, 6, "radiant" ],
       "range": "20 ft",
       "weight": 1,
       "description": "Only does damage against fiends and undead; Comes in flasks",
@@ -902,13 +916,13 @@
       "regExpSearch": "/^(?=.*acid)(?=.*splash).*$/i",
       "name": "Acid Splash",
       "source": [
-        ["SRD", 114],
-        ["P", 211]
+        [ "SRD", 114 ],
+        [ "P", 211 ]
       ],
       "list": "spell",
       "ability": 4,
       "type": "Cantrip",
-      "damage": ["C", 6, "acid"],
+      "damage": [ "C", 6, "acid" ],
       "range": "60 ft",
       "description": "Dex save, success - no damage; 1 or 2 creatures within 5 ft of each other (PHB 211)",
       "abilitytodamage": false,
@@ -918,44 +932,44 @@
       "regExpSearch": "/^(?=.*chill)(?=.*touch).*$/i",
       "name": "Chill Touch",
       "source": [
-        ["SRD", 124],
-        ["P", 221]
+        [ "SRD", 124 ],
+        [ "P", 221 ]
       ],
       "list": "spell",
       "ability": 6,
       "type": "Cantrip",
-      "damage": ["C", 8, "necrotic"],
+      "damage": [ "C", 8, "necrotic" ],
       "range": "120 ft",
       "description": "Target can't regain HP and undead dis. on attacks vs. me, until my next turn (PHB 221)",
       "abilitytodamage": false
     },
-    { //Eldritch Blast (Agonizing Blast)
+    {
       "regExpSearch": "/^(?!.*spear)(?=.*agonizing)(?=.*blast).*$/i",
       "name": "Agonizing Blast",
       "source": [
-        ["SRD", 139],
-        ["P", 237]
+        [ "SRD", 139 ],
+        [ "P", 237 ]
       ],
       "list": "spell specific",
       "ability": 6,
       "type": "Cantrip",
-      "damage": ["C * 1", 10, "force"],
+      "damage": [ "C * 1", 10, "force" ],
       "range": "120 ft",
       "description": "Each d10 is a separate beam requiring separate rolls (PHB 237)",
       "abilitytodamage": true,
       "SpellsList": "eldritch blast"
     },
-    { //Eldritch Blast (Agonizing Blast & Eldritch Spear)
+    {
       "regExpSearch": "/^(?=.*agonizing)(?=.*spear).*$/i",
       "name": "Agonizing Spear",
       "source": [
-        ["SRD", 139],
-        ["P", 237]
+        [ "SRD", 139 ],
+        [ "P", 237 ]
       ],
       "list": "spell specific",
       "ability": 6,
       "type": "Cantrip",
-      "damage": ["C * 1", 10, "force"],
+      "damage": [ "C * 1", 10, "force" ],
       "range": "300 ft",
       "description": "Each d10 is a separate beam requiring separate rolls (PHB 237)",
       "abilitytodamage": true,
@@ -965,28 +979,28 @@
       "regExpSearch": "/^(?!.*agonizing)(?!.*spear)(?=.*eldritch)(?=.*blast).*$/i",
       "name": "Eldritch Blast",
       "source": [
-        ["SRD", 139],
-        ["P", 237]
+        [ "SRD", 139 ],
+        [ "P", 237 ]
       ],
       "list": "spell",
       "ability": 6,
       "type": "Cantrip",
-      "damage": ["C * 1", 10, "force"],
+      "damage": [ "C * 1", 10, "force" ],
       "range": "120 ft",
       "description": "Each d10 is a separate beam requiring separate rolls (PHB 237)",
       "abilitytodamage": false
     },
-    { //Eldritch Blast (Eldritch Spear)
+    {
       "regExpSearch": "/^(?!.*agonizing)(?=.*eldritch)(?=.*spear).*$/i",
       "name": "Eldritch Spear",
       "source": [
-        ["SRD", 139],
-        ["P", 237]
+        [ "SRD", 139 ],
+        [ "P", 237 ]
       ],
       "list": "spell specific",
       "ability": 6,
       "type": "Cantrip",
-      "damage": ["C * 1", 10, "force"],
+      "damage": [ "C * 1", 10, "force" ],
       "range": "300 ft",
       "description": "Each d10 is a separate beam requiring separate rolls (PHB 237)",
       "abilitytodamage": false,
@@ -996,13 +1010,13 @@
       "regExpSearch": "/^(?=.*fire)(?=.*bolt).*$/i",
       "name": "Fire Bolt",
       "source": [
-        ["SRD", 144],
-        ["P", 241]
+        [ "SRD", 144 ],
+        [ "P", 241 ]
       ],
       "list": "spell",
       "ability": 6,
       "type": "Cantrip",
-      "damage": ["C", 10, "fire"],
+      "damage": [ "C", 10, "fire" ],
       "range": "120 ft",
       "description": "Unattended flammable objects ignite (PHB 241)",
       "abilitytodamage": false
@@ -1011,13 +1025,13 @@
       "regExpSearch": "/^(?=.*poison)(?=.*spray).*$/i",
       "name": "Poison Spray",
       "source": [
-        ["SRD", 169],
-        ["P", 266]
+        [ "SRD", 169 ],
+        [ "P", 266 ]
       ],
       "list": "spell",
       "ability": 6,
       "type": "Cantrip",
-      "damage": ["C", 12, "poison"],
+      "damage": [ "C", 12, "poison" ],
       "range": "10 ft",
       "description": "Con save, success - no damage; 1 creature (PHB 266)",
       "abilitytodamage": false,
@@ -1027,13 +1041,13 @@
       "regExpSearch": "/^(?=.*produce)(?=.*flame).*$/i",
       "name": "Produce Flame",
       "source": [
-        ["SRD", 172],
-        ["P", 269]
+        [ "SRD", 172 ],
+        [ "P", 269 ]
       ],
       "list": "spell",
       "ability": 5,
       "type": "Cantrip",
-      "damage": ["C", 8, "fire"],
+      "damage": [ "C", 8, "fire" ],
       "range": "30 ft",
       "description": "10-ft radius bright light and 10-ft radius dim light until thrown (PHB 269)",
       "abilitytodamage": false
@@ -1042,13 +1056,13 @@
       "regExpSearch": "/^(?=.*ray)(?=.*frost).*$/i",
       "name": "Ray of Frost",
       "source": [
-        ["SRD", 174],
-        ["P", 271]
+        [ "SRD", 174 ],
+        [ "P", 271 ]
       ],
       "list": "spell",
       "ability": 6,
       "type": "Cantrip",
-      "damage": ["C", 8, "cold"],
+      "damage": [ "C", 8, "cold" ],
       "range": "60 ft",
       "description": "Target -10 ft speed until start of my next turn (PHB 271)",
       "abilitytodamage": false
@@ -1057,13 +1071,13 @@
       "regExpSearch": "/^(?=.*sacred)(?=.*flame).*$/i",
       "name": "Sacred Flame",
       "source": [
-        ["SRD", 176],
-        ["P", 272]
+        [ "SRD", 176 ],
+        [ "P", 272 ]
       ],
       "list": "spell",
       "ability": 5,
       "type": "Cantrip",
-      "damage": ["C", 8, "radiant"],
+      "damage": [ "C", 8, "radiant" ],
       "range": "60 ft",
       "description": "Dex save, no bonus from cover, success - no damage; 1 creature (PHB 272)",
       "abilitytodamage": false,
@@ -1073,13 +1087,13 @@
       "regExpSearch": "/shillelagh/i",
       "name": "Shillelagh",
       "source": [
-        ["SRD", 179],
-        ["P", 275]
+        [ "SRD", 179 ],
+        [ "P", 275 ]
       ],
       "list": "spell",
       "ability": 5,
       "type": "Cantrip",
-      "damage": [1, 8, "bludgeoning"],
+      "damage": [ 1, 8, "bludgeoning" ],
       "range": "Melee",
       "description": "Imbued club or quarterstaff; Counts as a magical weapon (PHB 275)",
       "abilitytodamage": true
@@ -1088,32 +1102,30 @@
       "regExpSearch": "/^(?=.*shocking)(?=.*grasp).*$/i",
       "name": "Shocking Grasp",
       "source": [
-        ["SRD", 179],
-        ["P", 275]
+        [ "SRD", 179 ],
+        [ "P", 275 ]
       ],
       "list": "spell",
       "ability": 6,
       "type": "Cantrip",
-      "damage": ["C", 8, "lightning"],
+      "damage": [ "C", 8, "lightning" ],
       "range": "Melee",
-      "description":
-        "Advantage if target is wearing metal armor, target cannot take reactions until its next turn (PHB 275)",
+      "description": "Advantage if target is wearing metal armor, target cannot take reactions until its next turn (PHB 275)",
       "abilitytodamage": false
     },
     {
       "regExpSearch": "/^(?=.*vicious)(?=.*mockery).*$/i",
       "name": "Vicious Mockery",
       "source": [
-        ["SRD", 189],
-        ["P", 285]
+        [ "SRD", 189 ],
+        [ "P", 285 ]
       ],
       "list": "spell",
       "ability": 6,
       "type": "Cantrip",
-      "damage": ["C", 4, "psychic"],
+      "damage": [ "C", 4, "psychic" ],
       "range": "60 ft",
-      "description":
-        "Wis save, success - no damage, fail - also disadv. on next attack roll in next turn; 1 creature (PHB 285)",
+      "description": "Wis save, success - no damage, fail - also disadv. on next attack roll in next turn; 1 creature (PHB 285)",
       "abilitytodamage": false,
       "dc": true
     },
@@ -1121,12 +1133,12 @@
       "regExpSearch": "/^(?=.*spell)(?=.*attack).*$/i",
       "name": "Spell Attack",
       "source": [
-        ["SRD", 103],
-        ["P", 205]
+        [ "SRD", 103 ],
+        [ "P", 205 ]
       ],
       "ability": 0,
       "type": "Spell",
-      "damage": ["", "", ""],
+      "damage": [ "", "", "" ],
       "range": "",
       "description": "",
       "abilitytodamage": false
@@ -1135,39 +1147,433 @@
       "regExpSearch": "/^(?=.*breath)(?=.*weapon).*$/i",
       "name": "Breath Weapon",
       "source": [
-        ["SRD", 5],
-        ["P", 34]
+        [ "SRD", 5 ],
+        [ "P", 34 ]
       ],
       "ability": 3,
       "type": "Natural",
-      "damage": [2, 6, "fire"],
+      "damage": [ 2, 6, "fire" ],
       "range": "15-ft cone",
       "description": "Hits all in area; Dex save, success - half damage; Usable only once per short rest",
       "abilitytodamage": false,
       "dc": true
+    },
+    {
+      "regExpSearch": "/^(?=.*(polearm|(glaive|guandao|bisento|naginata)|(halberd|\\bji\\b|kamayari)|(quarterstaff|\\bstaff\\b|\\bbo\\b)))(?=.*butt)(?=.*end).*$/i",
+      "name": "Polearm butt end",
+      "source": [ "P", 168 ],
+      "ability": 1,
+      "type": "Other",
+      "damage": [ 1, 4, "bludgeoning" ],
+      "range": "Melee",
+      "description": "As bonus action after taking an attack action with only a glaive, halberd, or quarterstaff",
+      "abilitytodamage": true
+    },
+    {
+      "regExpSearch": "/^(?=.*thorn)(?=.*whip).*$/i",
+      "name": "Thorn Whip",
+      "source": [ "P", 282 ],
+      "list": "spell",
+      "ability": 5,
+      "type": "Cantrip",
+      "damage": [ "C", 6, "piercing" ],
+      "range": "Melee, 30 ft",
+      "description": "Melee spell attack, pull target 10 ft closer to me (PHB 282)",
+      "abilitytodamage": false
+    },
+    {
+      "regExpSearch": "/^(?=.*pistol)(?!.*automatic).*$/i",
+      "name": "Pistol",
+      "source": [ "D", 268 ],
+      "list": "firearm",
+      "ability": 2,
+      "type": "Martial",
+      "damage": [ 1, 10, "piercing" ],
+      "range": "30/90 ft",
+      "weight": 3,
+      "description": "Ammunition, loading",
+      "abilitytodamage": true,
+      "ammo": "renaissance bullet"
+    },
+    {
+      "regExpSearch": "/musket/i",
+      "name": "Musket",
+      "source": [ "D", 268 ],
+      "list": "firearm",
+      "ability": 2,
+      "type": "Martial",
+      "damage": [ 1, 12, "piercing" ],
+      "range": "40/120 ft",
+      "weight": 10,
+      "description": "Ammunition, loading, two handed",
+      "abilitytodamage": true,
+      "ammo": "renaissance bullet"
+    },
+    {
+      "regExpSearch": "/^(?!.*rifle)(?=.*pistol)(?=.*automatic).*$/i",
+      "name": "Pistol, automatic",
+      "source": [ "D", 268 ],
+      "list": "firearm",
+      "ability": 2,
+      "type": "Martial",
+      "damage": [ 2, 6, "piercing" ],
+      "range": "50/150 ft",
+      "weight": 3,
+      "description": "Ammunition, reload (15 shots)",
+      "abilitytodamage": true,
+      "ammo": "modern bullet"
+    },
+    {
+      "regExpSearch": "/revolver/i",
+      "name": "Revolver",
+      "source": [ "D", 268 ],
+      "list": "firearm",
+      "ability": 2,
+      "type": "Martial",
+      "damage": [ 2, 8, "piercing" ],
+      "range": "40/120 ft",
+      "weight": 3,
+      "description": "Ammunition, reload (6 shots)",
+      "abilitytodamage": true,
+      "ammo": "modern bullet"
+    },
+    {
+      "regExpSearch": "/^(?!=laser|antimatter)(?=.*hunting)(?=.*rifle).*$/i",
+      "name": "Hunting Rifle",
+      "source": [ "D", 268 ],
+      "list": "firearm",
+      "ability": 2,
+      "type": "Martial",
+      "damage": [ 2, 10, "piercing" ],
+      "range": "80/240 ft",
+      "weight": 8,
+      "description": "Ammunition, reload (5 shots), two handed",
+      "abilitytodamage": true,
+      "ammo": "modern bullet"
+    },
+    {
+      "regExpSearch": "/^(?!=.*laser|antimatter)(?=.*automatic)(?=.*rifle).*$/i",
+      "name": "Automatic Rifle",
+      "source": [ "D", 268 ],
+      "list": "firearm",
+      "ability": 2,
+      "type": "Martial",
+      "damage": [ 2, 8, "piercing" ],
+      "range": "80/240 ft",
+      "weight": 8,
+      "description": "Ammunition, burst fire, reload (30 shots), two handed",
+      "abilitytodamage": true,
+      "ammo": "modern bullet"
+    },
+    {
+      "regExpSearch": "/shotgun/i",
+      "name": "Shotgun",
+      "source": [ "D", 268 ],
+      "list": "firearm",
+      "ability": 2,
+      "type": "Martial",
+      "damage": [ 2, 8, "piercing" ],
+      "range": "30/90 ft",
+      "weight": 7,
+      "description": "Ammunition, reload (2 shots), two handed",
+      "abilitytodamage": true,
+      "ammo": "modern bullet"
+    },
+    {
+      "regExpSearch": "/^(?=.*laser)(?=.*pistol).*$/i",
+      "name": "Laser Pistol",
+      "source": [ "D", 268 ],
+      "list": "firearm",
+      "ability": 2,
+      "type": "Martial",
+      "damage": [ 3, 6, "radiant" ],
+      "range": "40/120 ft",
+      "weight": 2,
+      "description": "Ammunition, reload (50 shots), two handed",
+      "abilitytodamage": true,
+      "ammo": "energy cell"
+    },
+    {
+      "regExpSearch": "/^(?!.*laser)(?=.*antimatter)(?=.*rifle).*$/i",
+      "name": "Antimatter Rifle",
+      "source": [ "D", 268 ],
+      "list": "firearm",
+      "ability": 2,
+      "type": "Martial",
+      "damage": [ 6, 8, "necrotic" ],
+      "range": "120/360 ft",
+      "weight": 10,
+      "description": "Ammunition, reload (2 shots), two handed",
+      "abilitytodamage": true,
+      "ammo": "energy cell"
+    },
+    {
+      "regExpSearch": "/^(?!.*antimatter)(?=.*laser)(?=.*rifle).*$/i",
+      "name": "Laser Rifle",
+      "source": [ "D", 268 ],
+      "list": "firearm",
+      "ability": 2,
+      "type": "Martial",
+      "damage": [ 3, 8, "radiant" ],
+      "range": "100/300 ft",
+      "weight": 7,
+      "description": "Ammunition, reload (30 shots), two handed",
+      "abilitytodamage": true,
+      "ammo": "energy cell"
+    },
+    {
+      "regExpSearch": "/^(?=.*create)(?=.*bonfire).*$/i",
+      "name": "Create Bonfire",
+      "source": [
+        [ "X", 152 ],
+        [ "E", 16 ]
+      ],
+      "list": "spell",
+      "ability": 6,
+      "type": "Cantrip",
+      "damage": [ "C", 8, "fire" ],
+      "range": "60 ft",
+      "description": "5-ft cube; Dex save at casting or when moved into, success - no damage; Conc, 1 min (EE 16)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/frostbite/i",
+      "name": "Frostbite",
+      "source": [
+        [ "X", 156 ],
+        [ "E", 18 ]
+      ],
+      "list": "spell",
+      "ability": 6,
+      "type": "Cantrip",
+      "damage": [ "C", 6, "cold" ],
+      "range": "60 ft",
+      "description": "Con save, success - no damage, fail - also disadv. on next weapon attack roll in next turn; 1 creature (EE 18)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/^(?=.*magic)(?=.*stone).*$/i",
+      "name": "Magic Stone",
+      "source": [
+        [ "X", 160 ],
+        [ "E", 20 ]
+      ],
+      "list": "spell",
+      "ability": 5,
+      "type": "Cantrip",
+      "damage": [ 1, 6, "bludgeoning" ],
+      "range": "60/120 ft",
+      "description": "Produces 3 stones that each can be thrown (60 ft) or hurled with a sling (120 ft) as a spell attack (EE 20)",
+      "abilitytodamage": true
+    },
+    {
+      "regExpSearch": "/thunderclap/i",
+      "name": "Thunderclap",
+      "source": [
+        [ "X", 168 ],
+        [ "E", 22 ]
+      ],
+      "list": "spell",
+      "ability": 6,
+      "type": "Cantrip",
+      "damage": [ "C", 6, "thunder" ],
+      "range": "5-ft radius",
+      "description": "Con save, success - no damage; all creatures in area; audible in 100 ft (EE 22)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/^(?=.*armou?r)(?=.*spike).*$/i",
+      "name": "Armor spikes",
+      "source": [ "S", 121 ],
+      "ability": 1,
+      "type": "Other",
+      "damage": [ 1, 4, "piercing" ],
+      "range": "Melee",
+      "description": "Does 3 piercing damage when using your attack to grapple",
+      "abilitytodamage": true
+    },
+    {
+      "regExpSearch": "/^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i",
+      "name": "Radiant Sun Bolt",
+      "source": [
+        [ "S", 131 ],
+        [ "X", 35 ]
+      ],
+      "ability": 2,
+      "type": "Spell",
+      "damage": [ 1, 4, "radiant" ],
+      "range": "30 ft",
+      "description": "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
+      "monkweapon": true,
+      "abilitytodamage": true
+    },
+    {
+      "regExpSearch": "/^(?=.*booming)(?=.*blade).*$/i",
+      "name": "Booming Blade",
+      "source": [ "S", 142 ],
+      "list": "spell",
+      "ability": 6,
+      "type": "Cantrip",
+      "damage": [ "Bd8/Cd8", "", "thunder" ],
+      "range": "With melee wea",
+      "description": "First damage added to the attack; second to the target if it moves next round (SCAG 142)",
+      "abilitytodamage": false
+    },
+    {
+      "regExpSearch": "/^(?=.*green)(?=.*flame)(?=.*blade).*$/i",
+      "name": "Green-Flame Blade",
+      "source": [ "S", 143 ],
+      "list": "spell",
+      "ability": 6,
+      "type": "Cantrip",
+      "damage": [ "Bd8/Bd8", "", "fire" ],
+      "range": "With melee wea",
+      "description": "First damage added to the attack; second to a target within 5 ft (SCAG 143)",
+      "abilitytodamage": true
+    },
+    {
+      "regExpSearch": "/^(?=.*lightning)(?=.*lure).*$/i",
+      "name": "Lightning Lure",
+      "source": [ "S", 143 ],
+      "list": "spell",
+      "ability": 5,
+      "type": "Cantrip",
+      "damage": [ "C", 8, "lightning" ],
+      "range": "15 ft",
+      "description": "Str save; success - nothing; fail - pulled 10 ft closer to me, only take damage if end within 5 ft of me (SCAG 143)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/^(?=.*sword)(?=.*burst).*$/i",
+      "name": "Sword Burst",
+      "source": [ "S", 143 ],
+      "list": "spell",
+      "ability": 6,
+      "type": "Cantrip",
+      "damage": [ "C", 6, "force" ],
+      "range": "5 ft",
+      "description": "Dex save, success - no damage; all creatures in range (SCAG 143)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/\\bbite\\b/i",
+      "name": "Bite",
+      "source": [ "V", 112 ],
+      "ability": 1,
+      "type": "Natural",
+      "damage": [ 1, 6, "piercing" ],
+      "range": "Melee",
+      "description": "",
+      "abilitytodamage": true,
+      "monkweapon": true
+    },
+    {
+      "regExpSearch": "/^(?=.*\\b(sharp|cat|dragon|retractable|tortle))(?=.*\\bclaws?\\b).*$/i",
+      "name": "Sharp Claws",
+      "source": [
+        [ "V", 115 ],
+        [ "UA:FR", 2 ],
+        [ "TP", 4 ],
+        [ "X", 74 ]
+      ],
+      "ability": 1,
+      "type": "Natural",
+      "damage": [ 1, 4, "slashing" ],
+      "range": "Melee",
+      "description": "",
+      "abilitytodamage": true,
+      "monkweapon": true
+    },
+    {
+      "regExpSearch": "/^(?=.*\\b(sharp|cat|dragon|retractable|tortle))(?=.*\\bclaws?\\b).*$/i",
+      "name": "Sharp Claws",
+      "source": [
+        [ "V", 115 ],
+        [ "UA:FR", 2 ],
+        [ "TP", 4 ],
+        [ "X", 74 ]
+      ],
+      "ability": 1,
+      "type": "Natural",
+      "damage": [ 1, 4, "slashing" ],
+      "range": "Melee",
+      "description": "",
+      "abilitytodamage": true,
+      "monkweapon": true
+    },
+    {
+      "regExpSearch": "/yklwa/i",
+      "name": "Yklwa",
+      "source": [ "ToA", 32 ],
+      "list": "melee",
+      "ability": 1,
+      "type": "Simple",
+      "damage": [ 1, 8, "piercing" ],
+      "range": "Melee, 10/30 ft",
+      "weight": 3,
+      "description": "Thrown",
+      "monkweapon": true,
+      "abilitytodamage": true
+    },
+    {
+      "regExpSearch": "/^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i",
+      "name": "Radiant Sun Bolt",
+      "source": [
+        [ "S", 131 ],
+        [ "X", 35 ]
+      ],
+      "ability": 2,
+      "type": "Spell",
+      "damage": [ 1, 4, "radiant" ],
+      "range": "30 ft",
+      "description": "If used in an Attack action, spend 1 ki point to use it twice as a bonus action",
+      "monkweapon": true,
+      "abilitytodamage": true
+    },
+    {
+      "regExpSearch": "/^(?=.*\\b(sharp|cat|dragon|retractable|tortle))(?=.*\\bclaws?\\b).*$/i",
+      "name": "Sharp Claws",
+      "source": [
+        [ "V", 115 ],
+        [ "UA:FR", 2 ],
+        [ "TP", 4 ],
+        [ "X", 74 ]
+      ],
+      "ability": 1,
+      "type": "Natural",
+      "damage": [ 1, 4, "slashing" ],
+      "range": "Melee",
+      "description": "",
+      "abilitytodamage": true,
+      "monkweapon": true
     }
   ],
   "Ammunitions": [
     {
       "name": "Arrows",
       "source": [
-        ["SRD", 69],
-        ["P", 150]
+        [ "SRD", 69 ],
+        [ "P", 150 ]
       ],
       "weight": 0.05,
       "icon": "Arrows",
-      "checks": [".Top", ".Base"],
+      "checks": [ ".Top", ".Base" ],
       "display": 20
     },
     {
       "name": "Bolts",
       "weight": 0.075,
       "source": [
-        ["SRD", 69],
-        ["P", 150]
+        [ "SRD", 69 ],
+        [ "P", 150 ]
       ],
       "icon": "Arrows",
-      "checks": [".Top", ".Base"],
+      "checks": [ ".Top", ".Base" ],
       "display": 20,
       "invName": "Crossbow bolts"
     },
@@ -1175,11 +1581,11 @@
       "name": "Bullets",
       "weight": 0.075,
       "source": [
-        ["SRD", 69],
-        ["P", 150]
+        [ "SRD", 69 ],
+        [ "P", 150 ]
       ],
       "icon": "Bullets",
-      "checks": [".Bullet"],
+      "checks": [ ".Bullet" ],
       "display": 50,
       "invName": "Sling bullets",
       "alternatives": "[/^(?=.*bullet)(?=.*sling).*$/i]"
@@ -1187,125 +1593,125 @@
     {
       "name": "Daggers",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "weight": 1,
       "icon": "Daggers",
-      "checks": [".Top"],
+      "checks": [ ".Top" ],
       "display": 10
     },
     {
       "name": "Darts",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "weight": 0.25,
       "icon": "Arrows",
-      "checks": [".Top", ".Base"],
+      "checks": [ ".Top", ".Base" ],
       "display": 20
     },
     {
       "name": "Flasks (1 pint)",
       "source": [
-        ["SRD", 69],
-        ["P", 150]
+        [ "SRD", 69 ],
+        [ "P", 150 ]
       ],
       "weight": 1,
       "icon": "Flasks",
-      "checks": [".Top", ".Base"],
+      "checks": [ ".Top", ".Base" ],
       "display": 20
     },
     {
       "name": "Handaxes",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "weight": 2,
       "icon": "Axes",
-      "checks": [".Top.Axe", ".Base.Axe"],
+      "checks": [ ".Top.Axe", ".Base.Axe" ],
       "display": 8,
-      "alternatives": ["axe"]
+      "alternatives": [ "axe" ]
     },
     {
       "name": "Javelins",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "weight": 2,
       "icon": "Spears",
-      "checks": [".Base"],
+      "checks": [ ".Base" ],
       "display": 10
     },
     {
       "name": "Light Hammers",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "weight": 2,
       "icon": "Hammers",
-      "checks": [".Top.Axe", ".Base.Axe"],
+      "checks": [ ".Top.Axe", ".Base.Axe" ],
       "display": 8,
-      "alternatives": ["hammer"]
+      "alternatives": [ "hammer" ]
     },
     {
       "name": "Needles",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "weight": 0.02,
       "icon": "Bullets",
-      "checks": [".Bullet"],
+      "checks": [ ".Bullet" ],
       "display": 50,
       "invName": "Blowgun needles"
     },
     {
       "name": "Spears",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "weight": 3,
       "icon": "Spears",
-      "checks": [".Base"],
+      "checks": [ ".Base" ],
       "display": 10
     },
     {
       "name": "Tridents",
       "source": [
-        ["SRD", 66],
-        ["P", 149]
+        [ "SRD", 66 ],
+        [ "P", 149 ]
       ],
       "weight": 4,
       "icon": "Spears",
-      "checks": [".Base"],
+      "checks": [ ".Base" ],
       "display": 10
     },
     {
       "name": "Vials (4 ounces)",
       "source": [
-        ["SRD", 69],
-        ["P", 150]
+        [ "SRD", 69 ],
+        [ "P", 150 ]
       ],
       "weight": 0.25,
       "icon": "Vials",
-      "checks": [".Top", ".Base"],
+      "checks": [ ".Top", ".Base" ],
       "display": 20
     },
     {
       "name": "Alchemist's Fire, flasks",
       "source": [
-        ["SRD", 66],
-        ["P", 148]
+        [ "SRD", 66 ],
+        [ "P", 148 ]
       ],
       "weight": 1,
       "icon": "Flasks",
-      "checks": [".Top", ".Base"],
+      "checks": [ ".Top", ".Base" ],
       "display": 20,
       "invName": "Alchemist's fire, flasks of",
       "alternatives": "[/^(?=.*alchemist)(?=.*fire).*$/i]"
@@ -1313,12 +1719,12 @@
     {
       "name": "Vials of Acid",
       "source": [
-        ["SRD", 66],
-        ["P", 148]
+        [ "SRD", 66 ],
+        [ "P", 148 ]
       ],
       "weight": 1,
       "icon": "Vials",
-      "checks": [".Top", ".Base"],
+      "checks": [ ".Top", ".Base" ],
       "display": 20,
       "invName": "Acid, vials of",
       "alternatives": "[/^(?=.*acid)(?=.*vial).*$/i]"
@@ -1326,145 +1732,191 @@
     {
       "name": "Holy Water, flasks",
       "source": [
-        ["SRD", 67],
-        ["P", 151]
+        [ "SRD", 67 ],
+        [ "P", 151 ]
       ],
       "weight": 1,
       "icon": "Flasks",
-      "checks": [".Top", ".Base"],
+      "checks": [ ".Top", ".Base" ],
       "display": 20,
       "invName": "Holy Water, flasks of",
       "alternatives": "[/^(?=.*holy)(?=.*water).*$/i]"
+    },
+    {
+      "name": "Bullets, Renaissance",
+      "source": [ "D", 268 ],
+      "weight": 0.2,
+      "icon": "Bullets",
+      "checks": [ ".Bullet" ],
+      "display": 50,
+      "invName": "Bullets, renaissance",
+      "alternatives": [ "/^(?=.*bullet)(?=.*renaissance).*$/i" ]
+    },
+    {
+      "name": "Bullets, Modern",
+      "source": [ "D", 268 ],
+      "weight": 0.1,
+      "icon": "Bullets",
+      "checks": [ ".Bullet" ],
+      "display": 50,
+      "invName": "Bullets, modern",
+      "alternatives": [ "/^(?=.*bullet)(?=.*modern).*$/i" ]
+    },
+    {
+      "name": "Energy Cell",
+      "source": [ "D", 268 ],
+      "weight": 0,
+      "icon": "Bullets",
+      "checks": [ ".Bullet" ],
+      "display": 50,
+      "invName": "Energy Cell"
     }
   ],
   "Packs": [
     {
       "name": "Burglar's pack (16 gp)",
       "source": [
-        ["SRD", 70],
-        ["P", 151]
+        [ "SRD", 70 ],
+        [ "P", 151 ]
       ],
       "items": [
-        ["Backpack, with:", "", 5],
-        ["Bag of 1000 ball bearings", 1, 2],
-        ["String, feet of", 10, ""],
-        ["Bell", "", ""],
-        ["Candles", 5, ""],
-        ["Crowbar", "", 5],
-        ["Hammer", "", 3],
-        ["Pitons", 10, .25],
-        ["Hooded lantern", "", 2],
-        ["Oil, flasks of", 2, 1],
-        ["Rations, days of", 5, 2],
-        ["Tinderbox", "", 1],
-        ["Waterskin", "", 5],
-        ["Hempen rope, feet of", 50, 0.2]
+        [ "Backpack, with:", "", 5 ],
+        [ "Bag of 1000 ball bearings", 1, 2 ],
+        [ "String, feet of", 10, "" ],
+        [ "Bell", "", "" ],
+        [ "Candles", 5, "" ],
+        [ "Crowbar", "", 5 ],
+        [ "Hammer", "", 3 ],
+        [ "Pitons", 10, ".25" ],
+        [ "Hooded lantern", "", 2 ],
+        [ "Oil, flasks of", 2, 1 ],
+        [ "Rations, days of", 5, 2 ],
+        [ "Tinderbox", "", 1 ],
+        [ "Waterskin", "", 5 ],
+        [ "Hempen rope, feet of", 50, 0.2 ]
       ]
     },
     {
       "name": "Diplomat's pack (39 gp)",
       "source": [
-        ["SRD", 70],
-        ["P", 151]
+        [ "SRD", 70 ],
+        [ "P", 151 ]
       ],
       "items": [
-        ["Chest, with:", "", 25],
-        ["Map or scroll case", 2, 1],
-        ["Fine clothes", "", 6],
-        ["Ink, 1 ounce bottle of", "", ""],
-        ["Ink pen", "", ""],
-        ["Lamp", "", 1],
-        ["Oil, flasks of", 2, 1],
-        ["Paper, sheets of", 5, ""],
-        ["Perfume, vial of", "", ""],
-        ["Sealing Wax", "", ""],
-        ["Soap", "", ""]
+        [ "Chest, with:", "", 25 ],
+        [ "Map or scroll case", 2, 1 ],
+        [ "Fine clothes", "", 6 ],
+        [ "Ink, 1 ounce bottle of", "", "" ],
+        [ "Ink pen", "", "" ],
+        [ "Lamp", "", 1 ],
+        [ "Oil, flasks of", 2, 1 ],
+        [ "Paper, sheets of", 5, "" ],
+        [ "Perfume, vial of", "", "" ],
+        [ "Sealing Wax", "", "" ],
+        [ "Soap", "", "" ]
       ]
     },
     {
       "name": "Dungeoneer's pack (12 gp)",
       "source": [
-        ["SRD", 70],
-        ["P", 151]
+        [ "SRD", 70 ],
+        [ "P", 151 ]
       ],
       "items": [
-        ["Backpack, with:", "", 5],
-        ["Crowbar", "", 5],
-        ["Hammer", "", 3],
-        ["Pitons", 10, .25],
-        ["Torches", 10, 1],
-        ["Tinderbox", "", 1],
-        ["Rations, days of", 10, 2],
-        ["Waterskin", "", 5],
-        ["Hempen rope, feet of", 50, 0.2]
+        [ "Backpack, with:", "", 5 ],
+        [ "Crowbar", "", 5 ],
+        [ "Hammer", "", 3 ],
+        [ "Pitons", 10, ".25" ],
+        [ "Torches", 10, 1 ],
+        [ "Tinderbox", "", 1 ],
+        [ "Rations, days of", 10, 2 ],
+        [ "Waterskin", "", 5 ],
+        [ "Hempen rope, feet of", 50, 0.2 ]
       ]
     },
     {
       "name": "Entertainer's pack (40 gp)",
       "source": [
-        ["SRD", 70],
-        ["P", 151]
+        [ "SRD", 70 ],
+        [ "P", 151 ]
       ],
       "items": [
-        ["Backpack, with:", "", 5],
-        ["Bedroll", "", 7],
-        ["Costumes", 2, 4],
-        ["Candles", 5, ""],
-        ["Rations, days of", 5, 2],
-        ["Waterskin", "", 5],
-        ["Disguise kit", "", 3]
+        [ "Backpack, with:", "", 5 ],
+        [ "Bedroll", "", 7 ],
+        [ "Costumes", 2, 4 ],
+        [ "Candles", 5, "" ],
+        [ "Rations, days of", 5, 2 ],
+        [ "Waterskin", "", 5 ],
+        [ "Disguise kit", "", 3 ]
       ]
     },
     {
       "name": "Explorer's pack (10 gp)",
       "source": [
-        ["SRD", 70],
-        ["P", 151]
+        [ "SRD", 70 ],
+        [ "P", 151 ]
       ],
       "items": [
-        ["Backpack, with:", "", 5],
-        ["Bedroll", "", 7],
-        ["Mess kit", "", 1],
-        ["Tinderbox", "", 1],
-        ["Torches", 10, 1],
-        ["Rations, days of", 10, 2],
-        ["Waterskin", "", 5],
-        ["Hempen rope, feet of", 50, 0.2]
+        [ "Backpack, with:", "", 5 ],
+        [ "Bedroll", "", 7 ],
+        [ "Mess kit", "", 1 ],
+        [ "Tinderbox", "", 1 ],
+        [ "Torches", 10, 1 ],
+        [ "Rations, days of", 10, 2 ],
+        [ "Waterskin", "", 5 ],
+        [ "Hempen rope, feet of", 50, 0.2 ]
       ]
     },
     {
       "name": "Priest's pack (19 gp)",
       "source": [
-        ["SRD", 70],
-        ["P", 151]
+        [ "SRD", 70 ],
+        [ "P", 151 ]
       ],
       "items": [
-        ["Backpack, with:", "", 5],
-        ["Blanket", "", 3],
-        ["Candles", 10, ""],
-        ["Tinderbox", "", 1],
-        ["Alms box", "", 1],
-        ["Incense, blocks of", 2, ""],
-        ["Censer", "", 1],
-        ["Vestments", "", 4],
-        ["Rations, days of", 2, 2],
-        ["Waterskin", "", 5]
+        [ "Backpack, with:", "", 5 ],
+        [ "Blanket", "", 3 ],
+        [ "Candles", 10, "" ],
+        [ "Tinderbox", "", 1 ],
+        [ "Alms box", "", 1 ],
+        [ "Incense, blocks of", 2, "" ],
+        [ "Censer", "", 1 ],
+        [ "Vestments", "", 4 ],
+        [ "Rations, days of", 2, 2 ],
+        [ "Waterskin", "", 5 ]
       ]
     },
     {
       "name": "Scholar's pack (40 gp)",
       "source": [
-        ["SRD", 70],
-        ["P", 151]
+        [ "SRD", 70 ],
+        [ "P", 151 ]
       ],
       "items": [
-        ["Backpack, with:", "", 5],
-        ["Book of lore", "", 5],
-        ["Ink, 1 ounce bottle of", "", ""],
-        ["Ink pen", "", ""],
-        ["Parchment, sheets of", 10, ""],
-        ["Little bag of sand", "", 1],
-        ["Small knife", "", 0.25]
+        [ "Backpack, with:", "", 5 ],
+        [ "Book of lore", "", 5 ],
+        [ "Ink, 1 ounce bottle of", "", "" ],
+        [ "Ink pen", "", "" ],
+        [ "Parchment, sheets of", 10, "" ],
+        [ "Little bag of sand", "", 1 ],
+        [ "Small knife", "", 0.25 ]
+      ]
+    },
+    {
+      "name": "Monster hunter's pack (33 gp)",
+      "source": [ "CoS", 209 ],
+      "items": [
+        [ "Chest, with:", "", 25 ],
+        [ "Crowbar", "", 5 ],
+        [ "Hammer", "", 3 ],
+        [ "Wooden stake", 3, 1 ],
+        [ "Amulet holy symbol", "", "" ],
+        [ "Holy water, flasks of", 1, 1 ],
+        [ "Manacles", "", 6 ],
+        [ "Steel mirror", "", 0.5 ],
+        [ "Oil, flasks of", 1, 1 ],
+        [ "Tinderbox", "", 1 ],
+        [ "Torches", 3, 1 ]
       ]
     }
   ],
@@ -2140,6 +2592,34 @@
       "name": "Whetstone",
       "amount": "",
       "weight": 1
+    },
+    {
+      "infoname": "Rain catcher [1 gp]",
+      "name": "Rain catcher",
+      "source": [ "ToA", 32 ],
+      "amount": 1,
+      "weight": 5
+    },
+    {
+      "infoname": "Insect repellent:",
+      "name": "-",
+      "source": [ "ToA", 32 ],
+      "amount": "",
+      "weight": ""
+    },
+    {
+      "infoname": "   Salve (vial) [5 sp]",
+      "name": "Salve, applications of",
+      "source": [ "ToA", 32 ],
+      "amount": 20,
+      "weight": ""
+    },
+    {
+      "infoname": "   Incense (block) [1 gp]",
+      "name": "Incense, blocks of",
+      "source": [ "ToA", 32 ],
+      "amount": 1,
+      "weight": ""
     }
   ],
   "Tools": [
