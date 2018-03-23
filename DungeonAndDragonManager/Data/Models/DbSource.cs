@@ -18,5 +18,19 @@ namespace DungeonAndDragonManager.Data.Models
         public string Name { get; set; }
         public string Abbreviation { get; set; }
 
+        public string Group { get; set; }
+        public string Url { get; set; }
+        public DateTime Date { get; set; }
+
+        public DbSource() { }
+
+        public DbSource(string name, string abbr, string group, string url, DateTime date)
+        {
+            Name = name;
+            Abbreviation = abbr;
+            Group = group;
+            Url = url;
+            Date = date;
+        }
     }
 }

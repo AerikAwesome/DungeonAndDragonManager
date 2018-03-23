@@ -7271,6 +7271,156 @@
         }
       ],
       "wildshapeString": "◆ Senses: Blindsight 30 ft.\n◆ Camouflage: advantage on Dexterity (Stealth) checks made to hide.\n◆ Keen Smell: advantage on Wisdom (Perception) checks that rely on smell.\n◆ Spring: 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit."
+    },
+    {
+      "name": "Hound of Ill Omen",
+      "source": [ "X", 51 ],
+      "size": 3,
+      "type": "Monstrosity",
+      "subtype": "",
+      "alignment": "Unaligned",
+      "ac": 14,
+      "hp": 37,
+      "hd": [ 5, 10 ],
+      "speed": "50 ft",
+      "scores": [ 17, 15, 15, 3, 12, 7 ],
+      "saves": [ "", "", "", "", "", "" ],
+      "skills": {
+        "perception": 3,
+        "stealth": 4
+      },
+      "senses": "Adv. on Wis (Perception) checks using hearing/smell;\nAt the start of each turn, knows where the target is",
+      "passivePerception": 13,
+      "languages": "",
+      "challengeRating": "1",
+      "proficiencyBonus": 2,
+      "attacksAction": 1,
+      "attacks": [
+        {
+          "name": "Bite",
+          "ability": 1,
+          "damage": [ 2, 6, "piercing" ],
+          "range": "Melee (5 ft)",
+          "description": "Target must succeed on a DC 13 Strength saving throw or be knocked prone"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Keen Hearing and Smell",
+          "description": "The hound has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+        },
+        {
+          "name": "Pack Tactics",
+          "description": "The hound has advantage on an attack roll against a creature if at least one of the hound's allies is within 5 ft of the creature and the ally isn't incapacitated."
+        }
+      ],
+      "features": [
+        {
+          "name": "Actions",
+          "description": "The hound can only move towards its targets and make attacks or opportunity attacks against its target."
+        },
+        {
+          "name": "Temporary Hit Points",
+          "description": "When the hound is summoned, it gains temporary HP equal to half my sorcerer level."
+        },
+        {
+          "name": "Shadowy Form",
+          "description": "The hound can move through other creatures and objects as if they were difficult terrain. It takes 5 force damage if it ends its turn inside an object."
+        },
+        {
+          "name": "Sign of Ill Omen",
+          "description": "While the hound is within 5 ft of its target, that target has disadvantage on saving throws versus my spells."
+        }
+      ]
+    },
+    {
+      "name": "Accursed Specter",
+      "source": [ "X", 56 ],
+      "size": 3,
+      "type": "Undead",
+      "subtype": "",
+      "alignment": "Chaotic Evil",
+      "ac": 12,
+      "hp": 22,
+      "hd": [ 5, 8 ],
+      "speed": "fly 50 ft (hover)",
+      "scores": [ 1, 14, 11, 10, 10, 12 ],
+      "saves": [ "", "", "", "", "", "" ],
+      "damage_resistances": "acid; cold; fire; lightning; thunder; bludgeoning, piercing, and slashing from nonmagical weapons",
+      "damage_immunities": "necrotic, poison",
+      "condition_immunities": "charmed, exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious",
+      "senses": "Darkvision 60 ft",
+      "passivePerception": 10,
+      "languages": "all languages it knew in life, but can't speak",
+      "challengeRating": "1",
+      "proficiencyBonus": 2,
+      "attacksAction": 2,
+      "attacks": [
+        {
+          "name": "Life Drain",
+          "ability": 2,
+          "damage": [ 3, 6, "necrotic" ],
+          "range": "Melee (5 ft)",
+          "description": "DC 10 Con save or HP max reduced by same as damage taken until a long rest",
+          "modifiers": [ "oCha", "", false ],
+          "tooltip": "Life Drain\n\nThe target must succeed on a DC 10 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
+        }
+      ],
+      "traits": [
+        {
+          "name": "Incorporeal Movement",
+          "description": "The specter can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object."
+        },
+        {
+          "name": "Sunlight Sensitivity",
+          "description": "While in sunlight, the specter has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+        },
+        {
+          "name": "Life Drain",
+          "description": "The target must succeed on a DC 10 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
+        }
+      ],
+      "features": [
+        {
+          "name": "Temporary Hit Points",
+          "description": "When the accursed specter rises from a corpse, it gains temporary HP equal to half my warlock level."
+        },
+        {
+          "name": "Attack Bonus",
+          "description": "The accursed specter adds the warlock's Charisma modifier (minimum +0) to its attack rolls."
+        }
+      ]
+    },
+    {
+      "name": "Tiny Servant",
+      "source": [ "X", 169 ],
+      "size": 5,
+      "type": "Construct",
+      "subtype": "",
+      "alignment": "Unaligned",
+      "ac": 15,
+      "hp": 10,
+      "hd": [ 4, 4 ],
+      "speed": "30 ft, climb 30 ft",
+      "scores": [ 4, 16, 10, 2, 10, 1 ],
+      "saves": [ "", "", "", "", "", "" ],
+      "damage_immunities": "poison, psychic",
+      "condition_immunities": "blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned",
+      "senses": "Blindsight 60 ft (blind beyond this radius)",
+      "passivePerception": 10,
+      "languages": "",
+      "challengeRating": "0",
+      "proficiencyBonus": 2,
+      "attacksAction": 1,
+      "attacks": [
+        {
+          "name": "Slam",
+          "ability": 2,
+          "damage": [ 1, 4, "bludgeoning" ],
+          "range": "Melee (5 ft)",
+          "description": ""
+        }
+      ]
     }
   ]
 }

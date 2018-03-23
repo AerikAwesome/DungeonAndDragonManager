@@ -129,6 +129,34 @@
       "group": "Primary Sources",
       "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/xanathars-guide-everything",
       "date": "2017/11/21"
+    },
+    {
+      "name": "Unearthed Arcana: Eberron",
+      "abbreviation": "UA:E",
+      "group": "Unearthed Arcana",
+      "url": "http://media.wizards.com/2015/downloads/dnd/UA_Eberron_v1.1.pdf",
+      "date": "2015/02/02"
+    },
+    {
+      "name": "Unearthed Arcana: Modifying Classes",
+      "abbreviation": "UA:MC",
+      "group": "Unearthed Arcana",
+      "url": "http://media.wizards.com/2015/downloads/dnd/UA3_ClassDesignVariants.pdf",
+      "date": "2015/04/06"
+    },
+    {
+      "name": "Unearthed Arcana: Waterborne Adventures",
+      "abbreviation": "UA:WA",
+      "group": "Unearthed Arcana",
+      "url": "http://media.wizards.com/2015/downloads/dnd/UA_Waterborne_v3.pdf",
+      "date": "2015/05/04"
+    },
+    {
+      "name": "Unearthed Arcana: Modern Magic",
+      "abbreviation": "UA:MM",
+      "group": "Unearthed Arcana",
+      "url": "http://media.wizards.com/2015/downloads/dnd/UA_ModernMagic.pdf",
+      "date": "2015/08/03"
     }
   ],
   "Backgrounds": [
@@ -787,8 +815,7 @@
       "lifestyle": "wealthy"
     },
     {
-      "regExpSearch": "/^(?!.*urban)(?=.*(outlander|forester|trapper|homesteader|guide|exile|outcast|bounty.?hunter|tribal",
-      "nomad|hunter-gatherer|tribal.?marauder)).*$/i",
+      "regExpSearch": "/^(?!.*urban)(?=.*(outlander|forester|trapper|homesteader|guide|exile|outcast|bounty.?hunter|tribal|nomad|hunter-gatherer|tribal.?marauder)).*$/i",
       "name": "Outlander",
       "source": [ "P", 136 ],
       "skills": [ "Athletics", "Survival" ],
@@ -3114,6 +3141,23 @@
       "calcChanges": {
         "atkCalc": [ "if (isOffHand) {output.modToDmg = true; }; ", "When engaging in two-weapon fighting, I can add my ability modifier to the damage of my off-hand attacks." ]
       }
+    },
+    {
+      "name": "Mariner Fighting Style",
+      "source": [ "UA:WA", 3 ],
+      "description": "While not wearing heavy armor or using a shield, I gain +1 AC and swim/climb speed\nThe swimming and climbing speeds are equal to my current walking speed",
+      "speed": {
+        "climb": {
+          "spd": "walk",
+          "enc": "walk"
+        },
+        "swim": {
+          "spd": "walk",
+          "enc": "walk"
+        }
+      },
+      "eval": "AddACMisc(1, 'Mariner Fighting Style', 'When not wearing heavy armor or using a shield, the class feature Mariner Fighting Style gives a +1 bonus to AC', \"ACshield || tDoc.getField('Heavy Armor').isBoxChecked(0)\")",
+      "removeeval": "AddACMisc(0, 'Mariner Fighting Style', 'When not wearing heavy armor or using a shield, the class feature Mariner Fighting Style gives a +1 bonus to AC')"
     }
   ],
   "Classes": [
@@ -3523,19 +3567,13 @@
               "name": "Warrior of the Gods",
               "source": [ "X", 11 ],
               "minlevel": 3,
-              "description": "\n   ",
-              "+" "Spells restoring me to life (not undeath or anything else) don't require material comp."
+              "description": "Spells restoring me to life (not undeath or anything else) don't require material comp."
             },
             "subclassfeature6": {
               "name": "Fanatical Focus",
               "source": [ "X", 11 ],
               "minlevel": 6,
-              "description": "desc(",
-              [
-                "When I fail a saving throw while raging, I can reroll it and must use the new roll",
-                "I can use this ability only once per rage"
-              ],
-              ")",
+              "description": "When I fail a saving throw while raging, I can reroll it and must use the new roll. I can use this ability only once per rage",
               "usages": 1,
               "recovery": "rage"
             },
@@ -3543,12 +3581,7 @@
               "name": "Zealous Presence",
               "source": [ "X", 11 ],
               "minlevel": 10,
-              "description": "desc(",
-              [
-                "As a bonus action, I choose up to 10 creatures within 60 ft that can hear my battle cry",
-                "These creatures gain adv. on attacks and saves until the start of my next turn"
-              ],
-              ")",
+              "description": "As a bonus action, I choose up to 10 creatures within 60 ft that can hear my battle cry. These creatures gain adv. on attacks and saves until the start of my next turn",
               "usages": 1,
               "recovery": "long rest",
               "action": [ "bonus action", "" ]
@@ -3557,13 +3590,7 @@
               "name": "Rage Beyond Death",
               "source": [ "X", 11 ],
               "minlevel": 14,
-              "description": "desc(",
-              [
-                "While raging, having 0 hit points doesn't knock me unconscious",
-                "I still must make death saves, and I suffer the normal effects of taking damage",
-                "I only die due to failed death saves if my rage ends while I'm at 0 HP"
-              ],
-              ")"
+              "description": "While raging, having 0 hit points doesn't knock me unconscious. I still must make death saves, and I suffer the normal effects of taking damage. I only die due to failed death saves if my rage ends while I'm at 0 HP"
             }
           }
         }
@@ -4280,19 +4307,15 @@
               "name": "Bonus Proficiency",
               "source": [ "P", 62 ],
               "minlevel": 1,
-              "description": "\n   ",
-              "+" "I gain proficiency with heavy armor",
+              "description": "I gain proficiency with heavy armor",
               "armor": [ false, false, true, false ]
             },
             "subclassfeature1.1": {
               "name": "Acolyte of Nature",
               "source": [ "P", 62 ],
               "minlevel": 1,
-              "description": "\n   ",
-              "+" "I learn a druid cantrip and proficiency with a skill: Animal Handling, Nature, Survival",
-              "skillstxt": "\n\n",
-              "+" "toUni(\"Nature Domain\")",
-              "+" ": Choose one from Animal Handling, Nature, and Survival.",
+              "description": "I learn a druid cantrip and proficiency with a skill: Animal Handling, Nature, Survival",
+              "skillstxt": "Choose one from Animal Handling, Nature, and Survival.",
               "spellcastingBonus": {
                 "name": "Acolyte of Nature",
                 "class": "druid",
@@ -4303,41 +4326,21 @@
               "name": "Channel Divinity: Charm Animals and Plants",
               "source": [ "P", 62 ],
               "minlevel": 2,
-              "description": "\n   ",
-              "+" "As an action, all beasts and plants within 30 ft that I can see must make a Wis save",
-              "+" "\n   ",
-              "+" "If failed, each is charmed and friendly to allies and me for 1 min or until damaged",
+              "description": "As an action, all beasts and plants within 30 ft that I can see must make a Wis save\n   If failed, each is charmed and friendly to allies and me for 1 min or until damaged",
               "action": [ "action", "" ]
             },
             "subclassfeature6": {
               "name": "Dampen Elements",
               "source": [ "P", 62 ],
               "minlevel": 6,
-              "description": "\n   ",
-              "+" "As a reaction, if an ally in 30 ft or I takes acid/cold/fire/lightning/thunder damage,",
-              "+" "\n   ",
-              "+" "I can grant resistance against that instance of damage",
+              "description": "As a reaction, if an ally in 30 ft or I takes acid/cold/fire/lightning/thunder damage,\n   I can grant resistance against that instance of damage",
               "action": [ "reaction", "" ]
             },
             "subclassfeature8": {
               "name": "Divine Strike",
               "source": [ "P", 62 ],
               "minlevel": 8,
-              "description": "\n   ",
-              "+" "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
-              "additional": "levels.map(function",
-              "(n)" {
-                "if" "(n",
-                "<" "8)",
-                "return" "\"\";",
-                "return" "+",
-                "+" "(n",
-                "<" 14,
-                "?": null,
-                1: "2)",
-                "+" "\"d8 cold/fire/lightning damage (choice)\";"
-              },
-              ")",
+              "description": "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
               "calcChanges": {
                 "atkAdd": [ "if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 cold/fire/lightning damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra cold, fire, or lightning damage (my choice)." ]
               }
@@ -4346,8 +4349,7 @@
               "name": "Master of Nature",
               "source": [ "P", 62 ],
               "minlevel": 17,
-              "description": "\n   ",
-              "+" "As a bonus action, I can command creatures that are charmed by my Channel Divinity",
+              "description": "As a bonus action, I can command creatures that are charmed by my Channel Divinity",
               "action": [ "bonus action", "" ]
             }
           }
@@ -4362,8 +4364,7 @@
               "name": "Bonus Proficiency",
               "source": [ "P", 62 ],
               "minlevel": 1,
-              "description": "\n   ",
-              "+" "I gain proficiency with martial weapons and heavy armor",
+              "description": "I gain proficiency with martial weapons and heavy armor",
               "armor": [ false, false, true, false ],
               "weapons": [ false, true ]
             },
@@ -4371,10 +4372,7 @@
               "name": "Wrath of the Storm",
               "source": [ "P", 62 ],
               "minlevel": 1,
-              "description": "\n   ",
-              "+" "As a reaction, when a creature I can see within 5 ft hits me, I can thunderously rebuke",
-              "+" "\n   ",
-              "+" "It takes 2d8 lightning or thunder damage (my choice) that a Dex save can halve",
+              "description": "As a reaction, when a creature I can see within 5 ft hits me, I can thunderously rebuke\n   It takes 2d8 lightning or thunder damage (my choice) that a Dex save can halve",
               "usages": "Wisdom modifier per ",
               "usagescalc": "event.value:Math.max(1, What('Wis Mod'));",
               "recovery": "long rest",
@@ -4384,35 +4382,19 @@
               "name": "Channel Divinity: Destructive Wrath",
               "source": [ "P", 62 ],
               "minlevel": 2,
-              "description": "\n   ",
-              "+" "Instead of rolling, I can do maximum damage when I do lightning or thunder damage"
+              "description": "Instead of rolling, I can do maximum damage when I do lightning or thunder damage"
             },
             "subclassfeature6": {
               "name": "Thunderbolt Strike",
               "source": [ "P", 62 ],
               "minlevel": 6,
-              "description": "\n   ",
-              "+" "When I deal lightning damage to a Large or smaller foe, I can push it up to 10 ft away"
+              "description": "When I deal lightning damage to a Large or smaller foe, I can push it up to 10 ft away"
             },
             "subclassfeature8": {
               "name": "Divine Strike",
               "source": [ "P", 62 ],
               "minlevel": 8,
-              "description": "\n   ",
-              "+" "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
-              "additional": "levels.map(function",
-              "(n)" {
-                "if" "(n",
-                "<" "8)",
-                "return" "\"\";",
-                "return" "+",
-                "+" "(n",
-                "<" 14,
-                "?": null,
-                1: "2)",
-                "+" "\"d8 thunder damage\";"
-              },
-              ")",
+              "description": "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
               "calcChanges": {
                 "atkAdd": [ "if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 thunder damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra thunder damage." ]
               }
@@ -4421,8 +4403,7 @@
               "name": "Stormborn",
               "source": [ "P", 62 ],
               "minlevel": 17,
-              "description": "\n   ",
-              "+" "Whenever I'm not underground or indoors, I have a fly speed equal to my current speed",
+              "description": "Whenever I'm not underground or indoors, I have a fly speed equal to my current speed",
               "speed": {
                 "fly": {
                   "spd": "walk",
@@ -4442,40 +4423,14 @@
               "name": "Blessing of the Trickster",
               "source": [ "P", 63 ],
               "minlevel": 1,
-              "description": "\n   ",
-              "+" "As an action, a willing creature I touch (not me) has adv. on Dex (Stealth) checks",
-              "+" "\n   ",
-              "+" "This lasts for 1 hour or until I use it again",
+              "description": "As an action, a willing creature I touch (not me) has adv. on Dex (Stealth) checks\n   This lasts for 1 hour or until I use it again",
               "action": [ "action", "" ]
             },
             "subclassfeature2": {
               "name": "Channel Divinity: Invoke Duplicity",
               "source": [ "P", 63 ],
               "minlevel": 2,
-              "description": "desc(",
-              [
-                "As an action, I create illusory duplicates of myself within 30 ft of me for 1 min (conc)",
-                "As a bonus action, I can move them 30 ft to space(s) I can see within 120 ft of me",
-                "I can cast spells as though I was in an duplicate's space, using my own senses",
-                "I have advantage on attacks if the target is within 5 ft of a duplicate and me"
-              ],
-              ")",
-              "additional": "levels.map(function",
-              "(n)" {
-                "return" "n",
-                "<" 2,
-                "?": null,
-                "": "(n",
-                "<" 17,
-                "?": null,
-                1: "2)",
-                "+" " illusory duplicate",
-                "+" "(n",
-                "<" 17,
-                "?": null,
-                "": "\"s\");"
-              },
-              ")",
+              "description": "As an action, I create illusory duplicates of myself within 30 ft of me for 1 min (conc). As a bonus action, I can move them 30 ft to space(s) I can see within 120 ft of me. I can cast spells as though I was in an duplicate's space, using my own senses. I have advantage on attacks if the target is within 5 ft of a duplicate and me",
               "action": [ "action", "" ],
               "eval": "AddAction('bonus action', 'Move Duplicate(s)', 'Cleric (Trickery Domain) - Channel Divinity: Invoke Duplicity')",
               "removeeval": "RemoveAction('bonus action', 'Move Duplicate(s)')"
@@ -4484,29 +4439,14 @@
               "name": "Channel Divinity: Cloak of Shadows",
               "source": [ "P", 63 ],
               "minlevel": 6,
-              "description": "\n   ",
-              "+" "As an action, I become invisible until the end of my next turn or I attack/cast a spell",
+              "description": "As an action, I become invisible until the end of my next turn or I attack/cast a spell",
               "action": [ "action", "" ]
             },
             "subclassfeature8": {
               "name": "Divine Strike",
               "source": [ "P", 63 ],
               "minlevel": 8,
-              "description": "\n   ",
-              "+" "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
-              "additional": "levels.map(function",
-              "(n)" {
-                "return" "n",
-                "<" 8,
-                "?": null,
-                "": "+",
-                "+" "(n",
-                "<" 14,
-                "?": null,
-                1: "2)",
-                "+" "\"d8 poison damage\";"
-              },
-              ")",
+              "description": "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
               "calcChanges": {
                 "atkAdd": [ "if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 poison damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra poison damage." ]
               }
@@ -4515,12 +4455,7 @@
               "name": "Improved Duplicity",
               "source": [ "P", 63 ],
               "minlevel": 17,
-              "description": "desc(",
-              [
-                "When I use Invoke Duplicity, I make four illusory duplicates instead of one",
-                "I can move any number of the illusory duplicates as part of the same bonus action"
-              ],
-              ")"
+              "description": "When I use Invoke Duplicity, I make four illusory duplicates instead of one. I can move any number of the illusory duplicates as part of the same bonus action"
             }
           }
         },
@@ -4534,8 +4469,7 @@
               "name": "Bonus Proficiency",
               "source": [ "P", 63 ],
               "minlevel": 1,
-              "description": "\n   ",
-              "+" "I gain proficiency with martial weapons and heavy armor",
+              "description": "I gain proficiency with martial weapons and heavy armor",
               "armor": [ false, false, true, false ],
               "weapons": [ false, true ]
             },
@@ -4543,8 +4477,7 @@
               "name": "War Priest",
               "source": [ "P", 63 ],
               "minlevel": 1,
-              "description": "\n   ",
-              "+" "When I use the Attack action, I can make a weapon attack as a bonus action",
+              "description": "When I use the Attack action, I can make a weapon attack as a bonus action",
               "usages": "Wisdom modifier per ",
               "usagescalc": "event.value:Math.max(1, What('Wis Mod'));",
               "recovery": "long rest",
@@ -4554,40 +4487,20 @@
               "name": "Channel Divinity: Guided Strike",
               "source": [ "P", 63 ],
               "minlevel": 2,
-              "description": "\n   ",
-              "+" "When I make an attack roll, I can add a +10 bonus to the roll after seeing the d20 roll"
+              "description": "When I make an attack roll, I can add a +10 bonus to the roll after seeing the d20 roll"
             },
             "subclassfeature6": {
               "name": "Channel Divinity: War God's Blessing",
               "source": [ "P", 63 ],
               "minlevel": 6,
-              "description": "desc(",
-              [
-                "As a reaction, when a creature within 30 ft makes an attack roll, I can grant a ",
-                "The creature then adds a +10 bonus to the roll; I can do this after seeing the d20 roll"
-              ],
-              ")",
+              "description": "As a reaction, when a creature within 30 ft makes an attack roll, I can grant a . The creature then adds a +10 bonus to the roll; I can do this after seeing the d20 roll",
               "action": [ "reaction", "" ]
             },
             "subclassfeature8": {
               "name": "Divine Strike",
               "source": [ "P", 63 ],
               "minlevel": 8,
-              "description": "\n   ",
-              "+" "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
-              "additional": "levels.map(function",
-              "(n)" {
-                "if" "(n",
-                "<" "8)",
-                "return" "\"\";",
-                "return" "+",
-                "+" "(n",
-                "<" 14,
-                "?": null,
-                1: "2)",
-                "+" "\"d8 damage of the weapon's type\";"
-              },
-              ")",
+              "description": "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
               "calcChanges": {
                 "atkAdd": [ "if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra damage." ]
               }
@@ -4596,8 +4509,7 @@
               "name": "Avatar of Battle",
               "source": [ "P", 63 ],
               "minlevel": 17,
-              "description": "\n   ",
-              "+" "I have resistance to bludgeoning/piercing/slashing damage from nonmagical weapons",
+              "description": "I have resistance to bludgeoning/piercing/slashing damage from nonmagical weapons",
               "dmgres": [
                 [ "Bludgeoning", "Bludg. (nonmagical)" ],
                 [ "Piercing", "Pierc. (nonmagical)" ],
@@ -4672,8 +4584,7 @@
               "name": "Arcane Initiate",
               "source": [ "S", 125 ],
               "minlevel": 1,
-              "description": "\n   ",
-              "+" "I gain proficiency with Arcana and two wizard cantrips that count as cleric cantrips",
+              "description": "I gain proficiency with Arcana and two wizard cantrips that count as cleric cantrips",
               "skills": [ "Arcana" ],
               "skillstxt": "Arcana",
               "spellcastingBonus": {
@@ -4860,6 +4771,77 @@
               "source": [ "X", 20 ],
               "minlevel": 17,
               "description": "Once per round, if I'm not incapacitated, I can manipulate the energy of the dying. When an enemy I can see dies within 60 ft of me, I or an ally within 60 ft regain HP. The HP regained is equal to the enemy's number of Hit Dice"
+            }
+          }
+        },
+        {
+          "regExpSearch": "/^(?=.*(cleric|priest|clergy|acolyte))(?=.*(urban|city)).*$/i",
+          "subname": "City Domain",
+          "source": [ "UA:MM", 1 ],
+          "spellcastingExtra": [ "comprehend languages", "remote access", "find vehicle", "heat metal", "lightning bolt", "protection from ballistics", "locate creature", "synchronicity", "commune with city", "shutdown" ],
+          "features": {
+            "subclassfeature1": {
+              "name": "Bonus Cantrip",
+              "source": [ "UA:MM", 1 ],
+              "minlevel": 1,
+              "description": "I learn the On/Off cantrip if I didn't already know it",
+              "spellcastingBonus": {
+                "name": "Bonus Cantrip (On/Off)",
+                "spells": [ "on/off" ],
+                "selection": [ "on/off" ]
+              }
+            },
+            "subclassfeature1.1": {
+              "name": "Bonus Proficiency",
+              "source": [ "UA:MM", 1 ],
+              "minlevel": 1,
+              "description": "I gain proficiency with sidearms and land vehicles",
+              "weapons": [
+                false,
+                false,
+                [ "Sidearms" ]
+              ],
+              "toolProfs": [ "Hacking tools" ]
+            },
+            "subclassfeature1.2": {
+              "name": "Heart of the City",
+              "source": [ "UA:MM", 1 ],
+              "minlevel": 1,
+              "description": "While I'm in a city, I can gain adv. on a Cha (Deception, Intimidation, Persuasion) check. I'm considered proficient with the appropriate skill for that one check",
+              "usages": "Wisdom modifier per ",
+              "usagescalc": "event.value:Math.max(1, What('Wis Mod'));",
+              "recovery": "long rest"
+            },
+            "subclassfeature2": {
+              "name": "Channel Divinity: Spirits of the City",
+              "source": [ "UA:MM", 1 ],
+              "minlevel": 2,
+              "description": "As an action, I make all city utilities in 30 ft either stop or work perfectly for 1 min. Additionally, all hostiles within 30 ft must make a Cha save at the time of use. If failed, it is either knocked prone or restrained (my choice) by city hazards. A restrained target can escape with an Athletics or Acrobatics check vs. my spell DC",
+              "action": [ "action", "" ]
+            },
+            "subclassfeature6": {
+              "name": "Block Watch",
+              "source": [ "UA:MM", 2 ],
+              "minlevel": 6,
+              "description": "While in an urban environment, I'm proficient and expertise in Insight and Perception"
+            },
+            "subclassfeature8": {
+              "name": "Divine Strike",
+              "source": [ "UA:MM", 2 ],
+              "minlevel": 8,
+              "description": "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
+              "calcChanges": {
+                "atkAdd": [ "if (classes.known.cleric && classes.known.cleric.level > 7 && !isSpell) {fields.Description += (fields.Description ? '; ' : '') + 'Once per turn +' + (classes.known.cleric.level < 14 ? 1 : 2) + 'd8 psychic damage'; }; ", "Once per turn, I can have one of my weapon attacks that hit do extra psychic damage." ]
+              }
+            },
+            "subclassfeature17": {
+              "name": "Express Transit",
+              "source": [ "UA:MM", 2 ],
+              "minlevel": 17,
+              "description": "As an action, I can teleport from one mass transit site to another in the same city. This works just like a Teleport spell; Mass transits sites include bus/train/subway stops",
+              "usages": 1,
+              "recovery": "short rest",
+              "action": [ "action", "" ]
             }
           }
         }
@@ -5582,8 +5564,7 @@
                   "name": "Action Surge",
                   "source": [ "P", 72 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I can take one additional action on my turn on top of my normally allowed actions",
+                  "description": "I can take one additional action on my turn on top of my normally allowed actions",
                   "usages": [ 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2 ],
                   "recovery": "short rest",
                   "additional": [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "30 ft teleport", "30 ft teleport", "30 ft teleport", "30 ft teleport", "30 ft teleport", "30 ft teleport" ]
@@ -5592,8 +5573,7 @@
                   "name": "Spellcasting",
                   "source": [ "P", 75 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "I can cast known wizard cantrips/spells, using Intelligence as my spellcasting ability",
+                  "description": "I can cast known wizard cantrips/spells, using Intelligence as my spellcasting ability",
                   "additional": [ "2 cantrips known", "2 cantrips known", "2 cantrips & 3 spells known", "2 cantrips & 4 spells known", "2 cantrips & 4 spells known", "2 cantrips & 4 spells known", "2 cantrips & 5 spells known", "2 cantrips & 6 spells known", "2 cantrips & 6 spells known", "3 cantrips & 7 spells known", "3 cantrips & 8 spells known", "3 cantrips & 8 spells known", "3 cantrips & 9 spells known", "3 cantrips & 10 spells known", "3 cantrips & 10 spells known", "3 cantrips & 11 spells known", "3 cantrips & 11 spells known", "3 cantrips & 11 spells known", "3 cantrips & 12 spells known", "3 cantrips & 13 spells known" ],
                   "spellcastingBonus": { //for the spells gained at level 3, 8, 14, 20
                     "name": "From any School",
@@ -5606,44 +5586,33 @@
                   "name": "Weapon Bond",
                   "source": [ "P", 75 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "I can bond with up to two weapons by spending a short rest with each",
-                  "+" "\n   ",
-                  "+" "I can't be disarmed of a bonded weapon and I can summon one as a bonus action",
+                  "description": "I can bond with up to two weapons by spending a short rest with each\n   I can't be disarmed of a bonded weapon and I can summon one as a bonus action",
                   "action": [ "bonus action", "" ]
                 },
                 "subclassfeature7": {
                   "name": "War Magic",
                   "source": [ "P", 75 ],
                   "minlevel": 7,
-                  "description": "\n   ",
-                  "+" "When I use my action to cast a cantrip, I can make a weapon attack as a bonus action",
+                  "description": "When I use my action to cast a cantrip, I can make a weapon attack as a bonus action",
                   "action": [ "bonus action", "" ]
                 },
                 "subclassfeature10": {
                   "name": "Eldritch Strike",
                   "source": [ "P", 75 ],
                   "minlevel": 10,
-                  "description": "\n   ",
-                  "+" "A creature hit by my weapon attack has disadv. on the save vs. the next spell I cast",
-                  "+" "\n   ",
-                  "+" "This lasts until the end of my next turn"
+                  "description": "A creature hit by my weapon attack has disadv. on the save vs. the next spell I cast\n   This lasts until the end of my next turn"
                 },
                 "subclassfeature15": {
                   "name": "Arcane Charge",
                   "source": [ "P", 75 ],
                   "minlevel": 15,
-                  "description": "\n   ",
-                  "+" "When I use Action Surge, I can also teleport up to 30 ft to an empty space I can see",
-                  "+" "\n   ",
-                  "+" "I can do so before or after the extra action"
+                  "description": "When I use Action Surge, I can also teleport up to 30 ft to an empty space I can see\n   I can do so before or after the extra action"
                 },
                 "subclassfeature18": {
                   "name": "Improved War Magic",
                   "source": [ "P", 75 ],
                   "minlevel": 18,
-                  "description": "\n   ",
-                  "+" "When I use my action to cast a spell, I can make a weapon attack as a bonus action",
+                  "description": "When I use my action to cast a spell, I can make a weapon attack as a bonus action",
                   "action": [ "bonus action", "" ]
                 }
               }
@@ -6075,14 +6044,7 @@
                   "name": "Disciple of the Elements",
                   "source": [ "P", 80 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "I know Elemental Attunement and additional Elemental Disciplines, depending on level",
-                  "+" "\n   ",
-                  "+" "Use the \"Choose Feature\" button above to add Elemental Disciplines to the third page",
-                  "+" "\n   ",
-                  "+" "From 5th level onward, I can use additional ki points to increase their spell slot level",
-                  "+" "\n   ",
-                  "+" "I can trade known Elemental Disciplines for others when I gain new ones",
+                  "description": "I know Elemental Attunement and additional Elemental Disciplines, depending on level\n   Use the \"Choose Feature\" button above to add Elemental Disciplines to the third page\n   From 5th level onward, I can use additional ki points to increase their spell slot level\n   I can trade known Elemental Disciplines for others when I gain new ones",
                   "additional": [ "", "", "2 known", "2 known", "2 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 3 max ki", "3 known; 4 max ki", "3 known; 4 max ki", "4 known; 4 max ki", "4 known; 4 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "4 known; 5 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki", "5 known; 6 max ki" ],
                   "extraname": "Elemental Discipline",
                   "extrachoices": [ "Breath of Winter (prereq: level 17 monk)", "Clench of the North Wind (prereq: level 6 monk)", "Eternal Mountain Defense (prereq: level 17 monk)", "Fangs of the Fire Snake", "Fist of Four Thunders", "Fist of Unbroken Air", "Flames of the Phoenix (prereq: level 11 monk)", "Gong of the Summit (prereq: level 6 monk)", "Mist Stance (prereq: level 11 monk)", "Ride the Wind (prereq: level 11 monk)", "Rive of Hungry Flame (prereq: level 17 monk)", "Rush of the Gale Spirits", "Shape the Flowing River", "Sweeping Cinder Strike", "Water Whip", "Wave of Rolling Earth (prereq: level 17 monk)" ],
@@ -6091,20 +6053,13 @@
                   "elemental attunement": {
                     "name": "Elemental Attunement",
                     "source": [ "P", 81 ],
-                    "description": "\n   ",
-                    "+" "As an action, I can briefly control elemental forces nearby",
-                    "+" "\n   ",
-                    "+" "I can make a harmless sensory effect, light/snuff light, chill/warm 1 lb for 1 hour,",
-                    "+" "\n   ",
-                    "+" "or I cause earth/fire/water/mist in a 1 ft cube to shape itself into a form for 1 minute",
+                    "description": "As an action, I can briefly control elemental forces nearby\n   I can make a harmless sensory effect, light/snuff light, chill/warm 1 lb for 1 hour,\n   or I cause earth/fire/water/mist in a 1 ft cube to shape itself into a form for 1 minute",
                     "action": [ "action", "" ]
                   },
                   "breath of winter (prereq: level 17 monk)": {
                     "name": "Breath of Winter",
                     "source": [ "P", 81 ],
-                    "description": " [6 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Cone of Cold without material components (PHB 224)",
+                    "description": " [6 ki points]\n   As an action, I can cast Cone of Cold without material components (PHB 224)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Breath of Winter",
@@ -6118,9 +6073,7 @@
                   "clench of the north wind (prereq: level 6 monk)": {
                     "name": "Clench of the North Wind",
                     "source": [ "P", 81 ],
-                    "description": " [3 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Hold Person without material components (PHB 251)",
+                    "description": " [3 ki points]\n   As an action, I can cast Hold Person without material components (PHB 251)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Clench of the North Wind",
@@ -6134,9 +6087,7 @@
                   "eternal mountain defense (prereq: level 17 monk)": { // errata from level 11 to level 17
                     "name": "Eternal Mountain Defense",
                     "source": [ "P", 81 ],
-                    "description": " [5 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Stoneskin on myself without material components (PHB 278)",
+                    "description": " [5 ki points]\n   As an action, I can cast Stoneskin on myself without material components (PHB 278)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Eternal Mountain Defense",
@@ -6150,11 +6101,7 @@
                   "fangs of the fire snake": {
                     "name": "Fangs of the Fire Snake",
                     "source": [ "P", 81 ],
-                    "description": " [1 ki point]",
-                    "+" "\n   ",
-                    "+" "With Attack action, my unarmed strikes +10 ft reach and deal fire damage this turn",
-                    "+" "\n   ",
-                    "+" "Also, I can spent an additional 1 ki point to cause an attack to deal +1d10 fire damage",
+                    "description": " [1 ki point]\n   With Attack action, my unarmed strikes +10 ft reach and deal fire damage this turn\n   Also, I can spent an additional 1 ki point to cause an attack to deal +1d10 fire damage",
                     "calcChanges": {
                       "atkAdd": [ "if ((/unarmed strike/i).test(WeaponName) && (/^(?=.*fire)(?=.*snake).*$/i).test(WeaponText)) {fields.Description += (fields.Description ? '; ' : '') + 'After hit, spend 1 ki point for +1d10 fire damage'; fields.Range:'Melee (15 ft reach)'; fields.Damage_Type:'fire'; }; ", "If I include the words 'Fire Snake' in the name of an unarmed strike, it gets +10 ft reach, does fire damage, and gains the option to deal +1d10 fire damage by spending 1 additional ki point." ]
                     }
@@ -6162,9 +6109,7 @@
                   "fist of four thunders": {
                     "name": "Fist of Four Thunders",
                     "source": [ "P", 81 ],
-                    "description": " [2 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Thunderwave (PHB 282)",
+                    "description": " [2 ki points]\n   As an action, I can cast Thunderwave (PHB 282)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Fist of Four Thunders",
@@ -6177,21 +6122,13 @@
                   "fist of unbroken air": {
                     "name": "Fist of Unbroken Air",
                     "source": [ "P", 81 ],
-                    "description": " [2 ki points; +1d10/extra ki point]",
-                    "+" "\n   ",
-                    "+" "As an action, target within 30 ft takes 3d10 bludgeoning damage (spend ki for more)",
-                    "+" "\n   ",
-                    "+" "It is also pushed up to 20 ft away from me and knocked prone",
-                    "+" "\n   ",
-                    "+" "It can make a Strength save to halve damage and avoid being pushed and knocked prone",
+                    "description": " [2 ki points; +1d10/extra ki point]\n   As an action, target within 30 ft takes 3d10 bludgeoning damage (spend ki for more)\n   It is also pushed up to 20 ft away from me and knocked prone\n   It can make a Strength save to halve damage and avoid being pushed and knocked prone",
                     "action": [ "action", "" ]
                   },
                   "flames of the phoenix (prereq: level 11 monk)": {
                     "name": "Flames of the Phoenix",
                     "source": [ "P", 81 ],
-                    "description": " [4 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Fireball without material components (PHB 241)",
+                    "description": " [4 ki points]\n   As an action, I can cast Fireball without material components (PHB 241)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Flames of the Phoenix",
@@ -6205,9 +6142,7 @@
                   "gong of the summit (prereq: level 6 monk)": {
                     "name": "Gong of the Summit",
                     "source": [ "P", 81 ],
-                    "description": " [3 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Shatter without material components (PHB 275)",
+                    "description": " [3 ki points]\n   As an action, I can cast Shatter without material components (PHB 275)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Gong of the Summit",
@@ -6221,9 +6156,7 @@
                   "mist stance (prereq: level 11 monk)": {
                     "name": "Mist Stance",
                     "source": [ "P", 81 ],
-                    "description": " [4 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Gaseous Form on myself without material components (PHB 244)",
+                    "description": " [4 ki points]\n   As an action, I can cast Gaseous Form on myself without material components (PHB 244)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Mist Stance",
@@ -6237,9 +6170,7 @@
                   "ride the wind (prereq: level 11 monk)": {
                     "name": "Ride the Wind",
                     "source": [ "P", 81 ],
-                    "description": " [4 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Fly on myself without material components (PHB 243)",
+                    "description": " [4 ki points]\n   As an action, I can cast Fly on myself without material components (PHB 243)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Ride the Wind",
@@ -6253,9 +6184,7 @@
                   "rive of hungry flame (prereq: level 17 monk)": {
                     "name": "Rive of Hungry Flame",
                     "source": [ "P", 81 ],
-                    "description": " [5 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Wall of Fire without material components (PHB 285)",
+                    "description": " [5 ki points]\n   As an action, I can cast Wall of Fire without material components (PHB 285)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Rive of Hungry Flame",
@@ -6269,9 +6198,7 @@
                   "rush of the gale spirits": {
                     "name": "Rush of the Gale Spirits",
                     "source": [ "P", 81 ],
-                    "description": " [2 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Gust of Wind without material components (PHB 248)",
+                    "description": " [2 ki points]\n   As an action, I can cast Gust of Wind without material components (PHB 248)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Rush of the Gale Spirits",
@@ -6284,19 +6211,13 @@
                   "shape the flowing river": {
                     "name": "Shape the Flowing River",
                     "source": [ "P", 81 ],
-                    "description": " [1 ki point]",
-                    "+" "\n   ",
-                    "+" "As an action, I can affect ice/water up to a 30-foot cube within 120 ft",
-                    "+" "\n   ",
-                    "+" "I can switch it between water/ice states and reshape ice up to half its largest dimension",
+                    "description": " [1 ki point]\n   As an action, I can affect ice/water up to a 30-foot cube within 120 ft\n   I can switch it between water/ice states and reshape ice up to half its largest dimension",
                     "action": [ "action", "" ]
                   },
                   "sweeping cinder strike": {
                     "name": "Sweeping Cinder Strike",
                     "source": [ "P", 81 ],
-                    "description": " [2 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Burning Hands (PHB 220)",
+                    "description": " [2 ki points]\n   As an action, I can cast Burning Hands (PHB 220)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Sweeping Cinder Strike",
@@ -6309,21 +6230,13 @@
                   "water whip": {
                     "name": "Water Whip",
                     "source": [ "P", 81 ],
-                    "description": " [2 ki points; +1d10/extra ki point]",
-                    "+" "\n   ",
-                    "+" "As an action, a creature within 30 ft takes 3d10 bludgeoning damage (spend ki for more)",
-                    "+" "\n   ",
-                    "+" "It is also knocked prone or pulled up to 25 ft closer to me (my choice)",
-                    "+" "\n   ",
-                    "+" "It can make a Dexterity save to halve damage and avoid being pulled or knocked prone",
+                    "description": " [2 ki points; +1d10/extra ki point]\n   As an action, a creature within 30 ft takes 3d10 bludgeoning damage (spend ki for more)\n   It is also knocked prone or pulled up to 25 ft closer to me (my choice)\n   It can make a Dexterity save to halve damage and avoid being pulled or knocked prone",
                     "action": [ "action", "" ]
                   },
                   "wave of rolling earth (prereq: level 17 monk)": {
                     "name": "Wave of Rolling Earth",
                     "source": [ "P", 81 ],
-                    "description": " [6 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Wall of Stone without material components (PHB 287)",
+                    "description": " [6 ki points]\n   As an action, I can cast Wall of Stone without material components (PHB 287)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Wave of Rolling Earth",
@@ -6346,8 +6259,7 @@
                   "name": "Shadow Arts",
                   "source": [ "P", 80 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "I know the Minor Illusion cantrip and can cast certain spells by using ki (see page 3)",
+                  "description": "I know the Minor Illusion cantrip and can cast certain spells by using ki (see page 3)",
                   "spellcastingBonus": {
                     "name": "Shadow Arts",
                     "spells": [ "minor illusion" ],
@@ -6360,9 +6272,7 @@
                   "darkness": {
                     "name": "Darkness",
                     "source": [ "P", 80 ],
-                    "description": " [2 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Darkness without material components (PHB 230)",
+                    "description": " [2 ki points]\n   As an action, I can cast Darkness without material components (PHB 230)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Darkness",
@@ -6375,9 +6285,7 @@
                   "darkvision": {
                     "name": "Darkvision",
                     "source": [ "P", 80 ],
-                    "description": " [2 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Darkvision without material components (PHB 230)",
+                    "description": " [2 ki points]\n   As an action, I can cast Darkvision without material components (PHB 230)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Darkvision",
@@ -6390,9 +6298,7 @@
                   "pass without trace": {
                     "name": "Pass Without Trace",
                     "source": [ "P", 80 ],
-                    "description": " [2 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Pass without Trace without material components (PHB 264)",
+                    "description": " [2 ki points]\n   As an action, I can cast Pass without Trace without material components (PHB 264)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Pass Without Trace",
@@ -6405,9 +6311,7 @@
                   "silence": {
                     "name": "Silence",
                     "source": [ "P", 80 ],
-                    "description": " [2 ki points]",
-                    "+" "\n   ",
-                    "+" "As an action, I can cast Silence (PHB 275)",
+                    "description": " [2 ki points]\n   As an action, I can cast Silence (PHB 275)",
                     "action": [ "action", "" ],
                     "spellcastingBonus": {
                       "name": "Silence",
@@ -6422,26 +6326,21 @@
                   "name": "Shadow Step",
                   "source": [ "P", 80 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "As a bonus action, I can teleport from and into dim light or darkness within 60 ft",
-                  "+" "\n   ",
-                  "+" "After I do this, I have adv. on the next melee attack I make before the end of my turn",
+                  "description": "As a bonus action, I can teleport from and into dim light or darkness within 60 ft\n   After I do this, I have adv. on the next melee attack I make before the end of my turn",
                   "action": [ "bonus action", "" ]
                 },
                 "subclassfeature11": {
                   "name": "Cloak of Shadows",
                   "source": [ "P", 80 ],
                   "minlevel": 11,
-                  "description": "\n   ",
-                  "+" "As an action, I can become invisible in dim light or darkness until I attack/cast",
+                  "description": "As an action, I can become invisible in dim light or darkness until I attack/cast",
                   "action": [ "action", "" ]
                 },
                 "subclassfeature17": {
                   "name": "Opportunist",
                   "source": [ "P", 80 ],
                   "minlevel": 17,
-                  "description": "\n   ",
-                  "+" "As a reaction, if a creature in 5 ft is hit by another, I can make a melee attack vs. it",
+                  "description": "As a reaction, if a creature in 5 ft is hit by another, I can make a melee attack vs. it",
                   "action": [ "reaction", "" ]
                 }
               }
@@ -6954,32 +6853,21 @@
                   "name": "Channel Divinity: Nature's Wrath",
                   "source": [ "P", 87 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "As an action, a creature I can see within 10 ft must make a Str/Dex save (its choice)",
-                  "+" "\n   ",
-                  "+" "If it fails this save, it is restrained until it succeeds on a save at the end of its turn",
+                  "description": "As an action, a creature I can see within 10 ft must make a Str/Dex save (its choice)\n   If it fails this save, it is restrained until it succeeds on a save at the end of its turn",
                   "action": [ "action", "" ]
                 },
                 "subclassfeature3.1": {
                   "name": "Channel Divinity: Turn the Faithless",
                   "source": [ "P", 87 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "As an action, all fey/fiends within 30 ft that can hear me must make a Wisdom save",
-                  "+" "\n   ",
-                  "+" "If one fails, it is turned for 1 minute or until it takes damage and must show true form",
-                  "+" "\n   ",
-                  "+" "Turned: move away, never within 30 ft of me, no reactions or actions other than Dash",
-                  "+" "\n   ",
-                  "+" "Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds",
+                  "description": "As an action, all fey/fiends within 30 ft that can hear me must make a Wisdom save\n   If one fails, it is turned for 1 minute or until it takes damage and must show true form\n   Turned: move away, never within 30 ft of me, no reactions or actions other than Dash\n   Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds",
                   "action": [ "action", "" ]
                 },
                 "subclassfeature7": {
                   "name": "Aura of Warding",
                   "source": [ "P", 87 ],
                   "minlevel": 7,
-                  "description": "\n   ",
-                  "+" "Allies within range and I have resistance to damage from spells",
+                  "description": "Allies within range and I have resistance to damage from spells",
                   "additional": [ "", "", "", "", "", "", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "30-foot aura", "30-foot aura", "30-foot aura" ],
                   "dmgres": [ "Spells" ]
                 },
@@ -6987,10 +6875,7 @@
                   "name": "Undying Sentinel",
                   "source": [ "P", 87 ],
                   "minlevel": 15,
-                  "description": "\n   ",
-                  "+" "If dropped to 0 hit points and not killed outright, I can choose to stay at 1 hit point",
-                  "+" "\n   ",
-                  "+" "Additionally, I suffer no drawbacks of old age and can't be aged magically",
+                  "description": "If dropped to 0 hit points and not killed outright, I can choose to stay at 1 hit point\n   Additionally, I suffer no drawbacks of old age and can't be aged magically",
                   "recovery": "long rest",
                   "usages": 1
                 },
@@ -6998,14 +6883,7 @@
                   "name": "Elder Champion",
                   "source": [ "P", 87 ],
                   "minlevel": 20,
-                  "description": "\n   ",
-                  "+" "As an action, I assume the form of a force of nature for 1 minute and gain benefits:",
-                  "+" "\n    - ",
-                  "+" "At the start of each of my turns, I regain 10 hit points",
-                  "+" "\n    - ",
-                  "+" "I can cast paladin spells with a casting time of 1 action as a bonus action instead",
-                  "+" "\n    - ",
-                  "+" "Enemies within 10 ft have disadv. on saves vs. my paladin spells and channel divinity",
+                  "description": "As an action, I assume the form of a force of nature for 1 minute and gain benefits:\n    - At the start of each of my turns, I regain 10 hit points\n    - I can cast paladin spells with a casting time of 1 action as a bonus action instead\n    - Enemies within 10 ft have disadv. on saves vs. my paladin spells and channel divinity",
                   "recovery": "long rest",
                   "usages": 1,
                   "action": [ "action", "" ]
@@ -7022,53 +6900,34 @@
                   "name": "Channel Divinity: Abjure Enemy",
                   "source": [ "P", 88 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "As an action, one creature within 60 ft that I can see me must make a Wisdom save",
-                  "+" "\n   ",
-                  "+" "If failed, it is frightened and its speed is 0 despite bonuses; if success, its speed is halved",
-                  "+" "\n   ",
-                  "+" "This lasts for 1 minute or until it takes damage; Undead/fiends have disadv. on save",
+                  "description": "As an action, one creature within 60 ft that I can see me must make a Wisdom save\n   If failed, it is frightened and its speed is 0 despite bonuses; if success, its speed is halved\n   This lasts for 1 minute or until it takes damage; Undead/fiends have disadv. on save",
                   "action": [ "action", "" ]
                 },
                 "subclassfeature3.1": {
                   "name": "Channel Divinity: Vow of Enmity",
                   "source": [ "P", 88 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "As a bonus action, I utter a vow against a creature I can see within 10 ft",
-                  "+" "\n   ",
-                  "+" "I have advantage on attack rolls against it for 1 minute or until it is at 0 HP/unconscious",
+                  "description": "As a bonus action, I utter a vow against a creature I can see within 10 ft\n   I have advantage on attack rolls against it for 1 minute or until it is at 0 HP/unconscious",
                   "action": [ "bonus action", "" ]
                 },
                 "subclassfeature7": {
                   "name": "Relentless Avenger",
                   "source": [ "P", 88 ],
                   "minlevel": 7,
-                  "description": "\n   ",
-                  "+" "After I hit with an opportunity attack, I can move 1/2 my speed in the same reaction",
-                  "+" "\n   ",
-                  "+" "This movement doesn't provoke opportunity attacks"
+                  "description": "After I hit with an opportunity attack, I can move 1/2 my speed in the same reaction\n   This movement doesn't provoke opportunity attacks"
                 },
                 "subclassfeature15": {
                   "name": "Soul of Vengeance",
                   "source": [ "P", 88 ],
                   "minlevel": 15,
-                  "description": "\n   ",
-                  "+" "When an enemy I have an active Vow of Enmity against makes an attack, I can react",
-                  "+" "\n   ",
-                  "+" "As a reaction, I can make a melee weapon attack against it if it is within range",
+                  "description": "When an enemy I have an active Vow of Enmity against makes an attack, I can react\n   As a reaction, I can make a melee weapon attack against it if it is within range",
                   "action": [ "reaction", " (with Vow of Enmity" ]
                 },
                 "subclassfeature20": {
                   "name": "Avenging Angel",
                   "source": [ "P", 88 ],
                   "minlevel": 20,
-                  "description": "\n   ",
-                  "+" "As an action, I gain a flying speed of 60 ft and a 30 ft aura of menace for 1 hour",
-                  "+" "\n   ",
-                  "+" "When a creature first enters or starts its turn in the aura, it must make a Wis save",
-                  "+" "\n   ",
-                  "+" "If failed, for 1 min or until it takes damage, it is frightened and attacks vs. it have adv.",
+                  "description": "As an action, I gain a flying speed of 60 ft and a 30 ft aura of menace for 1 hour\n   When a creature first enters or starts its turn in the aura, it must make a Wis save\n   If failed, for 1 min or until it takes damage, it is frightened and attacks vs. it have adv.",
                   "recovery": "long rest",
                   "usages": 1,
                   "action": [ "action", "" ]
@@ -7170,8 +7029,7 @@
               }
             },
             {
-              "regExpSearch": "/^((?=.*(knight|tyrant|iron",
-              "mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i",
+              "regExpSearch": "/^((?=.*(knight|tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i",
               "subname": "Oath of Conquest",
               "source": [ "X", 37 ],
               "spellcastingExtra": [ "armor of agathys", "command", "hold person", "spiritual weapon", "bestow curse", "fear", "dominate beast", "stoneskin", "cloudkill", "dominate person" ],
@@ -7541,16 +7399,7 @@
                   "name": "Ranger's Companion",
                   "source": [ "P", 93 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "It adds my proficiency bonus to AC, attacks, damage, and save/skill proficiencies",
-                  "+" "\n   ",
-                  "+" "Its Hit Point maximum equals four times my ranger level if higher than its normal HP",
-                  "+" "\n   ",
-                  "+" "It takes a turn on my initiative; It only takes an action if I command it to",
-                  "+" "\n   ",
-                  "+" "As an action, I can have it do an Attack/Dash/Disengage/Dodge/Help action on its turn",
-                  "+" "\n   ",
-                  "+" "Can attack while commanding with Extra Attack; Order movement at no action cost",
+                  "description": "It adds my proficiency bonus to AC, attacks, damage, and save/skill proficiencies\n   Its Hit Point maximum equals four times my ranger level if higher than its normal HP\n   It takes a turn on my initiative; It only takes an action if I command it to\n   As an action, I can have it do an Attack/Dash/Disengage/Dodge/Help action on its turn\n   Can attack while commanding with Extra Attack; Order movement at no action cost",
                   "additional": "1/4 CR up to medium sized beast",
                   "action": [ "action", " (Command)" ]
                 },
@@ -7558,23 +7407,20 @@
                   "name": "Exceptional Training",
                   "source": [ "P", 93 ],
                   "minlevel": 7,
-                  "description": "\n   ",
-                  "+" "As a bonus action, I can have my beast Dash/Disengage/Dodge/Help on its turn",
+                  "description": "As a bonus action, I can have my beast Dash/Disengage/Dodge/Help on its turn",
                   "action": [ "bonus action", "" ]
                 },
                 "subclassfeature11": {
                   "name": "Bestial Fury",
                   "source": [ "P", 93 ],
                   "minlevel": 11,
-                  "description": "\n   ",
-                  "+" "When I command my beast to use the Attack action, it can attack twice on its turn"
+                  "description": "When I command my beast to use the Attack action, it can attack twice on its turn"
                 },
                 "subclassfeature15": {
                   "name": "Share Spells",
                   "source": [ "P", 93 ],
                   "minlevel": 15,
-                  "description": "\n   ",
-                  "+" "When I cast a spell on myself, I can have it also affect my beast if it is within 30 ft"
+                  "description": "When I cast a spell on myself, I can have it also affect my beast if it is within 30 ft"
                 }
               }
             },
@@ -8166,7 +8012,7 @@
               "spellcastingList": {
                 "class": "wizard",
                 "school": [ "Ench", "Illus" ],
-                "level": [ 0, 4 ] //lower and higher limit
+                "level": [ 0, 4 ]
               },
               "spellcastingKnown": {
                 "cantrips": [ 0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 ],
@@ -8177,20 +8023,19 @@
                   "name": "Spellcasting",
                   "source": [ "P", 98 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "I can cast known wizard cantrips/spells, using Intelligence as my spellcasting ability",
+                  "description": "I can cast known wizard cantrips/spells, using Intelligence as my spellcasting ability",
                   "additional": [ "", "", "3 cantrips & 3 spells known", "3 cantrips & 4 spells known", "3 cantrips & 4 spells known", "3 cantrips & 4 spells known", "3 cantrips & 5 spells known", "3 cantrips & 6 spells known", "3 cantrips & 6 spells known", "4 cantrips & 7 spells known", "4 cantrips & 8 spells known", "4 cantrips & 8 spells known", "4 cantrips & 9 spells known", "4 cantrips & 10 spells known", "4 cantrips & 10 spells known", "4 cantrips & 11 spells known", "4 cantrips & 11 spells known", "4 cantrips & 11 spells known", "4 cantrips & 12 spells known", "4 cantrips & 13 spells known" ],
                   "spellcastingBonus": [
-                    { //for the Mage Hand cantrip gained at level 1
+                    {
                       "name": "Mage Hand cantrip",
                       "spells": [ "mage hand" ],
                       "selection": [ "mage hand" ]
                     },
-                    { //for the spells gained at level 3, 8, 14, 20
+                    {
                       "name": "From any School",
                       "class": "wizard",
                       "times": [ 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4 ],
-                      "level": [ 1, 4 ] //lower and higher limit
+                      "level": [ 1, 4 ]
                     }
                   ]
                 },
@@ -8198,45 +8043,27 @@
                   "name": "Mage Hand Legerdemain",
                   "source": [ "P", 98 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "As a bonus action, I can direct my Mage Hand",
-                  "+" "\n   ",
-                  "+" "With a Dex (Sleight of Hand) vs. Wis (Perception) checks, I can do so discreetly",
-                  "+" "\n   ",
-                  "+" "I can make it invisible and perform the following tasks:",
-                  "+" "\n    - ",
-                  "+" "Stow/retrieve an object the hand is holding in a container worn/carried by another",
-                  "+" "\n    - ",
-                  "+" "Use thieves' tools to pick locks and disarm traps at range",
+                  "description": "As a bonus action, I can direct my Mage Hand\n   With a Dex (Sleight of Hand) vs. Wis (Perception) checks, I can do so discreetly\n   I can make it invisible and perform the following tasks:\n    - Stow/retrieve an object the hand is holding in a container worn/carried by another\n    - Use thieves' tools to pick locks and disarm traps at range",
                   "action": [ "bonus action", "" ]
                 },
                 "subclassfeature9": {
                   "name": "Magical Ambush",
                   "source": [ "P", 98 ],
                   "minlevel": 9,
-                  "description": "\n   ",
-                  "+" "When I cast a spell while hidden, the target(s) have disadvantage against that spell"
+                  "description": "When I cast a spell while hidden, the target(s) have disadvantage against that spell"
                 },
                 "subclassfeature13": {
                   "name": "Versatile Trickster",
                   "source": [ "P", 98 ],
                   "minlevel": 13,
-                  "description": "\n   ",
-                  "+" "As a bonus action, gain adv. on attacks this turn on creature within 5 ft of Mage Hand",
+                  "description": "As a bonus action, gain adv. on attacks this turn on creature within 5 ft of Mage Hand",
                   "action": [ "bonus action", "" ]
                 },
                 "subclassfeature17": {
                   "name": "Spell Thief",
                   "source": [ "P", 98 ],
                   "minlevel": 17,
-                  "description": "\n   ",
-                  "+" "As a reaction, after a spell is cast at me, I can try to negate and steal it",
-                  "+" "\n   ",
-                  "+" "The caster makes a save against my spell DC with his/her spellcasting ability",
-                  "+" "\n   ",
-                  "+" "On failure, the caster forgets how to cast that spell for eight hours",
-                  "+" "\n   ",
-                  "+" "If I have a spell slot of a high enough level for it, I learn how to cast it during this time",
+                  "description": "As a reaction, after a spell is cast at me, I can try to negate and steal it\n   The caster makes a save against my spell DC with his/her spellcasting ability\n   On failure, the caster forgets how to cast that spell for eight hours\n   If I have a spell slot of a high enough level for it, I learn how to cast it during this time",
                   "action": [ "reaction", "" ],
                   "recovery": "long rest",
                   "usages": 1
@@ -8254,41 +8081,32 @@
                   "name": "Bonus Proficiencies",
                   "source": [ "P", 97 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "I am proficient with disguise kits and poisoner's kits",
+                  "description": "I am proficient with disguise kits and poisoner's kits",
                   "toolProfs": [ "Disguise kit", "Poisoner's kit" ]
                 },
                 "subclassfeature3.1": {
                   "name": "Assassinate",
                   "source": [ "P", 97 ],
                   "minlevel": 3,
-                  "description": "\n   ",
-                  "+" "I have adv. on attack rolls against creatures that have not taken a turn in combat yet",
-                  "+" "\n   ",
-                  "+" "Any hit I score against a creature that is surprised is a critical hit"
+                  "description": "I have adv. on attack rolls against creatures that have not taken a turn in combat yet\n   Any hit I score against a creature that is surprised is a critical hit"
                 },
                 "subclassfeature9": {
                   "name": "Infiltration Expertise",
                   "source": [ "P", 97 ],
                   "minlevel": 9,
-                  "description": "\n   ",
-                  "+" "I can create false identities in 7 days for 25 gp"
+                  "description": "I can create false identities in 7 days for 25 gp"
                 },
                 "subclassfeature13": {
                   "name": "Imposter",
                   "source": [ "P", 97 ],
                   "minlevel": 13,
-                  "description": "\n   ",
-                  "+" "After 3 hours of studying a person, I can mimic speech, writing, and behavior",
-                  "+" "\n   ",
-                  "+" "I have advantage on Charisma (Deception) checks to maintain this ruse"
+                  "description": "After 3 hours of studying a person, I can mimic speech, writing, and behavior\n   I have advantage on Charisma (Deception) checks to maintain this ruse"
                 },
                 "subclassfeature17": {
                   "name": "Death Strike",
                   "source": [ "P", 97 ],
                   "minlevel": 17,
-                  "description": "\n   ",
-                  "+" "When I hit a surprised creature, it must make a Con save or take double damage",
+                  "description": "When I hit a surprised creature, it must make a Con save or take double damage",
                   "additional": "Save DC: 8 + Dex mod + Proficiency bonus"
                 }
               }
@@ -8865,88 +8683,13 @@
                   "name": "Wild Magic Surge",
                   "source": [ "P", 103 ],
                   "minlevel": 1,
-                  "description": "desc(",
-                  [
-                    "Wild Magic Surges happen 5% of the time that I cast a sorcerer spell",
-                    "This doesn't happen with cantrips and I only take this chance if the DM tells me to",
-                    "See the \"Notes\" page for the table"
-                  ],
-                  ")",
-                  "wmsurgetable1": "◆ Wild Magic Surge Table (Wild Magic 1, PHB 104) [results 01-50]",
-                  "+" "desc(",
-                  [
-                    "d100  Effect",
-                    "01-02 Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls.",
-                    "03-04 For the next minute, you can see any invisible creature if you have line of sight to it.",
-                    "05-06 A modron chosen and controlled by the DM appears in an unoccupied space within 5 ft of you, then disappears 1 minute later.",
-                    "07-08 You cast fireball as a 3rd-level spell centered on yourself.",
-                    "09-10 You cast magic missile as a 5th-level spell.",
-                    "11-12 Roll a d10. Your height changes by a number of inches equal to the roll. If the roll is odd, you shrink. If the roll is even, you grow.",
-                    "13-14 You cast confusion centered on yourself.",
-                    "15-16 For the next minute, you regain 5 hit points at the start of each of your turns.",
-                    "17-18 You grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode out from your face.",
-                    "19-20 You cast grease centered on yourself.",
-                    "21-22 Creatures have disadvantage on saving throws against the next spell you cast in the next minute that involves a saving throw.",
-                    "23-24 Your skin turns a vibrant shade of blue. A remove curse spell can end this effect.",
-                    "25-26 An eye appears on your forehead for the next minute.",
-                    "27-28 For the next minute, all your spells with a casting time feet of 1 action have a casting time of 1 bonus action.",
-                    "29-30 You teleport up to 60 ft to an unoccupied space of your choice that you can see.",
-                    "31-32 You are transported to the Astral Plane until the end of your next turn, after which time you return to the space you previously occupied or the nearest unoccupied space if that space is occupied.",
-                    "33-34 Maximize the damage of the next damaging spell you cast within the next minute.",
-                    "35-36 Roll a d10. Your age changes by a number of years equal to the roll. If the roll is odd, you get younger (minimum 1 year old). If the roll is even, you get older.",
-                    "37-38 1d6 flumphs controlled by the DM appear in unoccupied spaces within 60 ft of you and are frightened of you. They vanish after 1 minute.",
-                    "39-40 You regain 2d10 hit points.",
-                    "41-42 You turn into a potted plant until the start of your next turn. While a plant, you are incapacitated and have vulnerability to all damage. If you drop to 0 hit points, your pot breaks, and your form reverts.",
-                    "43-44 For the next minute, you can teleport up to 20 ft as a bonus action on each of your turns.",
-                    "45-46 You cast levitate on yourself.",
-                    "47-48 A unicorn controlled by the DM appears in a space within 5 ft of you, then disappears 1 minute later.",
-                    "49-50 You can't speak for the next minute. Whenever you try, pink bubbles float out of your mouth."
-                  ],
-                  ")",
-                  "wmsurgetable2": "◆ Wild Magic Surge Table (Wild Magic 1, PHB 104) [results 51-100]",
-                  "+" "desc(",
-                  [
-                    "d100  Effect",
-                    "51-52 A spectral shield hovers near you for the next minute, granting you a +2 bonus to AC and immunity to magic missile.",
-                    "53-54 You are immune to being intoxicated by alcohol for the next 5d6 days.",
-                    "55-56 Your hair falls out but grows back within 24 hours.",
-                    "57-58 For the next minute, any flammable object you touch that isn't being worn or carried by another creature bursts into flame.",
-                    "59-60 You regain your lowest-level expended spell slot.",
-                    "61-62 For the next minute, you must shout when you speak.",
-                    "63-64 You cast fog cloud centered on yourself.",
-                    "65-66 Up to three creatures you choose within 30 ft of you take 4d10 lightning damage.",
-                    "67-68 You are frightened by the nearest creature until the end of your next turn.",
-                    "69-70 Each creature within 30 ft of you becomes invisible for the next minute. The invisibility ends on a creature when it attacks or casts a spell.",
-                    "71-72 You gain resistance to all damage for the next minute.",
-                    "73-74 A random creature within 60 ft of you becomes poisoned for 1d4 hours.",
-                    "75-76 You glow with bright light in a 30-ft radius for the next minute. Any creature that ends its turn within 5 ft of you is blinded until the end of its next turn.",
-                    "79-80 Illusory butterflies and flower petals flutter in the air within 10 ft of you for the next minute.",
-                    "77-78 You cast polymorph on yourself. If you fail the saving throw, you turn into a sheep for the spell's duration.",
-                    "81-82 You can take one additional action immediately.",
-                    "83-84 Each creature within 30 ft of you takes 1d10 necrotic damage. You regain hit points equal to the sum of the necrotic damage dealt.",
-                    "85-86 You cast mirror image.",
-                    "87-88 You cast fly on a random creature within 60 ft of you.",
-                    "89-90 You become invisible for the next minute. During that time, other creatures can't hear you. The invisibility ends if you attack or cast a spell.",
-                    "91-92 If you die within the next minute, you immediately come back to life as if by the reincarnate spell.",
-                    "93-94 Your size increases by one size category for the next minute.",
-                    "95-96 You and all creatures within 30 ft of you gain vulnerability to piercing damage for the next minute.",
-                    "97-98 You are surrounded by faint, ethereal music for the next minute.",
-                    "99-100 You regain all expended sorcery points."
-                  ],
-                  ")",
-                  "eval": "try {AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable1, \"Wild Mage's Wild Magic Surge table, part 1\"); AddToNotes(ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable2, \"Wild Mage's Wild Magic Surge table, part 2\");} catch (er) {};",
-                  "removeeval": "try {AddToNotes('', '', ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable1); AddToNotes('', '', ClassSubList['sorcerer-wild magic'].features.subclassfeature1.wmsurgetable2);} catch (er) {};"
+                  "description": "Wild Magic Surges happen 5% of the time that I cast a sorcerer spell. This doesn't happen with cantrips and I only take this chance if the DM tells me to\n\n◆ Wild Magic Surge Table (Wild Magic 1, PHB 104) [results 01-50]\nd100  Effect\n01-02 Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls.\n03-04 For the next minute, you can see any invisible creature if you have line of sight to it.\n05-06 A modron chosen and controlled by the DM appears in an unoccupied space within 5 ft of you, then disappears 1 minute later.\n07-08 You cast fireball as a 3rd-level spell centered on yourself.\n09-10 You cast magic missile as a 5th-level spell.\n11-12 Roll a d10. Your height changes by a number of inches equal to the roll. If the roll is odd, you shrink. If the roll is even, you grow.\n13-14 You cast confusion centered on yourself.\n15-16 For the next minute, you regain 5 hit points at the start of each of your turns.\n17-18 You grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode out from your face.\n19-20 You cast grease centered on yourself.\n21-22 Creatures have disadvantage on saving throws against the next spell you cast in the next minute that involves a saving throw.\n23-24 Your skin turns a vibrant shade of blue. A remove curse spell can end this effect.\n25-26 An eye appears on your forehead for the next minute.\n27-28 For the next minute, all your spells with a casting time feet of 1 action have a casting time of 1 bonus action.\n29-30 You teleport up to 60 ft to an unoccupied space of your choice that you can see.\n31-32 You are transported to the Astral Plane until the end of your next turn, after which time you return to the space you previously occupied or the nearest unoccupied space if that space is occupied.\n33-34 Maximize the damage of the next damaging spell you cast within the next minute.\n35-36 Roll a d10. Your age changes by a number of years equal to the roll. If the roll is odd, you get younger (minimum 1 year old). If the roll is even, you get older.\n37-38 1d6 flumphs controlled by the DM appear in unoccupied spaces within 60 ft of you and are frightened of you. They vanish after 1 minute.\n39-40 You regain 2d10 hit points.\n41-42 You turn into a potted plant until the start of your next turn. While a plant, you are incapacitated and have vulnerability to all damage. If you drop to 0 hit points, your pot breaks, and your form reverts.\n43-44 For the next minute, you can teleport up to 20 ft as a bonus action on each of your turns.\n45-46 You cast levitate on yourself.\n47-48 A unicorn controlled by the DM appears in a space within 5 ft of you, then disappears 1 minute later.\n49-50 You can't speak for the next minute. Whenever you try, pink bubbles float out of your mouth.\n51-52 A spectral shield hovers near you for the next minute, granting you a +2 bonus to AC and immunity to magic missile.\n53-54 You are immune to being intoxicated by alcohol for the next 5d6 days.\n55-56 Your hair falls out but grows back within 24 hours.\n57-58 For the next minute, any flammable object you touch that isn't being worn or carried by another creature bursts into flame.\n59-60 You regain your lowest-level expended spell slot.\n61-62 For the next minute, you must shout when you speak.\n63-64 You cast fog cloud centered on yourself.\n65-66 Up to three creatures you choose within 30 ft of you take 4d10 lightning damage.\n67-68 You are frightened by the nearest creature until the end of your next turn.\n69-70 Each creature within 30 ft of you becomes invisible for the next minute. The invisibility ends on a creature when it attacks or casts a spell.\n71-72 You gain resistance to all damage for the next minute.\n73-74 A random creature within 60 ft of you becomes poisoned for 1d4 hours.\n75-76 You glow with bright light in a 30-ft radius for the next minute. Any creature that ends its turn within 5 ft of you is blinded until the end of its next turn.\n79-80 Illusory butterflies and flower petals flutter in the air within 10 ft of you for the next minute.\n77-78 You cast polymorph on yourself. If you fail the saving throw, you turn into a sheep for the spell's duration.\n81-82 You can take one additional action immediately.\n83-84 Each creature within 30 ft of you takes 1d10 necrotic damage. You regain hit points equal to the sum of the necrotic damage dealt.\n85-86 You cast mirror image.\n87-88 You cast fly on a random creature within 60 ft of you.\n89-90 You become invisible for the next minute. During that time, other creatures can't hear you. The invisibility ends if you attack or cast a spell.\n91-92 If you die within the next minute, you immediately come back to life as if by the reincarnate spell.\n93-94 Your size increases by one size category for the next minute.\n95-96 You and all creatures within 30 ft of you gain vulnerability to piercing damage for the next minute.\n97-98 You are surrounded by faint, ethereal music for the next minute.\n99-100 You regain all expended sorcery points."
                 },
                 "subclassfeature1.1": {
                   "name": "Tides of Chaos",
                   "source": [ "P", 103 ],
                   "minlevel": 1,
-                  "description": "\n   ",
-                  "+" "I can gain advantage on either one attack roll, ability check, or saving throw",
-                  "+" "\n   ",
-                  "+" "After I cast a 1st-level or higher sorcerer spell, the DM can impose a Wild Magic Surge",
-                  "+" "\n   ",
-                  "+" "After I roll on the Wild Magic Surge table, I regain my use of Tides of Chaos",
+                  "description": "I can gain advantage on either one attack roll, ability check, or saving throw\n   After I cast a 1st-level or higher sorcerer spell, the DM can impose a Wild Magic Surge\n   After I roll on the Wild Magic Surge table, I regain my use of Tides of Chaos",
                   "recovery": "long rest",
                   "usages": 1
                 },
@@ -8954,8 +8697,7 @@
                   "name": "Bend Luck",
                   "source": [ "P", 103 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "As a reaction, I can add/subtract 1d4 from another's attack roll, ability check, or save",
+                  "description": "As a reaction, I can add/subtract 1d4 from another's attack roll, ability check, or save",
                   "action": [ "reaction", " (2 sorcery points)" ],
                   "additional": "2 sorcery points"
                 },
@@ -8963,17 +8705,13 @@
                   "name": "Controlled Chaos",
                   "source": [ "P", 103 ],
                   "minlevel": 14,
-                  "description": "\n   ",
-                  "+" "Whenever I roll on the Wild Magic Surge table, I can roll twice and use either result"
+                  "description": "Whenever I roll on the Wild Magic Surge table, I can roll twice and use either result"
                 },
                 "subclassfeature18": {
                   "name": "Spell Bombardment",
                   "source": [ "P", 103 ],
                   "minlevel": 18,
-                  "description": "\n   ",
-                  "+" "Once per turn, when I roll spell damage, I can take one damage die that rolled max",
-                  "+" "\n   ",
-                  "+" "I can then roll this die again and add it to the spell's damage"
+                  "description": "Once per turn, when I roll spell damage, I can take one damage die that rolled max\n   I can then roll this die again and add it to the spell's damage"
                 }
               }
             },
@@ -9454,10 +9192,7 @@
                   "name": "Fey Presence",
                   "source": [ "P", 109 ],
                   "minlevel": 1,
-                  "description": "\n   ",
-                  "+" "As an action, all creatures in a 10-ft cube around me must make a Wisdom save",
-                  "+" "\n   ",
-                  "+" "If failed, they're all charmed or frightened (my choice) until the end of my next turn",
+                  "description": "As an action, all creatures in a 10-ft cube around me must make a Wisdom save\n   If failed, they're all charmed or frightened (my choice) until the end of my next turn",
                   "recovery": "short rest",
                   "usages": 1,
                   "action": [ "action", "" ]
@@ -9466,10 +9201,7 @@
                   "name": "Misty Escape",
                   "source": [ "P", 109 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "As a reaction, when I take damage, I can turn invisible and teleport up to 60 ft",
-                  "+" "\n   ",
-                  "+" "I stay invisible until the start of my next turn or until I attack or cast a spell",
+                  "description": "As a reaction, when I take damage, I can turn invisible and teleport up to 60 ft\n   I stay invisible until the start of my next turn or until I attack or cast a spell",
                   "action": [ "reaction", " (taking damage)" ],
                   "recovery": "short rest",
                   "usages": 1
@@ -9478,12 +9210,7 @@
                   "name": "Beguiling Defenses",
                   "source": [ "P", 109 ],
                   "minlevel": 10,
-                  "description": "\n   ",
-                  "+" "As a reaction, when a creature tries to charm me, I can turn the charm back on it",
-                  "+" "\n   ",
-                  "+" "It must make a Wis save or be charmed by me for 1 minute or until taking damage",
-                  "+" "\n   ",
-                  "+" "I am immune to being charmed",
+                  "description": "As a reaction, when a creature tries to charm me, I can turn the charm back on it\n   It must make a Wis save or be charmed by me for 1 minute or until taking damage\n   I am immune to being charmed",
                   "action": [ "reaction", " (when charmed)" ],
                   "savetxt": { "immune": [ "charmed" ] }
                 },
@@ -9491,12 +9218,7 @@
                   "name": "Dark Delirium",
                   "source": [ "P", 109 ],
                   "minlevel": 14,
-                  "description": "\n   ",
-                  "+" "As an action, a creature within 60 ft must make a Wis save or be charmed/frightened",
-                  "+" "\n   ",
-                  "+" "This lasts for 1 minute or until my concentration is broken or it takes damage",
-                  "+" "\n   ",
-                  "+" "During this time, it can't see or hear anything but the illusion, me, and itself",
+                  "description": "As an action, a creature within 60 ft must make a Wis save or be charmed/frightened\n   This lasts for 1 minute or until my concentration is broken or it takes damage\n   During this time, it can't see or hear anything but the illusion, me, and itself",
                   "recovery": "short rest",
                   "usages": 1,
                   "action": [ "action", "" ]
@@ -9513,17 +9235,13 @@
                   "name": "Awakened Mind",
                   "source": [ "P", 110 ],
                   "minlevel": 1,
-                  "description": "\n   ",
-                  "+" "I can telepathically speak to creatures I can see within 30 ft if they know a language" // 'to' not 'with', so one-way
+                  "description": "I can telepathically speak to creatures I can see within 30 ft if they know a language"
                 },
                 "subclassfeature6": {
                   "name": "Entropic Ward",
                   "source": [ "P", 110 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "As a reaction, when I'm attacked, I can impose disadvantage to that attack roll",
-                  "+" "\n   ",
-                  "+" "If it misses me, I have adv. on my next attack vs. the attacker during my next turn",
+                  "description": "As a reaction, when I'm attacked, I can impose disadvantage to that attack roll\n   If it misses me, I have adv. on my next attack vs. the attacker during my next turn",
                   "action": [ "reaction", " (when attacked)" ],
                   "recovery": "short rest",
                   "usages": 1
@@ -9532,22 +9250,14 @@
                   "name": "Thought Shield",
                   "source": [ "P", 110 ],
                   "minlevel": 10,
-                  "description": "\n   ",
-                  "+" "No one can read my mind unless I allow it; I have resistance to psychic damage",
-                  "+" "\n   ",
-                  "+" "When I take psychic damage, the dealer of the psychic damage takes the same amount",
+                  "description": "No one can read my mind unless I allow it; I have resistance to psychic damage\n   When I take psychic damage, the dealer of the psychic damage takes the same amount",
                   "dmgres": [ "Psychic" ]
                 },
                 "subclassfeature14": {
                   "name": "Create Thrall",
                   "source": [ "P", 110 ],
                   "minlevel": 14,
-                  "description": "\n   ",
-                  "+" "As an action, I can charm an incapacitated humanoid by touch",
-                  "+" "\n   ",
-                  "+" "While it is charmed, I can communicate with it telepathically if it is on the same plane",
-                  "+" "\n   ",
-                  "+" "This lasts until the charm is removed (can be by Remove Curse) or I use this again",
+                  "description": "As an action, I can charm an incapacitated humanoid by touch\n   While it is charmed, I can communicate with it telepathically if it is on the same plane\n   This lasts until the charm is removed (can be by Remove Curse) or I use this again",
                   "action": [ "action", "" ]
                 }
               }
@@ -9625,7 +9335,6 @@
                   "source": [ "X", 54 ],
                   "minlevel": 1,
                   "description": "As a bonus action, I can heal a creature I can see within 60 ft by expending dice. I can expend up to my Charisma modifier (min 1) of dice from my pool at a time. The target heals HP equal to the roll of the dice; I regain all expended dice on a long rest",
-                  ")",
                   "usagescalc": "event.value:!classes.known.warlock ? '' : (1 + classes.known.warlock.level) + 'd6';",
                   "recovery": "long rest",
                   "action": [ "bonus action", "" ]
@@ -9705,6 +9414,59 @@
                   "source": [ "X", 56 ],
                   "minlevel": 14,
                   "description": "When the target of my Hexblade's Curse dies, I can curse another I can see within 30 ft. I can't do this while incapacitated and I don't regain HP from the death of the previous"
+                }
+              }
+            },
+            {
+              "regExpSearch": "/^(?=.*warlock)(?=.*ghost)(?=.*(machine|computer)).*$/i",
+              "subname": "the Ghost in the Machine",
+              "source": [ "UA:MM", 2 ],
+              "spellcastingExtra": [ "infallible relay", "remote access", "arcane hacking", "digital phantom", "haywire", "invisibility to cameras", "conjure knowbot", "system backdoor", "shutdown", "synchronicity" ],
+              "features": {
+                "subclassfeature1": {
+                  "name": "Bonus Proficiency",
+                  "source": [ "UA:MM", 2 ],
+                  "minlevel": 1,
+                  "description": "I am proficient with hacking tools and know the On/Off cantrip",
+                  "toolProfs": [ "Hacking tools" ],
+                  "spellcastingBonus": {
+                    "name": "Bonus Cantrip (On/Off)",
+                    "spells": [ "on/off" ],
+                    "selection": [ "on/off" ]
+                  }
+                },
+                "subclassfeature1.1": {
+                  "name": "Information Surge",
+                  "source": [ "UA:MM", 2 ],
+                  "minlevel": 1,
+                  "description": "As an action, I can cause a computerized device within 30 ft to make an Int save. If the device is held/used by a creature, that creature makes the saving throw. If the device is not held/used, it makes a save with a +0 modifier and disadvantage. On a failed save, the device stops functioning until the end of my next turn",
+                  "usages": 1,
+                  "recovery": "short rest",
+                  "action": [ "action", "" ]
+                },
+                "subclassfeature6": {
+                  "name": "Wire Walk",
+                  "source": [ "UA:MM", 3 ],
+                  "minlevel": 6,
+                  "description": "As a bonus action, I can teleport through a hardwired network to a point I can see. Both where I start and end must be a device, cable, or socket connected to the network",
+                  "usages": 1,
+                  "recovery": "long rest",
+                  "action": [ "bonus action", "" ]
+                },
+                "subclassfeature10": {
+                  "name": "Personal Encryption",
+                  "source": [ "UA:MM", 3 ],
+                  "minlevel": 10,
+                  "description": "I have adv. on saves vs. scrying, thought detection, and magics for learning my location. If the effect doesn't let me a save, the user has disadv. on checks to use it on me, if any"
+                },
+                "subclassfeature14": {
+                  "name": "Technovirus",
+                  "source": [ "UA:MM", 3 ],
+                  "minlevel": 14,
+                  "description": "As an action, I make a melee spell attack to infect someone with a techno-organic virus. The target takes 8d10 psychic damage, or half that with a successful Con save. If it failed its save, I can use an action to cast Command on it while it remains infected. It makes its save vs. this Command with disadvantage and I can cast it at any range. It is infected until my next long rest; The virus can be removed with Lesser Restoration",
+                  "usages": 1,
+                  "recovery": "long rest",
+                  "action": [ "action", "" ]
                 }
               }
             }
@@ -10343,32 +10105,13 @@
                   "name": "Abjuration Savant",
                   "source": [ "P", 115 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I halve the gp and time needed to copy abjuration spells into my spellbook"
+                  "description": "I halve the gp and time needed to copy abjuration spells into my spellbook"
                 },
                 "subclassfeature2.1": {
                   "name": "Arcane Ward",
                   "source": [ "P", 115 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "Whenever I cast an 1st-level or higher abjuration spell, I make/heal a ward",
-                  "+" "\n   ",
-                  "+" "I make it at max HP; When I cast again, it heals two HP per spell level",
-                  "+" "\n   ",
-                  "+" "It stays active at 0 HP and doesn't go away until my next long rest",
-                  "+" "\n   ",
-                  "+" "If I take damage, the ward takes the damage instead, but excess damage carries over",
-                  "additional": "levels.map(",
-                  "function(n)" {
-                    "if" "(n",
-                    "<" "2)",
-                    "return" "\"\";",
-                    "return" "Ward max HP: ",
-                    "+" "(n",
-                    "*" "2)",
-                    "+" "\"+Int mod\";"
-                  },
-                  ")",
+                  "description": "Whenever I cast an 1st-level or higher abjuration spell, I make/heal a ward\n   I make it at max HP; When I cast again, it heals two HP per spell level\n   It stays active at 0 HP and doesn't go away until my next long rest\n   If I take damage, the ward takes the damage instead, but excess damage carries over",
                   "usages": 1,
                   "recovery": "long rest"
                 },
@@ -10376,23 +10119,20 @@
                   "name": "Protected Ward",
                   "source": [ "P", 115 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "As a reaction, my Arcane Ward can absorb damage done to a creature within 30 ft",
+                  "description": "As a reaction, my Arcane Ward can absorb damage done to a creature within 30 ft",
                   "action": [ "reaction", "" ]
                 },
                 "subclassfeature10": {
                   "name": "Improved Abjuration",
                   "source": [ "P", 115 ],
                   "minlevel": 10,
-                  "description": "\n   ",
-                  "+" "When I cast an abjuration spell requiring an ability check, I add my proficiency bonus"
+                  "description": "When I cast an abjuration spell requiring an ability check, I add my proficiency bonus"
                 },
                 "subclassfeature14": {
                   "name": "Spell Resistance",
                   "source": [ "P", 116 ],
                   "minlevel": 14,
-                  "description": "\n   ",
-                  "+" "I have adv. on spell saves and resistance to damaging spells",
+                  "description": "I have adv. on spell saves and resistance to damaging spells",
                   "dmgres": [ "Spells" ],
                   "savetxt": { "adv_vs": [ "spells" ] }
                 }
@@ -10408,31 +10148,20 @@
                   "name": "Conjuration Savant",
                   "source": [ "P", 116 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I halve the gp and time needed to copy conjuration spells into my spellbook"
+                  "description": "I halve the gp and time needed to copy conjuration spells into my spellbook"
                 },
                 "subclassfeature2.1": {
                   "name": "Minor Conjuration",
                   "source": [ "P", 116 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "As an action, I can conjure an object up to 3 ft on each side and no more than 10 lbs",
-                  "+" "\n   ",
-                  "+" "It must be of a form of a nonmagical object I have seen and is created within 10 ft",
-                  "+" "\n   ",
-                  "+" "The object disappears after 1 hour, if it takes or deals damage, or when I use this again",
+                  "description": "As an action, I can conjure an object up to 3 ft on each side and no more than 10 lbs\n   It must be of a form of a nonmagical object I have seen and is created within 10 ft\n   The object disappears after 1 hour, if it takes or deals damage, or when I use this again",
                   "action": [ "action", "" ]
                 },
                 "subclassfeature6": {
                   "name": "Benign Transposition",
                   "source": [ "P", 116 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "As an action, I can teleport to a place within 30 ft that I can see",
-                  "+" "\n   ",
-                  "+" "Instead, I can swap places with a willing Small/Medium creature in 30 ft that I can see",
-                  "+" "\n   ",
-                  "+" "I can do this again after a long rest or casting a 1st-level or higher conjuration spell",
+                  "description": "As an action, I can teleport to a place within 30 ft that I can see\n   Instead, I can swap places with a willing Small/Medium creature in 30 ft that I can see\n   I can do this again after a long rest or casting a 1st-level or higher conjuration spell",
                   "usages": 1,
                   "recovery": "long rest",
                   "action": [ "action", "" ]
@@ -10441,15 +10170,13 @@
                   "name": "Focused Conjuration",
                   "source": [ "P", 116 ],
                   "minlevel": 10,
-                  "description": "\n   ",
-                  "+" "While I am concentrating on a conjuration spell, it can't be broken by taking damage"
+                  "description": "While I am concentrating on a conjuration spell, it can't be broken by taking damage"
                 },
                 "subclassfeature14": {
                   "name": "Durable Summons",
                   "source": [ "P", 116 ],
                   "minlevel": 14,
-                  "description": "\n   ",
-                  "+" "Any creature I summon or create with a conjuration spell has 30 temporary hit points"
+                  "description": "Any creature I summon or create with a conjuration spell has 30 temporary hit points"
                 }
               }
             },
@@ -10463,37 +10190,27 @@
                   "name": "Divination Savant",
                   "source": [ "P", 116 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I halve the gp and time needed to copy divination spells into my spellbook"
+                  "description": "I halve the gp and time needed to copy divination spells into my spellbook"
                 },
                 "subclassfeature2.1": {
                   "name": "Portent",
                   "source": [ "P", 116 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "After a long rest, I roll dice and keep the results to be used before my next rest",
-                  "+" "\n   ",
-                  "+" "A result can replace an attack/save/ability check made by me or a creature I can see",
-                  "+" "\n   ",
-                  "+" "I choose to switch them before the dice to be replaced are rolled; Max once per turn",
+                  "description": "After a long rest, I roll dice and keep the results to be used before my next rest\n   A result can replace an attack/save/ability check made by me or a creature I can see\n   I choose to switch them before the dice to be replaced are rolled; Max once per turn",
                   "additional": [ "", "2d20 after a long rest", "2d20 after a long rest", "2d20 after a long rest", "2d20 after a long rest", "2d20 after a long rest", "2d20 after a long rest", "2d20 after a long rest", "2d20 after a long rest", "2d20 after a long rest", "2d20 after a long rest", "2d20 after a long rest", "2d20 after a long rest", "3d20 after a long rest", "3d20 after a long rest", "3d20 after a long rest", "3d20 after a long rest", "3d20 after a long rest", "3d20 after a long rest", "3d20 after a long rest" ]
                 },
                 "subclassfeature6": {
                   "name": "Expert Divination",
                   "source": [ "P", 116 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "When I cast a divination spell, I recover a spell slot of a lower level than the one I cast",
+                  "description": "When I cast a divination spell, I recover a spell slot of a lower level than the one I cast",
                   "additional": "Spell slot < 6th-level"
                 },
                 "subclassfeature10": {
                   "name": "The Third Eye",
                   "source": [ "P", 116 ],
                   "minlevel": 10,
-                  "description": "\n   ",
-                  "+" "As an action, I gain one of the following until my next short or long rest:",
-                  "+" "\n   ",
-                  "+" "Darkvision 60ft, see the Ethereal Plane 60ft, read any language, or see invisibility 10ft",
+                  "description": "As an action, I gain one of the following until my next short or long rest:\n   Darkvision 60ft, see the Ethereal Plane 60ft, read any language, or see invisibility 10ft",
                   "recovery": "short rest",
                   "usages": 1,
                   "action": [ "action", "" ]
@@ -10502,8 +10219,7 @@
                   "name": "Greater Portent",
                   "source": [ "P", 117 ],
                   "minlevel": 14,
-                  "description": "\n   ",
-                  "+" "I can roll 3d20 instead of 2d20 when using my Portent feature"
+                  "description": "I can roll 3d20 instead of 2d20 when using my Portent feature"
                 }
               }
             },
@@ -10517,35 +10233,20 @@
                   "name": "Enchantment Savant",
                   "source": [ "P", 117 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I halve the gp and time needed to copy enchantment spells into my spellbook"
+                  "description": "I halve the gp and time needed to copy enchantment spells into my spellbook"
                 },
                 "subclassfeature2.1": {
                   "name": "Hypnotic Gaze",
                   "source": [ "P", 117 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "As an action, a seen enemy within 5 ft must make a Wis save or be charmed",
-                  "+" "\n   ",
-                  "+" "This doesn't work if it can't see/hear me; It's also incapacitated and reduced to 0 speed",
-                  "+" "\n   ",
-                  "+" "This lasts until the end of my next turn, but I can use an action to extend the duration",
-                  "+" "\n   ",
-                  "+" "It also ends if it takes damage, can't see or hear me, or is more than 5 ft from me",
-                  "+" "\n   ",
-                  "+" "On success or once it ends, I can't use this on it again until after a long rest",
+                  "description": "As an action, a seen enemy within 5 ft must make a Wis save or be charmed. This doesn't work if it can't see/hear me; It's also incapacitated and reduced to 0 speed. This lasts until the end of my next turn, but I can use an action to extend the duration. It also ends if it takes damage, can't see or hear me, or is more than 5 ft from me. On success or once it ends, I can't use this on it again until after a long rest",
                   "action": [ "action", "" ]
                 },
                 "subclassfeature6": {
                   "name": "Instinctive Charm",
                   "source": [ "P", 117 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "As a reaction, when someone I can see in 30 ft attacks me, it must make a Wis save",
-                  "+" "\n   ",
-                  "+" "If failed, it must instead attack the closest creature within range (not me or self)",
-                  "+" "\n   ",
-                  "+" "On success, I can't use it again until after a long rest; This is a charm effect",
+                  "description": "As a reaction, when someone I can see in 30 ft attacks me, it must make a Wis save. If failed, it must instead attack the closest creature within range (not me or self). On success, I can't use it again until after a long rest; This is a charm effect",
                   "usages": 1,
                   "recovery": "long rest",
                   "action": [ "reaction", " (when attacked)" ]
@@ -10554,21 +10255,13 @@
                   "name": "Split Enchantment",
                   "source": [ "P", 117 ],
                   "minlevel": 10,
-                  "description": "\n   ",
-                  "+" "When I cast an enchantment spell with only one target, I can target a second in range",
-                  "+" "\n   ",
-                  "+" "This does not apply to cantrips"
+                  "description": "When I cast an enchantment spell with only one target, I can target a second in range. This does not apply to cantrips"
                 },
                 "subclassfeature14": {
                   "name": "Alter Memories",
                   "source": [ "P", 117 ],
                   "minlevel": 14,
-                  "description": "\n   ",
-                  "+" "When I cast an enchantment spell that charms, I can have one target be unaware of it",
-                  "+" "\n   ",
-                  "+" "Also, once before that spell ends, I can have that target forget time while affected",
-                  "+" "\n   ",
-                  "+" "It must make an Intelligence save or lose up to 1 + Charisma modifier hours of memory"
+                  "description": "When I cast an enchantment spell that charms, I can have one target be unaware of it. Also, once before that spell ends, I can have that target forget time while affected. It must make an Intelligence save or lose up to 1 + Charisma modifier hours of memory"
                 }
               }
             },
@@ -10582,17 +10275,13 @@
                   "name": "Illusion Savant",
                   "source": [ "P", 118 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I halve the gp and time needed to copy illusion spells into my spellbook"
+                  "description": "I halve the gp and time needed to copy illusion spells into my spellbook"
                 },
                 "subclassfeature2.1": {
                   "name": "Improved Minor Illusion",
                   "source": [ "P", 118 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I gain the knowledge of the Minor Illusion cantrip (or another if I already knew it)",
-                  "+" "\n   ",
-                  "+" "When I cast it, I can create both a sound and an image with a single casting",
+                  "description": "I gain the knowledge of the Minor Illusion cantrip (or another if I already knew it). When I cast it, I can create both a sound and an image with a single casting",
                   "spellcastingBonus": {
                     "name": "Minor Illusion cantrip",
                     "spells": [ "minor illusion" ],
@@ -10603,16 +10292,14 @@
                   "name": "Malleable Illusion",
                   "source": [ "P", 118 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "After I cast an illusion spell that lasts 1 min or longer, I can use an action to change it",
+                  "description": "After I cast an illusion spell that lasts 1 min or longer, I can use an action to change it",
                   "action": [ "action", "" ]
                 },
                 "subclassfeature10": {
                   "name": "Illusory Self",
                   "source": [ "P", 118 ],
                   "minlevel": 10,
-                  "description": "\n   ",
-                  "+" "As a reaction, when I'm attacked, I can impose an illusion that makes the attack miss",
+                  "description": "As a reaction, when I'm attacked, I can impose an illusion that makes the attack miss",
                   "action": [ "reaction", "" ],
                   "recovery": "short rest",
                   "usages": 1
@@ -10621,12 +10308,7 @@
                   "name": "Illusory Reality",
                   "source": [ "P", 118 ],
                   "minlevel": 14,
-                  "description": "\n   ",
-                  "+" "As a bonus action, after I cast a 1st-level or higher illusion spell, I can make it real",
-                  "+" "\n   ",
-                  "+" "One inanimate, nonmagical object that is part of the illusion becomes real for 1 minute",
-                  "+" "\n   ",
-                  "+" "The object can't be something that directly harms someone",
+                  "description": "As a bonus action, after I cast a 1st-level or higher illusion spell, I can make it real. One inanimate, nonmagical object that is part of the illusion becomes real for 1 minute. The object can't be something that directly harms someone",
                   "action": [ "bonus action", "" ]
                 }
               }
@@ -10641,37 +10323,25 @@
                   "name": "Necromancy Savant",
                   "source": [ "P", 118 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I halve the gp and time needed to copy necromancy spells into my spellbook"
+                  "description": "I halve the gp and time needed to copy necromancy spells into my spellbook"
                 },
                 "subclassfeature2.1": {
                   "name": "Grim Harvest",
                   "source": [ "P", 118 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "Once per turn, when I kill something with a 1st-level or higher spell, I regain hit points",
-                  "+" "\n   ",
-                  "+" "The number of hit points regained is 2× the spell's level (or 3× with necromancy spells)",
-                  "+" "\n   ",
-                  "+" "This doesn't occur for constructs/undead"
+                  "description": "Once per turn, when I kill something with a 1st-level or higher spell, I regain hit points. The number of hit points regained is 2× the spell's level (or 3× with necromancy spells). This doesn't occur for constructs/undead"
                 },
                 "subclassfeature6": {
                   "name": "Undead Thralls",
                   "source": [ "P", 119 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "I add Animate Dead to my spellbook and can have an additional target when casting it",
-                  "+" "\n   ",
-                  "+" "Undead created by my necromancy spells have the following benefits:",
-                  "+" "\n   ",
-                  "+" "They add my proficiency bonus to damage and my wizard level to their HP maximums"
+                  "description": "I add Animate Dead to my spellbook and can have an additional target when casting it. Undead created by my necromancy spells have the following benefits: They add my proficiency bonus to damage and my wizard level to their HP maximums"
                 },
                 "subclassfeature10": {
                   "name": "Inured to Undead",
                   "source": [ "P", 119 ],
                   "minlevel": 10,
-                  "description": "\n   ",
-                  "+" "I have resistance to necrotic damage and my hit point maximum can't be reduced",
+                  "description": "I have resistance to necrotic damage and my hit point maximum can't be reduced",
                   "dmgres": [ "Necrotic" ]
 
                 },
@@ -10679,14 +10349,7 @@
                   "name": "Command Undead",
                   "source": [ "P", 11 ],
                   "minlevel": 14,
-                  "description": "\n   ",
-                  "+" "As an action, an undead within 60 ft that I can see must make a Charisma save",
-                  "+" "\n   ",
-                  "+" "If its Int is > 7, it has adv. on the save; If its Int is > 11, it repeats the save every hour",
-                  "+" "\n   ",
-                  "+" "If failed, it becomes friendly to me and obeys my commands until I use this on another",
-                  "+" "\n   ",
-                  "+" "On success, it becomes permanently immune to my further attempts",
+                  "description": "As an action, an undead within 60 ft that I can see must make a Charisma save. If its Int is > 7, it has adv. on the save; If its Int is > 11, it repeats the save every hour. If failed, it becomes friendly to me and obeys my commands until I use this on another. On success, it becomes permanently immune to my further attempts",
                   "action": [ "action", "" ]
                 }
               }
@@ -10701,47 +10364,25 @@
                   "name": "Transmutation Savant",
                   "source": [ "P", 119 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I halve the gp and time needed to copy transmutation spells into my spellbook"
+                  "description": "I halve the gp and time needed to copy transmutation spells into my spellbook"
                 },
                 "subclassfeature2.1": {
                   "name": "Minor Alchemy",
                   "source": [ "P", 119 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I can transform an object of wood/stone/iron/copper/silver into another of those",
-                  "+" "\n   ",
-                  "+" "For each 10 min I spend, I can transform up to 1 cubic foot of the material",
-                  "+" "\n   ",
-                  "+" "It reverts back when I lose concentration or after 1 hour"
+                  "description": "I can transform an object of wood/stone/iron/copper/silver into another of those. For each 10 min I spend, I can transform up to 1 cubic foot of the material. It reverts back when I lose concentration or after 1 hour"
                 },
                 "subclassfeature6": {
                   "name": "Transmuter's Stone",
                   "source": [ "P", 119 ],
                   "minlevel": 6,
-                  "description": "\n   ",
-                  "+" "In 8 hours, I can create a transmuter's stone that gives its wielder one of the following:",
-                  "+" "\n    - ",
-                  "+" "Darkvision 60 ft",
-                  "+" "\n    - ",
-                  "+" "10 ft increase to speed while unencumbered",
-                  "+" "\n    - ",
-                  "+" "Proficiency in Constitution saving throws",
-                  "+" "\n    - ",
-                  "+" "Resistance to either acid, cold, fire, lightning, or thunder damage",
-                  "+" "\n   ",
-                  "+" "The benefit is chosen at creation; I can have only one active stone at a time",
-                  "+" "\n   ",
-                  "+" "I can change the benefit when I cast a 1st-level or higher transmutation spell with it"
+                  "description": "In 8 hours, I can create a transmuter's stone that gives its wielder one of the following:\n    - Darkvision 60 ft\n    - 10 ft increase to speed while unencumbered\n    - Proficiency in Constitution saving throws\n    - Resistance to either acid, cold, fire, lightning, or thunder damage\nThe benefit is chosen at creation; I can have only one active stone at a time\nI can change the benefit when I cast a 1st-level or higher transmutation spell with it"
                 },
                 "subclassfeature10": {
                   "name": "Shapechanger",
                   "source": [ "P", 119 ],
                   "minlevel": 10,
-                  "description": "\n   ",
-                  "+" "I add Polymorph to my spellbook; I can cast it on myself without using a spell slot",
-                  "+" "\n   ",
-                  "+" "When I do that, I can only transform into a beast with a challenge rating of 1 or lower",
+                  "description": "I add Polymorph to my spellbook; I can cast it on myself without using a spell slot. When I do that, I can only transform into a beast with a challenge rating of 1 or lower",
                   "recovery": "short rest",
                   "usages": 1
                 },
@@ -10749,26 +10390,7 @@
                   "name": "Master Transmuter",
                   "source": [ "P", 119 ],
                   "minlevel": 14,
-                  "description": "\n   ",
-                  "+" "As an action, I can destroy my transmuter's stone and do one of the four following:",
-                  "+" "\n    ",
-                  "+" "1) Major Transformation",
-                  "+" "\n      ",
-                  "+" "In 10 minutes, I transmute one nonmagical object up to 5 cubic foot into another",
-                  "+" "\n      ",
-                  "+" "This new, nonmagical object must be of similar size and mass and equal or less value",
-                  "+" "\n    ",
-                  "+" "2) Panacea",
-                  "+" "\n      ",
-                  "+" "One touched has all curses, diseases, and poisons removed and is healed to max HP",
-                  "+" "\n    ",
-                  "+" "3) Restore Life",
-                  "+" "\n      ",
-                  "+" "I cast Raise Dead without using spell slots or needing to have it in my spellbook",
-                  "+" "\n    ",
-                  "+" "4) Restore Youth",
-                  "+" "\n      ",
-                  "+" "A touched creature's apparent age is reduced by 3d10 years (to a minimum of 13)",
+                  "description": "As an action, I can destroy my transmuter's stone and do one of the four following:\n    1) Major Transformation\n      In 10 minutes, I transmute one nonmagical object up to 5 cubic foot into another\n      This new, nonmagical object must be of similar size and mass and equal or less value\n    2) Panacea\n      One touched has all curses, diseases, and poisons removed and is healed to max HP\n    3) Restore Life\n      I cast Raise Dead without using spell slots or needing to have it in my spellbook\n    4) Restore Youth\n      A touched creature's apparent age is reduced by 3d10 years (to a minimum of 13)",
                   "action": [ "action", "" ]
                 }
               }
@@ -10784,8 +10406,7 @@
                   "name": "Training in War and Song",
                   "source": [ "S", 142 ],
                   "minlevel": 2,
-                  "description": "\n   ",
-                  "+" "I gain proficiency with light armor, a one-handed melee weapon, and Performance",
+                  "description": "I gain proficiency with light armor, a one-handed melee weapon, and Performance",
                   "armor": [ true, false, false, false ],
                   "skills": [ "Performance" ],
                   "skillstxt": "Performance"
@@ -10863,6 +10484,100 @@
                   "source": [ "X", 60 ],
                   "minlevel": 14,
                   "description": "When I use my Arcane Deflection feature, magical energy arcs from me to creatures. Up to 3 targets I can see within 60 ft of me take half my wizard level in force damage"
+                }
+              }
+            },
+            {
+              "regExpSearch": "/^((?=.*(wizard|mage|magus))(?=.*artificer))|(?=.*infuser).*$/i",
+              "subname": "Tradition of the Artificer",
+              "source": [ "UA:E", 3 ],
+              "fullname": "Wizard (Artificer)",
+              "features": {
+                "subclassfeature2": {
+                  "name": "Infuse Potions",
+                  "source": [ "UA:E", 3 ],
+                  "minlevel": 2,
+                  "description": "I can produce magic potions if I spend 10 minutes and expend a spell slot\nI can not regain the spell slot until the potion is consumed or a week has passed",
+                  "additional": [ "", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions" ]
+                },
+                "subclassfeature2.1": {
+                  "name": "Infuse Scrolls",
+                  "source": [ "UA:E", 4 ],
+                  "minlevel": 2,
+                  "description": "I can produce a scroll after a short rest if I spend 10 minutes and my Arcane Recovery\nI subtract the spell's level from the levels worth of slots I regain using Arcane Recovery\nThis reduction applies till the scroll is used and I finish a long rest",
+                  "additional": [ "", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls" ]
+                },
+                "subclassfeature6": {
+                  "name": "Infuse Weapons and Armor",
+                  "source": [ "UA:E", 4 ],
+                  "minlevel": 6,
+                  "description": "I can spend 10 minutes to produce a magic weapon, armor, a shield, or ammunition\nThe item retains its magic for 8 hours and the spell slot I expend is:\n   2nd: +1 ammunition (20 pieces), 3rd: +1 weapon or +1 shield, 4th: +1 armor,\n   5th: +2 weapon or +2 ammunition (20 pieces), 6th: +3 armor.",
+                  "additional": [ "", "", "", "", "", "1 weapon or armor", "1 weapon or armor", "1 weapon or armor", "1 weapon or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor" ]
+                },
+                "subclassfeature10": {
+                  "name": "Superior Artificer",
+                  "source": [ "UA:E", 4 ],
+                  "minlevel": 10,
+                  "description": "I can create one additional scroll, potion, weapon, or armor when I use Infuse"
+                },
+                "subclassfeature14": {
+                  "name": "Master Artificer",
+                  "source": [ "UA:E", 4 ],
+                  "minlevel": 14,
+                  "description": "I can produce a variety of magic items from Tables A and B from the DMG\nIt takes 1 week for such an item and I cannot do it again for a month",
+                  "usages": 1,
+                  "recovery": "Month"
+                }
+              }
+            },
+            {
+              "regExpSearch": "/technomancy|technomancer/i",
+              "subname": "Technomancy",
+              "source": [ "UA:MM", 3 ],
+              "fullname": "Technomancer",
+              "features": {
+                "subclassfeature2": {
+                  "name": "Bonus Proficiencies",
+                  "source": [ "UA:MM", 3 ],
+                  "minlevel": 2,
+                  "description": "I gain proficiency with sidearms and hacking tools",
+                  "weapons": [
+                    false,
+                    false,
+                    [ "Sidearms" ]
+                  ],
+                  "toolProfs": [ "Hacking tools" ]
+                },
+                "subclassfeature2.1": {
+                  "name": "Technological Savant",
+                  "source": [ "UA:MM", 3 ],
+                  "minlevel": 2,
+                  "description": "I can use a single tablet computer (or similar) instead of a spellbook. Spells copied into this device cost half the normal amount of gp"
+                },
+                "subclassfeature6": {
+                  "name": "Program Spell",
+                  "source": [ "UA:MM", 4 ],
+                  "minlevel": 6,
+                  "description": "I can cast a spell into a device of at least smartphone-level of computing power. Variables of the spell are chosen at time of casting; I can have only one active at a time. As an action within the next 48 hours, the spell can be cast from the device. I can't activate a concentration spell in this way if I am concentrating on another spell",
+                  "recovery": "long rest",
+                  "usages": 1
+                },
+                "subclassfeature10": {
+                  "name": "Online Casting",
+                  "source": [ "UA:MM", 4 ],
+                  "minlevel": 10,
+                  "description": "I can cast a spell, that is not area-of-effect, through networked electronic devices. If the spell requires sight/hearing, the audio/visual must be transmitted electronically. The spell's range is determined from me to my device plus from the target to its device",
+                  "usages": "Intelligence modifier per ",
+                  "usagescalc": "event.value:Math.max(1, What('Int Mod'));",
+                  "recovery": "long rest"
+                },
+                "subclassfeature14": {
+                  "name": "Chained Device",
+                  "source": [ "UA:MM", 4 ],
+                  "minlevel": 14,
+                  "description": "I can use a held/worn tablet computer to concentrate on a spell I cast instead of me\nIf the device is separated from me, turned off, or broken, the effect is lost",
+                  "recovery": "long rest",
+                  "usages": 1
                 }
               }
             }
@@ -11509,11 +11224,7 @@
       "weightMetric": " weigh around 18 kg (16 + 5d4 / 10 kg)",
       "improvements": "Forest Gnome: +1 Dexterity, +2 Intelligence;",
       "scores": [ 0, 1, 0, 2, 0, 0 ],
-      "trait": "Forest Gnome (+1 Dexterity, +2 Intelligence)",
-      "+" "(typePF",
-      "?": null,
-      "\n": "\" \")",
-      "+" "\nNatural Illusionist:\n   I know the Minor Illusion cantrip. Intelligence is my spellcasting ability for it.\n\nSpeak with Small Beasts:\n   Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
+      "trait": "Forest Gnome (+1 Dexterity, +2 Intelligence)\nNatural Illusionist:\n   I know the Minor Illusion cantrip. Intelligence is my spellcasting ability for it.\n\nSpeak with Small Beasts:\n   Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
       "spellcastingAbility": 4,
       "spellcastingBonus": {
         "name": "Natural Illusionist",
@@ -12736,37 +12447,172 @@
       }
     },
     {
-    regExpSearch: /tortle/i,
-    name: "Tortle",
-    source: [ "TP", 4 ],
-    plural: "Tortles",
-    size: 3,
-    speed: {
-      walk: {
-        spd: 30,
-        enc: 20
+      "regExpSearch": "/tortle/i",
+      "name": "Tortle",
+      "source": [ "TP", 4 ],
+      "plural": "Tortles",
+      "size": 3,
+      "speed": {
+        "walk": {
+          "spd": 30,
+          "enc": 20
+        }
+      },
+      "languageProfs": [ "Common", "Aquan" ],
+      "skills": [ "Survival" ],
+      "weapons": [ "tortle's claws" ],
+      "addarmor": "Tortle's Shell",
+      "age": " reach adulthood by the age of 15 and live an average of 50 years",
+      "height": " stand between 5 and 6 feet tall",
+      "weight": " weigh around 450 lb",
+      "heightMetric": " stand between 1,5 and 1,8 metres tall",
+      "weightMetric": " weigh around 200 kg",
+      "improvements": "Tortle: +2 Strength, +1 Wisdom;",
+      "scores": [ 2, 0, 0, 0, 1, 0 ],
+      "features": {
+        "shell defense": {
+          "name": "Shell Defense",
+          "minlevel": 1,
+          "action": [ "action", "" ]
+        }
+      },
+      "trait": "Tortle (+2 Strength, +1 Wisdom)\nClaws: I can use my claws to make unarmed strikes dealing 1d4 slashing damage.\nHold Breath: I can hold my breath for up to 1 hour at a time.\nNatural Armor: I have a base AC of 17, but I can't add my Dex to it or wear armour.\nShell Defense: As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell."
+    },
+    {
+      "regExpSearch": "/changeling/i",
+      "name": "Changeling",
+      "source": [ "UA:E", 1 ],
+      "plural": "Changelings",
+      "size": 3,
+      "skills": [ "Deception" ],
+      "speed": {
+        "walk": {
+          "spd": 30,
+          "enc": 20
+        }
+      },
+      "languageProfs": [ "Common", 2 ],
+      "age": " reach adulthood in their early teens and live around 80 years",
+      "height": " stand between 5 and 6 feet tall (5'1\" + 2d4\")",
+      "weight": " weigh around 140 lb (115 + 2d4 \\xD7 2d4 lb)",
+      "heightMetric": " stand between 1,5 to over 1,8 metres tall (155 + 5d4 cm)",
+      "weightMetric": " weigh around 65 kg (52 + 5d4 \\xD7 4d4 / 10 kg)",
+      "improvements": "Changeling: +1 Dexterity, +1 Charisma;",
+      "scores": [ 0, 1, 0, 0, 0, 1 ],
+      "trait": "Changeling (+1 Dexterity, +1 Charisma)\nShapechanger:\n   As an action, I can polymorph into any humanoid of my size that I have seen, or back into my true form.\n   However, my equipment does not change with me.\n   If I die, I revert to my natural appearance.",
+      "eval": "AddAction('action', 'Polymorph', 'being a Changeling');",
+      "removeeval": "RemoveAction('action', 'Polymorph');"
+    },
+    {
+      "regExpSearch": "/warforged/i",
+      "name": "Warforged",
+      "source": [ "UA:E", 3 ],
+      "plural": "Warforged",
+      "size": 3,
+      "speed": {
+        "walk": {
+          "spd": 30,
+          "enc": 20
+        }
+      },
+      "languageProfs": [ "Common", 1 ],
+      "savetxt": { "immune": [ "disease" ] },
+      "age": " are created as adults and will only start to show signs of physical deterioration after 150 years, but have no further aging effects",
+      "height": " stand between 6 and 7 feet tall (5'10\" + 2d6\")",
+      "weight": " weigh around 300 lb (270 + 2d6 \\xD7 4 lb)",
+      "heightMetric": " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
+      "weightMetric": " weigh around 135 kg (125 + 5d6 \\xD7 8 / kg)",
+      "improvements": "Warforged: +1 Strength, +1 Constitution;",
+      "scores": [ 1, 0, 1, 0, 0, 0 ],
+      "trait": "Warforged (+1 Strength, +1 Constitution)\nLiving Construct:\n   Even though I was constructed, I am a living creature. I am immune to disease. I do not need to eat or breathe, but I can ingest food and drink if I wish.\n   Instead of sleeping, I enter an inactive state for 4 hours each day. I do not dream in this state; I am fully aware of my surroundings and notice approaching enemies and other events as normal. I still need 8 hours for a long rest.",
+      "eval": "AddACMisc(1, 'Composite Plating', 'Composite Plating was gained from being a Warforged')",
+      "removeeval": "AddACMisc(0, 'Composite Plating', 'Composite Plating was gained from being a Warforged')"
+    },
+    {
+      "regExpSearch": "/shifter/i",
+      "name": "Shifter",
+      "source": [ "UA:E", 2 ],
+      "plural": "Shifters",
+      "size": 3,
+      "speed": {
+        "walk": {
+          "spd": 30,
+          "enc": 20
+        }
+      },
+      "languageProfs": [ "Common", "Sylvan" ],
+      "vision": [ [ "Darkvision", 60 ] ],
+      "age": " reach adulthood at the end of their teens and live around 100 years",
+      "height": " range from under 5 to 6 feet tall (4'6\" + 2d8\")",
+      "weight": " weigh around 140 lb (95 + 2d8 \\xD7 2d4 lb)",
+      "heightMetric": " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
+      "weightMetric": " weigh around 65 kg (43 + 5d8 \\xD7 4d4 / kg)",
+      "improvements": "Shifter: +1 Dexterity and +1 to other ability score depending on type of shifter;",
+      "scores": [ 0, 1, 0, 0, 0, 0 ],
+      "trait": "Shifter (+1 Dexterity and +1 to other ability score depending on type of shifter)\n   Use the \"Racial Options\" button to select type of shifter.\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and another bonus depending on the type of shifter.",
+      "features": {
+        "shift": {
+          "name": "Shift",
+          "minlevel": 1,
+          "usages": 1,
+          "recovery": "short rest",
+          "tooltip": "",
+          "action": [ "bonus action", "" ]
+        }
       }
     },
-    languageProfs: [ "Common", "Aquan" ],
-    skills: [ "Survival" ],
-    weapons: [ "tortle's claws" ],
-    addarmor: "Tortle's Shell",
-    age: " reach adulthood by the age of 15 and live an average of 50 years",
-    height: " stand between 5 and 6 feet tall",
-    weight: " weigh around 450 lb",
-    heightMetric: " stand between 1,5 and 1,8 metres tall",
-    weightMetric: " weigh around 200 kg",
-    improvements: "Tortle: +2 Strength, +1 Wisdom;",
-    scores: [ 2, 0, 0, 0, 1, 0 ],
-    features: {
-      "shell defense": {
-        name: "Shell Defense",
-        minlevel: 1,
-        action: [ "action", "" ]
-      }
-    },
-    trait: "Tortle (+2 Strength, +1 Wisdom)\nClaws: I can use my claws to make unarmed strikes dealing 1d4 slashing damage.\nHold Breath: I can hold my breath for up to 1 hour at a time.\nNatural Armor: I have a base AC of 17, but I can't add my Dex to it or wear armour.\nShell Defense: As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell."
-  }
+    {
+      "regExpSearch": "/(minotaur|krynn)/i",
+      "name": "Minotaur",
+      "source": [ "UA:WA", 1 ],
+      "plural": "Minotaurs",
+      "size": 3,
+      "speed": {
+        "walk": {
+          "spd": 30,
+          "enc": 20
+        }
+      },
+      "languageProfs": [ "Common" ],
+      "toolProfs": [ "Navigator's tools", "Vehicles (water)" ],
+      "weapons": [ "horns" ],
+      "age": " rearch adulthood around age 17 and live up to 150 years",
+      "height": " are well over 6 feet tall",
+      "weight": " weigh around 300 lb",
+      "heightMetric": " are well over 1,8 metres tall",
+      "weightMetric": " weigh around 135 kg",
+      "improvements": "Minotaur: +1 Strength, and either +1 Intelligence, +1 Wisdom, or another +1 Strength;",
+      "scores": [ 1, 0, 0, 0, 0, 0 ],
+      "trait": "Minotaur (+1 Strength, and either +1 Int, Wis, or Str) use \"Racial Options\" button\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+      "eval": "AddAction('bonus action', 'Horns attack (when taking dash action)', 'being a Minotaur'); AddAction('bonus action', 'Shove another (when taking attack action)', 'being a Minotaur');",
+      "removeeval": "RemoveAction('bonus action', 'Horns attack (when taking dash action)'); RemoveAction('bonus action', 'Shove another (when taking attack action)');",
+      "subRaces": [
+        {
+          "regExpSearch": "/(cunning|wisdom)/i",
+          "name": "Minotaur [Cunning]",
+          "source": [ "UA:WA", 2 ],
+          "improvements": "Minotaur [cunning]: +1 Strength, +1 Wisdom;",
+          "scores": [ 1, 0, 0, 0, 1, 0 ],
+          "trait": "Minotaur [cunning] (+1 Strength, +1 Wisdom)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
+        },
+        {
+          "regExpSearch": "/(intellect|intelligence)/i",
+          "name": "Minotaur [Intellect]",
+          "source": [ "UA:WA", 2 ],
+          "improvements": "Minotaur [intellect]: +1 Strength, +1 Intelligence;",
+          "scores": [ 1, 0, 0, 1, 0, 0 ],
+          "trait": "Minotaur [intellect] (+1 Strength, +1 Intelligence)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
+        },
+        {
+          "regExpSearch": "/(strength|strong|\\bmight\\b)/i",
+          "name": "Minotaur [Strength]",
+          "source": [ "UA:WA", 2 ],
+          "improvements": "Minotaur [strength]: +2 Strength;",
+          "scores": [ 1, 0, 0, 0, 0, 0 ],
+          "trait": "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled."
+        }
+      ]
+    }
   ],
   "Spells": [
     {
@@ -20384,6 +20230,211 @@
       "duration": "Conc, 1 min",
       "description": "Moving doesn't provoke opportunity atks; once: adv. on wea atk, +1d8 Force dmg, +30 ft spd for turn",
       "descriptionFull": "You move like the wind. Until the spell ends, your movement doesn't provoke opportunity attacks.\nOnce before the spell ends, you can give yourself advantage on one weapon attack roll on your turn. That attack deals an extra 1d8 force damage on a hit. Whether you hit or miss, your walking speed increases by 30 feet until the end of that turn."
+    },
+    {
+      "name": "Arcane Hacking",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 5 ],
+      "ritual": false,
+      "level": 2,
+      "school": "Trans",
+      "time": "1 a",
+      "range": "Self",
+      "components": "V,S,Mƒ",
+      "compMaterial": "Hacking tools",
+      "duration": "Conc, 1 h",
+      "description": "Adv on Int (hacking tools) vs. encryption; Use Int (hacking tools) to remove protective spells; See book",
+      "descriptionFull": "[Technomagic]\n   You gain advantage on all Intelligence checks using hacking tools to break software encryption or online security when using a foreign system. This spell also allows you to break 2nd-level and lower protective spells such as arcane lock or glyph of warding by making an Intelligence check using hacking tools against the spell save DC of the spell's caster.\nWhen you cast this spell using a spell slot of 3rd level or higher, you can attempt to counteract a spell set to secure the foreign system if the spell's level is equal to or less than the level of the spell slot you used."
+    },
+    {
+      "name": "Commune with City",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 5 ],
+      "ritual": true,
+      "level": 5,
+      "school": "Div",
+      "time": "1 min",
+      "range": "Self",
+      "components": "V,S",
+      "duration": "Instantaneous",
+      "description": "Learn up to three facts about surrounding city, out to 1 mile above- or 600 ft underground; see B",
+      "descriptionFull": "You briefly become one with the city and gain knowledge of the surrounding area. Aboveground, this spell gives you knowledge of the area within 1 mile of you. In sewers and other underground settings, you gain knowledge of the area within 600 feet of you.\nYou instantly gain knowledge of up to three facts of your choice about any of the following subjects as they relate to the area:\n  • Terrain and bodies of water\n  • Prevalent buildings, plants, animals, or intelligent creatures\n  • Powerful (CR 1 or higher) celestials, fey, fiends, elementals, or undead\n  • Influences from other planes of existence\n  • Electrical currents, wireless signals, and active transit lines and tracks\n\n   For example, you could determine the location of powerful undead in the area, the location of major sources of electrical power or interference, and the location of any nearby parks."
+    },
+    {
+      "name": "Conjure Knowbot",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 5 ],
+      "ritual": false,
+      "level": 4,
+      "school": "Conj",
+      "time": "1 a",
+      "range": "500 ft",
+      "components": "V,S",
+      "duration": "10 min",
+      "description": "Create bot in touched device; computer checks 1 bns instead of 1 a for me; SL5: 1 h, 1000 ft, see book",
+      "descriptionFull": "[Technomagic]\n   You touch a single computerized device or computer system to conjure a knowbot—a partially sentient piece of software imprinted with vestiges of your own skills and computer abilities. For the duration of the spell, you can use a bonus action to have the knowbot execute a computer-related task that would normally require an action. The knowbot makes Intelligence ability checks using your ability score and proficiency bonuses (including your proficiency with hacking tools, if applicable).\nYou have a limited telepathic bond with the knowbot, out to a range of 500 feet from the device or system where the knowbot was conjured. If you move beyond this range, the knowbot disappears in 2d4 rounds, as if the duration of the spell had expired. Moving within range again immediately reestablishes the bond. The knowbot is bound to the system in which it was created, and it stays there until it is dismissed or the spell's duration expires.\nWhen you cast this spell using a spell slot of 5th level or higher, the spell's duration increases to 1 hour. Additionally, your telepathic bond with the knowbot is effective out to a range of 1,000 feet, and if you leave the range of the bond, the knowbot continues performing its last directed task until the spell expires."
+    },
+    {
+      "name": "Digital Phantom",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 6 ],
+      "ritual": false,
+      "level": 2,
+      "school": "Abjur",
+      "time": "1 a",
+      "range": "Self",
+      "components": "V,S,M",
+      "compMaterial": "A small piece of copper wire",
+      "duration": "Conc, 1 h",
+      "description": "You and any others in same computer system +10 on Int to avoid detection; leave no trace on exit",
+      "descriptionFull": "[Technomagic]\n   This spell works to actively hide your presence within a computer system. For the spell's duration, you and any other users you choose on your local network gain a +10 bonus to Intelligence checks to avoid detection by administrators, knowbots, tracking software, and the like. Whenever you and your chosen users leave any computer system you are working in while this spell is in effect, all trace of your previous presence in that system is erased."
+    },
+    {
+      "name": "Find Vehicle",
+      "classes": [ "paladin", "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 6 ],
+      "ritual": false,
+      "level": 2,
+      "school": "Conj",
+      "time": "10 min",
+      "range": "30 ft",
+      "components": "V,S",
+      "duration": "Conc, 1 h",
+      "description": "Gain services of land spirit-vehicle; expertise, share spells with it; SL3: water, SL5: air, SL7: any; see B",
+      "descriptionFull": "You summon a spirit that assumes the form of a nonmilitary land vehicle of your choice, appearing in an unoccupied space within range. The vehicle has the statistics of a normal vehicle of its sort, though it is celestial, fey, or fiendish (your choice) in origin. The physical characteristics of the vehicle reflect its origin to some degree. For example, a fiendish SUV might be jet black in color, with tinted windows and a sinister-looking front grille.\nYou have a supernatural bond with the conjured vehicle that allows you to drive beyond your normal ability. While driving the conjured vehicle, you are considered proficient with vehicles of its type, and you add double your proficiency bonus to ability checks related to driving the vehicle. While driving the vehicle, you can make any spell you cast that targets only you also target the vehicle.\nIf the vehicle drops to 0 hit points, it disappears, leaving behind no physical form. You can also dismiss the vehicle at any time as an action, causing it to disappear.\nYou can't have more than one vehicle bonded by this spell at a time. As an action, you can release the vehicle from its bond at any time, causing it to disappear.\nWhen you cast this spell using a spell slot of 3rd level or higher, you can conjure a nonmilitary water vehicle large enough to carry six Medium creatures. When you cast this spell using a spell slot of 5th level or higher, you can conjure a nonmilitary air vehicle large enough to carry ten Medium creatures. When you cast this spell using a spell slot of 7th level or higher, you can conjure any type of vehicle, subject to the DM's approval."
+    },
+    {
+      "name": "Haywire",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 7 ],
+      "ritual": false,
+      "level": 3,
+      "school": "Ench",
+      "time": "1 a",
+      "range": "90 ft",
+      "components": "V,S",
+      "duration": "Conc, 1 min",
+      "save": "Wis",
+      "description": "10 ft(+5 ft/SL) rad all electronic devices go haywire, see B; for hold devices, crea gets to save",
+      "descriptionFull": "[Technomagic]\n   This spell plays havoc with electronic devices, making the use of such devices all but impossible. Each electronic device in a 10-foot-radius sphere centered on a point you choose within range is subject to random behavior while it remains within the area. A device not held by a creature is automatically affected. If an electronic device is held by a creature, that creature must succeed on a Wisdom saving throw or have the device affected by the spell.\nAt the start of each of your turns, roll a d6 for each affected device to determine its behavior. Except where otherwise indicated, that behavior lasts until the start of your next turn while this spell is in effect.\n\nd10\tBehavior\n  1\tThe device shuts down and must be restarted. Do not roll again for this device until it is restarted.\n2–4\tThe device does not function.\n  5\tThe device experiences a power surge, causing an electric shock to the wielder (if any) and one random creature within 5 feet of the device. Each affected creature must make a Dexterity saving throw against your spell save DC, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one.\n  6\tThe device is usable as normal.\nWhen you cast this spell using a spell slot of 4th level or higher, the radius of the sphere affected by the spell increases by 5 feet for each slot level above 3rd."
+    },
+    {
+      "name": "Infallible Relay",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 7 ],
+      "ritual": false,
+      "level": 1,
+      "school": "Div",
+      "time": "1 min",
+      "range": "Self",
+      "components": "V,S,M",
+      "compMaterial": "A mobile phone",
+      "duration": "Conc, 10 min",
+      "save": "Cha",
+      "description": "1 known crea save or has to answer your call from phone within 100 ft of it; it has to save to end call",
+      "descriptionFull": "[Technomagic]\n   With this spell, you can target any creature with whom you have spoken previously, as long as the two of you are on the same plane of existence. When you cast the spell, the nearest functioning telephone or similar communications device within 100 feet of the target begins to ring. If there is no suitable device close enough to the target, the spell fails.\n   The target must make a successful Charisma saving throw or be compelled to answer your call. Once the connection is established, the call is crystal clear and cannot be dropped until the conversation has ended or the spell's duration ends. You can end the conversation at any time, but a target must succeed on a Charisma saving throw to end the conversation."
+    },
+    {
+      "name": "Invisibility to Cameras",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 7 ],
+      "ritual": false,
+      "level": 3,
+      "school": "Illus",
+      "time": "1 a",
+      "range": "10 ft",
+      "components": "V,S,M",
+      "compMaterial": "A scrap of black paper",
+      "duration": "Conc, 1 min",
+      "description": "Up to 4 crea and anything they are wearing or carrying become undetectable for electornic sensors",
+      "descriptionFull": "[Technomagic]\n   Four creatures of your choice within range become undetectable to electronic sensors and cameras for the duration of the spell. Anything a target is wearing or carrying is likewise undetectable as long as it is on the target's person. The targets remain visible to vision."
+    },
+    {
+      "name": "On/Off",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 7 ],
+      "ritual": false,
+      "level": 0,
+      "school": "Trans",
+      "time": "1 a",
+      "range": "60 ft",
+      "components": "V,S",
+      "duration": "Instantaneous",
+      "description": "Activate or deactivate 1 electornic device that has a way of doing so accessible from the outside of it",
+      "descriptionFull": "[Technomagic]\n   This cantrip allows you to activate or deactivate any electronic device within range, as long as the device has a clearly defined on or off function that can be easily accessed from the outside of the device. Any device that requires a software- based shutdown sequence to activate or deactivate cannot be affected by on/off."
+    },
+    {
+      "name": "Protection from Ballistics",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 8 ],
+      "ritual": false,
+      "level": 3,
+      "school": "Abjur",
+      "time": "1 a",
+      "range": "Touch",
+      "components": "V,S,M",
+      "compMaterial": "A shell casing",
+      "duration": "Conc, 10 min",
+      "description": "1 crea gains resistance to nonmagical ballistic damage",
+      "descriptionFull": "This spell enchants the flesh of the target against the impact of bullets. Until the spell ends, the target has resistance to nonmagical ballistic damage."
+    },
+    {
+      "name": "Remote Access",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 8 ],
+      "ritual": false,
+      "level": 1,
+      "school": "Trans",
+      "time": "1 a",
+      "range": "120 ft",
+      "components": "V,S",
+      "duration": "10 min",
+      "description": "You can use any electronic device within range as if it were in your hands",
+      "descriptionFull": "[Technomagic]\n   You can use any electronic device within range as if it were in your hands. This is not a telekinesis effect. Rather, this spell allows you to simulate a device's mechanical functions electronically. You are able to access only functions that a person using the device manually would be able to access. You can use remote access with only one device at a time."
+    },
+    {
+      "name": "Shutdown",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 8 ],
+      "ritual": false,
+      "level": 5,
+      "school": "Trans",
+      "time": "1 a",
+      "range": "120 ft",
+      "components": "V,S",
+      "duration": "Conc, 1 min",
+      "save": "Con",
+      "description": "Shut down all electronic devices within range; if controlled/held by crea, it can save to keep active",
+      "descriptionFull": "[Technomagic]\n   This spell shuts down all electronic devices within range that are not wielded by or under the direct control of a creature. If an electronic device within range is used by a creature, that creature must succeed on a Constitution saving throw to prevent the device from being shut down. While the spell remains active, no electronic device within range can be started or restarted."
+    },
+    {
+      "name": "Synchronicity",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 8 ],
+      "ritual": false,
+      "level": 4,
+      "school": "Ench",
+      "time": "1 a",
+      "range": "120 ft",
+      "components": "V,S",
+      "duration": "Conc, 1 h",
+      "description": "1 crea not slowed by mundane delays, disadv on opportunity attacks to it, adv to Stealth and driving",
+      "descriptionFull": "The creature you touch feels reality subtly shifted to its favor while this spell is in effect.\nThe target isn't inconvenienced by mundane delays of any sort. Traffic lights are always green, there's always a waiting elevator, and a taxi is always around the corner. The target can run at full speed through dense crowds, and attacks of opportunity provoked by the target's movement are made with disadvantage.\n   Synchronicity grants advantage to Dexterity (Stealth) checks, since the target always finds a handy piece of cover available. Additionally, the target has advantage on all ability checks made to drive a vehicle.\n   In the event that two or more creatures under the effect of synchronicity are attempting to avoid being inconvenienced by each other, the creatures engage in a contest of Charisma each time the effects of the spells would oppose each other."
+    },
+    {
+      "name": "System Backdoor",
+      "classes": [ "sorcerer", "warlock", "wizard" ],
+      "source": [ "UA:MM", 8 ],
+      "ritual": false,
+      "level": 4,
+      "school": "Trans",
+      "time": "1 min",
+      "range": "Self",
+      "components": "V,S,Mƒ",
+      "compMaterial": "Hacking tools",
+      "duration": "Conc, 1 h",
+      "description": "Gain admin access to 1 system; defeats 3rd or lower technomancy spells; SL5+: defeats same or lower",
+      "descriptionFull": "[Technomagic]\n   This spell allows you to bypass system security in order to create a secure login on a foreign system. The login you create allows you administrator-level privileges in any computer system not enhanced through technomagic. The login defeats any technomagic spells of 3rd level or lower.\n   Once the duration of the spell expires, the login and all privileges are wiped from the system.\n   System logs still show the activity of the user, but the user identification cannot be found or traced.\nWhen you cast this spell using a spell slot of 5th level or higher, you are able to bypass technomagic spells if the spell's level is equal to or less than the level of the spell slot you used."
     }
   ],
   "Feats": [
@@ -21149,6 +21200,162 @@
           "oncelr": true
         }
       ]
+    },
+    {
+      "name": "Dragonmark [Detection]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Mage Hand cantrip. I can also cast Detect Magic, Detect Thoughts (from 5th level onwards), and Clairvoyance (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 5,
+        "spells": [ "mage hand", "detect magic", "detect thoughts", "clairvoyance" ],
+        "selection": [ "mage hand", "detect magic", "detect thoughts", "clairvoyance" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Finding]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Mage Hand cantrip. I can also cast Identify, Locate Object (from 5th level onwards), and Clairvoyance (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 5,
+        "spells": [ "mage hand", "identify", "locate object", "clairvoyance" ],
+        "selection": [ "mage hand", "identify", "locate object", "clairvoyance" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Handling]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Druidcraft cantrip. I can also cast Speak with Animals, Beast Sense (from 5th level onwards), and Conjure Animals (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 5,
+        "spells": [ "druidcraft", "speak with animals", "beast sense", "conjure animals" ],
+        "selection": [ "druidcraft", "speak with animals", "beast sense", "conjure animals" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Healing]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Spare the Dying cantrip. I can also cast Cure Wounds, Lesser Restoration (from 5th level onwards), and Revivify (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 5,
+        "spells": [ "spare the dying", "cure wounds", "lesser restoration", "revivify" ],
+        "selection": [ "spare the dying", "cure wounds", "lesser restoration", "revivify" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Hospitality]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Friends cantrip. I can also cast Unseen Servant, Rope Trick (from 5th level onwards), and Leomund's Tiny Hut (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 6,
+        "spells": [ "friends", "unseen servant", "rope trick", "leomund's tiny hut" ],
+        "selection": [ "friends", "unseen servant", "rope trick", "leomund's tiny hut" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Making]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Mending cantrip. I can also cast Identify, Magic Weapon (from 5th level onwards), and Fabricate (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 4,
+        "spells": [ "mending", "identify", "magic weapon", "fabricate" ],
+        "selection": [ "mending", "identify", "magic weapon", "fabricate" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Passage]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Light cantrip. I can also cast Expeditious Retreat, Misty Step (from 5th level onwards), and Teleportation Circle (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 4,
+        "spells": [ "light", "expeditious retreat", "misty step", "teleportation circle" ],
+        "selection": [ "light", "expeditious retreat", "misty step", "teleportation Circle" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Scribing]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Message cantrip. I can also cast Comprehend Languages, Sending (from 5th level onwards), and Tongues (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 4,
+        "spells": [ "message", "comprehend languages", "sending", "tongues" ],
+        "selection": [ "message", "comprehend languages", "sending", "tongues" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Sentinel]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Blade Ward cantrip. I can also cast Compelled Duel, Blur (from 5th level onwards), and Protection from Energy (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 5,
+        "spells": [ "blade ward", "compelled duel", "blur", "protection from energy" ],
+        "selection": [ "blade ward", "compelled duel", "blur", "protection from energy" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Shadow]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Dancing Lights cantrip. I can also cast Disguise Self, Darkness (from 5th level onwards), and Nondetection (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 6,
+        "spells": [ "dancing lights", "disguise self", "darkness", "nondetection" ],
+        "selection": [ "dancing lights", "disguise self", "darkness", "nondetection" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Storm]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Shocking Grasp cantrip. I can also cast Fog Cloud, Gust of Wind (from 5th level onwards), and Sleet Storm (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 4,
+        "spells": [ "shocking grasp", "fog cloud", "gust of wind", "sleet storm" ],
+        "selection": [ "shocking grasp", "fog cloud", "gust of wind", "sleet storm" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
+    },
+    {
+      "name": "Dragonmark [Warding]",
+      "source": [ "UA:E", 6 ],
+      "description": "I learn the Resistance cantrip. I can also cast Alarm, Arcane Lock (from 5th level onwards), and Magic Circle (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+      "spellcastingBonus": {
+        "name": "Dragonmark",
+        "spellcastingAbility": 4,
+        "spells": [ "resistance", "alarm", "arcane lock", "magic circle" ],
+        "selection": [ "resistance", "alarm", "arcane lock", "magic circle" ],
+        "times": [ 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+        "oncelr": true
+      }
     }
   ]
 }

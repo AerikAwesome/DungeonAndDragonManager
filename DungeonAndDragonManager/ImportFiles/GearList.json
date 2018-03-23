@@ -1551,6 +1551,154 @@
       "description": "",
       "abilitytodamage": true,
       "monkweapon": true
+    },
+    {
+      "regExpSearch": "/^(?=.*create)(?=.*bonfire).*$/i",
+      "name": "Create Bonfire",
+      "source": [
+        [ "X", 152 ],
+        [ "E", 16 ]
+      ],
+      "list": "spell",
+      "ability": 6,
+      "type": "Cantrip",
+      "damage": [ "C", 8, "fire" ],
+      "range": "60 ft",
+      "description": "5-ft cube; Dex save at casting or when moved into, success - no damage; Conc, 1 min (XGtE 152)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/frostbite/i",
+      "name": "Frostbite",
+      "source": [
+        [ "X", 156 ],
+        [ "E", 18 ]
+      ],
+      "list": "spell",
+      "ability": 6,
+      "type": "Cantrip",
+      "damage": [ "C", 6, "cold" ],
+      "range": "60 ft",
+      "description": "Con save, success - no damage, fail - also disadv. on next weapon attack roll in next turn; 1 creature (XGtE 156)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/infestation/i",
+      "name": "Infestation",
+      "source": [ "X", 158 ],
+      "list": "spell",
+      "ability": 6,
+      "type": "Cantrip",
+      "damage": [ "C", 6, "poison" ],
+      "range": "30 ft",
+      "description": "Con save, success - no damage, fail - target also moved 5 ft in random direction (XGtE 158)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/^(?=.*magic)(?=.*stone).*$/i",
+      "name": "Magic Stone",
+      "source": [
+        [ "X", 160 ],
+        [ "E", 20 ]
+      ],
+      "list": "spell",
+      "ability": 5,
+      "type": "Cantrip",
+      "damage": [ 1, 6, "bludgeoning" ],
+      "range": "60/120 ft",
+      "description": "Produces 3 stones that each can be thrown (60 ft) or hurled with a sling (120 ft) as a spell attack (XGtE 160)",
+      "abilitytodamage": true
+    },
+    {
+      "regExpSearch": "/^(?=.*primal)(?=.*savagery).*$/i",
+      "name": "Primal Savagery",
+      "source": [ "X", 169 ],
+      "list": "spell",
+      "ability": 5,
+      "type": "Cantrip",
+      "damage": [ "C", 10, "acid" ],
+      "range": "Melee (5 ft)",
+      "description": "(XGtE 163)",
+      "abilitytodamage": false
+    },
+    {
+      "regExpSearch": "/thunderclap/i",
+      "name": "Thunderclap",
+      "source": [
+        [ "X", 168 ],
+        [ "E", 22 ]
+      ],
+      "list": "spell",
+      "ability": 6,
+      "type": "Cantrip",
+      "damage": [ "C", 6, "thunder" ],
+      "range": "5-ft radius",
+      "description": "Con save, success - no damage; all creatures in area; audible in 100 ft (XGtE 168)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/^(?=.*toll)(?=.*the)(?=.*dead).*$/i",
+      "name": "Toll the Dead",
+      "source": [ "X", 169 ],
+      "list": "spell",
+      "ability": 5,
+      "type": "Cantrip",
+      "damage": [ "C", 12, "necrotic" ],
+      "range": "60 ft",
+      "description": "Wis save, success - no damage; If target is at full hp, d8 instead of d12 damage (XGtE 169)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/^(?=.*word)(?=.*radiance).*$/i",
+      "name": "Word of Radiance",
+      "source": [ "X", 171 ],
+      "list": "spell",
+      "ability": 5,
+      "type": "Cantrip",
+      "damage": [ "C", 6, "radiant" ],
+      "range": "5-ft radius",
+      "description": "Con save, success - no damage; Only chosen creatures I can see are affected (XGtE 171)",
+      "abilitytodamage": false,
+      "dc": true
+    },
+    {
+      "regExpSearch": "/\\blongtooth\\b/i",
+      "name": "Longtooth",
+      "source": [ "UA:E", 2 ],
+      "ability": 1,
+      "type": "Natural",
+      "damage": [ 1, 6, "piercing" ],
+      "range": "Melee",
+      "description": "Only while shifted; Target up to my size is grappled",
+      "abilitytodamage": true
+    },
+    {
+      "regExpSearch": "/\\brazorclaw\\b/i",
+      "name": "Razorclaw",
+      "source": [ "UA:E", 2 ],
+      "ability": 1,
+      "type": "Natural",
+      "damage": [ 1, "", "slashing" ],
+      "range": "Melee",
+      "description": "Only while shifted, use instead of unarmed strike: Can use as bonus action; Finesse",
+      "monkweapon": true,
+      "abilitytodamage": true
+    },
+    {
+      "regExpSearch": "/\\bhorns?\\b/i",
+      "name": "Horns",
+      "source": [ "UA:WA", 1 ],
+      "ability": 1,
+      "type": "Natural",
+      "damage": [ 1, 10, "piercing" ],
+      "range": "Melee",
+      "description": "Advantage on all checks made to shove a creature, but not to avoid being shoved myself",
+      "abilitytodamage": true
     }
   ],
   "Ammunitions": [
