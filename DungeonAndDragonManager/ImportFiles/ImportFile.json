@@ -1,173 +1,10 @@
 ﻿{
-  "Sources": [
-    {
-      "name": "System Reference Document 5.1",
-      "abbreviation": "SRD",
-      "group": "Primary Sources",
-      "url": "http://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf",
-      "date": "2016/05/04"
-    },
-    {
-      "name": "Dungeon Masters Guild [online]",
-      "abbreviation": "DMguild",
-      "group": "default",
-      "url": "http://www.dmsguild.com/"
-    },
-    {
-      "name": "Homebrew",
-      "abbreviation": "Homebrew",
-      "group": "default"
-    },
-    {
-      "name": "Hoard of the Dragon Queen",
-      "abbreviation": "HotDQ",
-      "group": "Adventure Books",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/hoard-dragon-queen",
-      "date": "2014/08/19"
-    },
-    {
-      "name": "Monster Manual",
-      "abbreviation": "MM",
-      "group": "Primary Sources",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/monster-manual",
-      "date": "2014/09/30"
-    },
-    {
-      "name": "Dungeon Master's Guide",
-      "abbreviation": "DMG",
-      "group": "Primary Sources",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/dungeon-masters-guide",
-      "date": "2014/12/09"
-    },
-    {
-      "name": "Elemental Evil Backgrounds [Mulmaster]",
-      "abbreviation": "AL:EE",
-      "group": "Adventurers League",
-      "url": "http://dndadventurersleague.org/wp-content/uploads/2015/04/Mulmaster-Bonds-and-Backgrounds.pdf",
-      "date": "2015/04/15"
-    },
-    {
-      "name": "Elemental Evil Player's Companion", // November 2017 version
-      "abbreviation": "EE",
-      "group": "Primary Sources",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/player%E2%80%99s-companion",
-      "date": "2015/04/16"
-    },
-    {
-      "name": "Rage of Demons Backgrounds [Hillsfar]",
-      "abbreviation": "AL:RoD",
-      "group": "Adventurers League",
-      "url": "http://dndadventurersleague.org/wp-content/uploads/2015/07/Hillsfar-Regional-Character-Options.pdf",
-      "date": "2015/07/14"
-    },
-    {
-      "name": "Out of the Abyss [beasts, background features]",
-      "abbreviation": "OotA",
-      "group": "Adventure Books",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/outoftheabyss",
-      "date": "2015/09/15"
-    },
-    {
-      "name": "Sword Coast Adventure Guide",
-      "abbreviation": "SCAG",
-      "group": "Primary Sources",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide",
-      "date": "2015/11/03"
-    },
-    {
-      "name": "Curse of Strahd [background, pack]",
-      "abbreviation": "CoS",
-      "group": "Adventure Books",
-      "url": "http://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf",
-      "date": "2016/03/15"
-    },
-    {
-      "name": "Curse of Strahd Backgrounds",
-      "abbreviation": "AL:CoS",
-      "group": "Adventurers League",
-      "url": "http://dndadventurersleague.org/wp-content/uploads/2016/06/Curse-of-Strahd-Backgrounds-v1.1.pdf",
-      "date": "2016/04/07"
-    },
-    {
-      "name": "Storm King's Thunder [beasts]",
-      "abbreviation": "SKT",
-      "group": "Adventure Books",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/storm-kings-thunder",
-      "date": "2016/09/06"
-    },
-    {
-      "name": "Volo's Guide to Monsters",
-      "abbreviation": "VGtM",
-      "group": "Primary Sources",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters",
-      "date": "2016/11/15"
-    },
-    {
-      "name": "Tales of the Yawning Portal [beasts]",
-      "abbreviation": "TotYP",
-      "group": "Adventure Books",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal",
-      "date": "2017/04/04"
-    },
-    {
-      "name": "Tortle Package",
-      "abbreviation": "TP",
-      "group": "Adventurers League",
-      "url": "http://www.dmsguild.com/product/221716/",
-      "date": "2017/09/15"
-    },
-    {
-      "name": "Tomb of Annihilation [backgrounds, beasts, equipment]",
-      "abbreviation": "ToA",
-      "group": "Adventure Books",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation",
-      "date": "2017/09/19"
-    },
-    {
-      "name": "Xanathar's Guide to Everything",
-      "abbreviation": "XGtE",
-      "group": "Primary Sources",
-      "url": "http://dnd.wizards.com/products/tabletop-games/rpg-products/xanathars-guide-everything",
-      "date": "2017/11/21"
-    },
-    {
-      "name": "Unearthed Arcana: Eberron",
-      "abbreviation": "UA:E",
-      "group": "Unearthed Arcana",
-      "url": "http://media.wizards.com/2015/downloads/dnd/UA_Eberron_v1.1.pdf",
-      "date": "2015/02/02"
-    },
-    {
-      "name": "Unearthed Arcana: Modifying Classes",
-      "abbreviation": "UA:MC",
-      "group": "Unearthed Arcana",
-      "url": "http://media.wizards.com/2015/downloads/dnd/UA3_ClassDesignVariants.pdf",
-      "date": "2015/04/06"
-    },
-    {
-      "name": "Unearthed Arcana: Waterborne Adventures",
-      "abbreviation": "UA:WA",
-      "group": "Unearthed Arcana",
-      "url": "http://media.wizards.com/2015/downloads/dnd/UA_Waterborne_v3.pdf",
-      "date": "2015/05/04"
-    },
-    {
-      "name": "Unearthed Arcana: Modern Magic",
-      "abbreviation": "UA:MM",
-      "group": "Unearthed Arcana",
-      "url": "http://media.wizards.com/2015/downloads/dnd/UA_ModernMagic.pdf",
-      "date": "2015/08/03"
-    }
-  ],
   "Backgrounds": [
     {
       "acolyte": {
         "regExpSearch": "/acolyte/i",
         "name": "Acolyte",
-        "source": [
-          [ "SRD", 61 ],
-          [ "P", 127 ]
-        ],
+        "source": "PHB",
         "skills": [ "Insight", "Religion" ],
         "gold": 15,
         "equipment": [
@@ -238,14 +75,12 @@
     {
       "regExpSearch": "/charlatan/i",
       "name": "Charlatan",
-      "source": [ "P", 128 ],
+      "source": "PHB",
       "skills": [ "Deception", "Sleight of Hand" ],
       "gold": 15,
-      "equipleft": [
+      "equipment": [
         [ "Disguise kit", "", 3 ],
-        [ "Tools for chosen con", "", "" ]
-      ],
-      "equipright": [
+        [ "Tools for chosen con", "", "" ],
         [ "Fine clothes", "", 6 ],
         [ "Belt pouch (with coins)", "", 1 ]
       ],
@@ -317,10 +152,10 @@
     {
       "regExpSearch": "/(criminal|blackmailer|burglar|fence|robber|killer|assassin|pickpocket|smuggler)/i",
       "name": "Criminal",
-      "source": [ "P", 129 ],
+      "source": "PHB",
       "skills": [ "Deception", "Stealth" ],
       "gold": 15,
-      "equipright": [
+      "equipment": [
         [ "Dark, common clothes with hood", "", 3 ],
         [ "Crowbar", "", 5 ],
         [ "Belt pouch (with coins)", "", 1 ]
@@ -399,10 +234,10 @@
     {
       "regExpSearch": "/(entertainer|actor|dancer|fire.?eater|jester|juggler|instrumentalist|poet|singer|storyteller|tumbler)/i",
       "name": "Entertainer",
-      "source": [ "P", 130 ],
+      "source": "PHB",
       "skills": [ "Acrobatics", "Performance" ],
       "gold": 15,
-      "equipright": [
+      "equipment": [
         [ "Costume", "", 4 ],
         [ "Favor of an admirer", "", "" ],
         [ "Belt pouch (with coins)", "", 1 ],
@@ -10923,7 +10758,122 @@
       "weightMetric": " weigh around 70 kg (50 + 5d8 * 4d4 / 10 kg)",
       "improvements": "Half-Elf: +2 Charisma and +1 to two other ability scores of my choice;",
       "scores": [ 0, 0, 0, 0, 0, 2 ],
-      "trait": "Half-Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nSkill Versatility: I gain proficiency in two skills of my choice."
+      "trait": "Half-Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nSkill Versatility: I gain proficiency in two skills of my choice.",
+      "subRaces": [
+        {
+          "regExpSearch": "/aquatic/i",
+          "name": "Half-aquatic elf",
+          "source": [ "S", 116 ],
+          "plural": "Half-aquatic elves",
+          "speed": {
+            "walk": {
+              "spd": 30,
+              "enc": 20
+            },
+            "swim": {
+              "spd": 30,
+              "enc": 20
+            }
+          },
+          "skillstxt": "",
+          "trait": "Half-Aquatic Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nSwimming Speed:\n   My aquatic heritage gives me a swimming speed of 30 feet."
+        },
+        {
+          "regExpSearch": "/cantrip/i",
+          "name": "Half-high elf",
+          "source": [ "S", 116 ],
+          "plural": "Half-high elves",
+          "skillstxt": "",
+          "trait": "Half-High Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nCantrip:\n   I know one cantrip of my choice from the wizard spell list.\n   Intelligence is my spellcasting ability for it.",
+          "abilitySave": 4,
+          "spellcastingAbility": 4,
+          "spellcastingBonus": {
+            "name": "High Elf Cantrip",
+            "class": "wizard",
+            "level": [ 0, 0 ],
+            "atwill": true
+          }
+        },
+        {
+          "regExpSearch": "/^(?=.*drow)(?=.*magic).*$/i",
+          "name": "Half-drow",
+          "source": [ "S", 116 ],
+          "plural": "Half-drow",
+          "skillstxt": "",
+          "trait": "Half-drow (+2 Charisma and +1 to two other ability scores of my choice)\n\nDrow Magic:\n   I know the Dancing Lights cantrip.\n   Once I reach 3rd level, I can cast the Faerie Fire spell once per long rest.\n   Once I reach 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+          "abilitySave": 6,
+          "spellcastingAbility": 6,
+          "spellcastingBonus": {
+            "name": "Drow Magic (level 1)",
+            "spells": [ "dancing lights" ],
+            "selection": [ "dancing lights" ],
+            "atwill": true
+          },
+          "features": {
+            "faerie fire": {
+              "name": "Faerie Fire",
+              "minlevel": 3,
+              "usages": 1,
+              "recovery": "long rest",
+              "tooltip": " (Drow Magic)",
+              "action": [ "action", "" ],
+              "spellcastingBonus": {
+                "name": "Drow Magic (level 3)",
+                "spells": [ "faerie fire" ],
+                "selection": [ "faerie fire" ],
+                "oncelr": true
+              }
+            },
+            "darkness": {
+              "name": "Darkness",
+              "minlevel": 5,
+              "usages": 1,
+              "recovery": "long rest",
+              "tooltip": " (Drow Magic)",
+              "action": [ "action", "" ],
+              "spellcastingBonus": {
+                "name": "Drow Magic (level 5)",
+                "spells": [ "darkness" ],
+                "selection": [ "darkness" ],
+                "oncelr": true
+              }
+            }
+          }
+        },
+        {
+          "regExpSearch": "/^(?=.*\\b(elf|elven)\\b)(?=.*weapon)(?=.*training).*$/i",
+          "source": [ "S", 116 ],
+          "skillstxt": "",
+          "trait": "Half-Elf (+2 Charisma and +1 to two other ability scores of my choice)",
+          "weaponprofs": [
+            false,
+            false,
+            [ "longsword", "shortsword", "longbow", "shortbow" ]
+          ]
+        },
+        {
+          "regExpSearch": "/^(?=.*fleet)(?=.*\\b(foot|feet)\\b).*$/i",
+          "name": "Half-wood elf",
+          "source": [ "S", 116 ],
+          "plural": "Half-wood elves",
+          "speed": {
+            "walk": {
+              "spd": 35,
+              "enc": 25
+            }
+          },
+          "skillstxt": "",
+          "trait": "Half-Wood Elf (+2 Charisma and +1 to two other ability scores of my choice)"
+        },
+        {
+          "regExpSearch": "/^(?=.*\\bmasks?\\b)(?=.*\\bwilds?\\b).*$/i",
+          "name": "Half-wood elf",
+          "source": [ "S", 116 ],
+          "plural": "Half-wood elves",
+          "skillstxt": "",
+          "trait": "Half-Wood Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nMask of the Wild:\n   I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
+        }
+      ] 
     },
     {
       "regExpSearch": "/^(?=.*half)(?=.*\bor(c|k)).*$/i",
@@ -10991,7 +10941,19 @@
       "weightMetric": " weigh around 75 kg (50 + 5d10 * 4d4 / 10 kg)",
       "improvements": "Human: +1 to all ability scores;",
       "scores": [ 1, 1, 1, 1, 1, 1 ],
-      "trait": "Human (+1 to all ability scores)"
+      "trait": "Human (+1 to all ability scores)",
+      "subRaces": [
+        {
+          "regExpSearch": "/variant/i",
+          "source": [ "P", 31 ],
+          "skillstxt": "Choose any one skill",
+          "improvements": "Human: +1 to two different ability scores of my choice;",
+          "scores": [ 0, 0, 0, 0, 0, 0 ],
+          "trait": "Human (+1 to two different ability scores of my choice)\n\nSkills: I gain proficiency in one skill of my choice.\n\nFeat: I gain one feat of my choice.",
+          "eval": "AddString('Feat Note 1', 'Human bonus feat', '; ');",
+          "removeeval": "RemoveString('Feat Note 1', 'Human bonus feat');"
+        }
+      ] 
     },
     {
       "regExpSearch": "/^((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i",
@@ -11057,7 +11019,112 @@
             "oncelr": true
           }
         }
-      }
+      },
+      "subRaces": [
+        {
+          "regExpSearch": "/^(?=.*devil)(?=.*tongue).*$/i",
+          "name": "Devil's tongue tiefling",
+          "source": [ "S", 118 ],
+          "plural": "Devil's tongue tieflings",
+          "trait": "Devil's Tongue Tiefling (+1 Intelligence, +2 Charisma)\n\nDevil's Tongue:\n   I know the Vicious Mockery cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Enthrall spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+          "spellcastingBonus": {
+            "name": "Devil's Tongue (level 1)",
+            "spells": [ "vicious mockery" ],
+            "selection": [ "vicious mockery" ],
+            "atwill": true
+          },
+          "features": {
+            "charm person": {
+              "name": "Charm Person",
+              "minlevel": 3,
+              "usages": 1,
+              "additional": "2 targets",
+              "recovery": "long rest",
+              "tooltip": " (Devil's Tongue)",
+              "action": [ "action", " (2 targets)" ],
+              "spellcastingBonus": {
+                "name": "Devil's Tongue (level 3)",
+                "spells": [ "charm person" ],
+                "selection": [ "charm person" ],
+                "oncelr": true
+              }
+            },
+            "enthrall": {
+              "name": "Enthrall",
+              "minlevel": 5,
+              "usages": 1,
+              "recovery": "long rest",
+              "tooltip": " (Devil's Tongue)",
+              "action": [ "action", "" ],
+              "spellcastingBonus": {
+                "name": "Devil's Tongue (level 5)",
+                "spells": [ "enthrall" ],
+                "selection": [ "enthrall" ],
+                "oncelr": true
+              }
+            }
+          }
+        },
+        {
+          "regExpSearch": "/hellfire/i",
+          "name": "Hellfire tiefling",
+          "source": [ "S", 118 ],
+          "plural": "Hellfire tieflings",
+          "trait": "Hellfire Tiefling (+1 Intelligence, +2 Charisma)\n\nInfernal Legacy (Hellfire):\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Burning Hands spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+          "features": {
+            "burning hands": {
+              "name": "Burning Hands",
+              "minlevel": 3,
+              "usages": 1,
+              "additional": "4d6",
+              "recovery": "long rest",
+              "tooltip": " (Infernal Hellfire Legacy)",
+              "action": [ "reaction", " (4d6)" ],
+              "spellcastingBonus": {
+                "name": "Hellfire Legacy (level 3)",
+                "spells": [ "burning hands" ],
+                "selection": [ "burning hands" ],
+                "oncelr": true
+              }
+            },
+            "darkness": {
+              "name": "Darkness",
+              "minlevel": 5,
+              "usages": 1,
+              "recovery": "long rest",
+              "tooltip": " (Infernal Hellfire Legacy)",
+              "action": [ "action", "" ],
+              "spellcastingBonus": {
+                "name": "Infernal Legacy (level 5)",
+                "spells": [ "darkness" ],
+                "selection": [ "darkness" ],
+                "oncelr": true
+              }
+            }
+          }
+        },
+        {
+          "regExpSearch": "/wing/i",
+          "name": "Winged tiefling",
+          "source": [ "S", 118 ],
+          "plural": "Winged tieflings",
+          "speed": {
+            "walk": {
+              "spd": 30,
+              "enc": 20
+            },
+            "fly": {
+              "spd": 30,
+              "enc": 0
+            }
+          },
+          "trait": "Winged Tiefling (+1 Intelligence, +2 Charisma)\n\nWings:\n   I have bat-like wings sprouting from my shoulder blades that give me flying speed of 30 feet when I'm not wearing heavy armor.",
+          "features": "",
+          "abilitySave": 0,
+          "spellcastingAbility": "",
+          "spellcastingBonus": ""
+        }
+      ] 
     },
     {
       "regExpSearch": "/^((?=.*(hylar|daewar))|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(mountain|shield)\b))).*$/i",

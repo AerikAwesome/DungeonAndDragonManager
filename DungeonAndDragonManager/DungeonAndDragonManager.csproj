@@ -12,6 +12,10 @@
     <Content Remove="ImportFiles\ImportFile.json" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ImportFiles\ExtraContent.json~RF109c6e02.TMP" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Escape" Version="1.1.0" />

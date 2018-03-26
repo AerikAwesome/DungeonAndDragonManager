@@ -20,7 +20,7 @@ namespace DungeonAndDragonManager.Data.Models
 
         public string Group { get; set; }
         public string Url { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         public DbSource() { }
 

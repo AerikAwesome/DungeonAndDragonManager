@@ -9,10 +9,10 @@ namespace DungeonAndDragonManager.ImportFiles
 {
     public class FileParser
     {
-        private readonly FullDbContext _db;
+        private readonly ApplicationDbContext _db;
         private JavaScriptParser parser = new JavaScriptParser();
 
-        public FileParser(FullDbContext db)
+        public FileParser(ApplicationDbContext db)
         {
             _db = db;
         }

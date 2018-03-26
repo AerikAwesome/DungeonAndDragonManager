@@ -11,7 +11,7 @@ namespace DungeonAndDragonManager.Data.Seed
         private const string PrimarySource = "Primary Sources";
         private const string AdventureSource = "Adventure Books";
 
-        public static void Seed(FullDbContext db)
+        public static void Seed(ApplicationDbContext db)
         {
             var sources = new List<DbSource>
             {
@@ -33,13 +33,20 @@ namespace DungeonAndDragonManager.Data.Seed
             };
             foreach (var dbSource in sources)
             {
-                if (db.Sources.SingleOrDefault(s => s.Name == dbSource.Name) == null)
+                if (!db.Sources.Any(s => s.Name == dbSource.Name))
                 {
                     db.Sources.Add(dbSource);
                 }
             }
 
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                var x = 0;
+            }
         }
     }
 }
