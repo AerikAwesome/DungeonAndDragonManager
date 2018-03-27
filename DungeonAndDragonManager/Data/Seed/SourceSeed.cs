@@ -30,6 +30,7 @@ namespace DungeonAndDragonManager.Data.Seed
                 new DbSource("Storm King's Thunder", "SKT", AdventureSource, "http://dnd.wizards.com/products/tabletop-games/rpg-products/storm-kings-thunder", new DateTime(2016, 9, 6)),
                 new DbSource("Tales of the Yawning Portal", "TotYP", AdventureSource, "http://dnd.wizards.com/products/tabletop-games/rpg-products/tales-yawning-portal", new DateTime(2017, 4, 4)),
                 new DbSource("Tomb of Annihilation", "ToA", AdventureSource, "http://dnd.wizards.com/products/tabletop-games/rpg-products/tomb-annihilation", new DateTime(2017, 9, 13)),
+                new DbSource("Rage of Demons", "RoD", AdventureSource, "", new DateTime())
             };
             foreach (var dbSource in sources)
             {
@@ -45,7 +46,7 @@ namespace DungeonAndDragonManager.Data.Seed
             }
             catch (Exception ex)
             {
-                var x = 0;
+                var x = ex.Message;
             }
         }
     }

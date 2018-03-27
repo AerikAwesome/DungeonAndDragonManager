@@ -1,0 +1,94 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "5e import schema",
+
+  "type": "object",
+
+  "properties": {
+    "backgrounds": {
+      "type": "array",
+      "description": "List of backgrounds.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "regExpSearch": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "gold": {
+            "type": "integer"
+          },
+          "equipment": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type:": "number"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": ["name", "amount", "weight"]
+            }
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [ "name", "description" ]
+            }
+          },
+          "trait": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ideal": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "bond": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "flaw": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["name", "source", "regExpSearch", "skills", "gold", "equipment", "features", "trait", "ideal", "bond", "flaw"] 
+      }
+    }
+  }
+}

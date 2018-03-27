@@ -20,7 +20,7 @@ namespace DungeonAndDragonManager.Data.Seed
             foreach (var jToken in json)
             {
                 var jsonRace = jToken.ToObject<JsonRace>();
-                var race = new DbRace(phbSource, jsonRace.Name, jsonRace.Plural, jsonRace.RegExpSearch, "", jsonRace.Trait, (Size)jsonRace.Size, jsonRace.LanguageProfs.ToArray(), jsonRace.Plural + jsonRace.Age, jsonRace.Plural + jsonRace.Height, jsonRace.Plural + jsonRace.Weight, jsonRace.Scores[0], jsonRace.Scores[1], jsonRace.Scores[2], jsonRace.Scores[3], jsonRace.Scores[4], jsonRace.Scores[5], jsonRace.SubRaces.Select(j => new DbSubRace(phbSource, j.Name, j.RegExpSearch, "", j.Trait, j.Dmgres.ToArray(), )));
+                var race = new DbRace(phbSource, jsonRace.Name, jsonRace.Plural, jsonRace.RegExpSearch, "", jsonRace.Trait, (Size)jsonRace.Size, jsonRace.LanguageProfs.ToArray(), jsonRace.Plural + jsonRace.Age, jsonRace.Plural + jsonRace.Height, jsonRace.Plural + jsonRace.Weight, jsonRace.Scores[0], jsonRace.Scores[1], jsonRace.Scores[2], jsonRace.Scores[3], jsonRace.Scores[4], jsonRace.Scores[5], jsonRace.SubRaces.Select(j => new DbSubRace(phbSource, j.Name, j.RegExpSearch, "", j.Trait, j.Dmgres.ToArray(), j.Scores[0], j.Scores[1], j.Scores[2], j.Scores[3], j.Scores[4], j.Scores[5])).ToList());
             }
 
             foreach (var race in races)

@@ -32,6 +32,7 @@ namespace DungeonAndDragonManager.ImportFiles
         public string Name { get; set; }
         public string Trait { get; set; }
         public List<string> Dmgres { get; set; }
+        public List<short> Scores { get; set; }
     }
     public class JsonSpeed
     {
