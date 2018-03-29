@@ -1,10 +1,12 @@
 ﻿{
+  "$schema": "5e-schema.json#",
   "backgrounds": [
     {
       "regExpSearch": "/acolyte/i",
       "name": "Acolyte",
       "source": "PHB",
-      "skills": [ "Insight", "Religion" ],
+      "skillChoices": ["Insight", "Religion"],
+      "skillNumber": 2,
       "gold": 15,
       "equipment": [
         {
@@ -38,10 +40,13 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Shelter of the Faithful",
-        "description": "I command the respect of those who share my faith. I can perform the religious ceremonies of my faith. My companions and I can expect free healing and care at an establishment of my faith, though I must provide any material components needed for spells. Those who share my religion will support me at a modest lifestyle."
-      }],
+      "features": [
+        {
+          "name": "Shelter of the Faithful",
+          "description":
+            "I command the respect of those who share my faith. I can perform the religious ceremonies of my faith. My companions and I can expect free healing and care at an establishment of my faith, though I must provide any material components needed for spells. Those who share my religion will support me at a modest lifestyle."
+        }
+      ],
       "trait": [
         "I venerate a distinct hero of my faith, and persistently reference that individual's accomplishments and lessons.",
         "I can find universal ground between the most vehement enemies, sympathizing with them and always moving toward unity.",
@@ -76,14 +81,17 @@
         "I am pessimistic and distrustful of strangers.",
         "Once I choose an objective, I become so single minded that the rest of my life fades into the background."
       ],
-      "languageProfs": [ 2 ],
+      "languageProfs": {
+        "additionalChoices": 2
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/charlatan/i",
       "name": "Charlatan",
       "source": "PHB",
-      "skills": [ "Deception", "Sleight of Hand" ],
+      "skillChoices": ["Deception", "Sleight of Hand"],
+      "skillNumber": 2,
       "gold": 15,
       "equipment": [
         {
@@ -107,10 +115,13 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "False Identity",
-        "description": "I have created a second identity that includes documentation, established acquaintances, and disguises that allow me to assume that persona. Additionally, I can forge documents, including official papers and personal letters, as long as I have seen an example of the kind of document or the handwriting I am trying to copy."
-      }],
+      "features": [
+        {
+          "name": "False Identity",
+          "description":
+            "I have created a second identity that includes documentation, established acquaintances, and disguises that allow me to assume that persona. Additionally, I can forge documents, including official papers and personal letters, as long as I have seen an example of the kind of document or the handwriting I am trying to copy."
+        }
+      ],
       "trait": [
         "I fall in and out of love easily, and am always pursuing someone.",
         "I have a joke for every occasion, especially occasions where humor is inappropriate.",
@@ -145,23 +156,35 @@
         "I can't resist swindling people who are more powerful than me.",
         "I hate to admit it and will hate myself for it, but I'll run and preserve my own hide if the going gets tough."
       ],
-      "extra": [
-        "Select a Favorite Scheme",
-        "Cheat at games of chance",
-        "Shave coins, forge documents",
-        "User/manipulator",
-        "Change identity",
-        "Sleight-of-hand cons",
-        "Sell junk as expensive necessities"
-      ],
-      "toolProfs": [ "Disguise kit", "Forgery kit" ],
+      "extraChoice": {
+        "name": "Favorite Scheme",
+        "choices": [
+          "Cheat at games of chance",
+          "Shave coins, forge documents",
+          "User/manipulator",
+          "Change identity",
+          "Sleight-of-hand cons",
+          "Sell junk as expensive necessities"
+        ]
+      },
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Disguise kit"
+          },
+          {
+            "name": "Forgery kit"
+          }
+        ]
+      },
       "lifestyle": "comfortable"
     },
     {
       "regExpSearch": "/(criminal|blackmailer|burglar|fence|robber|killer|assassin|pickpocket|smuggler)/i",
       "name": "Criminal",
       "source": "PHB",
-      "skills": [ "Deception", "Stealth" ],
+      "skillChoices": ["Deception", "Stealth"],
+      "skillNumber": 2,
       "gold": 15,
       "equipment": [
         {
@@ -180,10 +203,13 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "criminal contact",
-        "description": "I have a reliable and trustworthy contact who acts as my liaison to a network of other criminals. I know how to get messages to and from my contact, even over great distances; specifically, I know the local messengers, corrupt caravan masters, and seedy sailors who can deliver my messages."
-      }],
+      "features": [
+        {
+          "name": "criminal contact",
+          "description":
+            "I have a reliable and trustworthy contact who acts as my liaison to a network of other criminals. I know how to get messages to and from my contact, even over great distances; specifically, I know the local messengers, corrupt caravan masters, and seedy sailors who can deliver my messages."
+        }
+      ],
       "trait": [
         "I always have a plan for what to do when things go wrong.",
         "I am always calm, no matter the situation. I never raise my voice or let my emotions control me.",
@@ -218,29 +244,40 @@
         "I turn tail and run when things look bad.",
         "An innocent person is in prison for a crime that I committed. I'm okay with that."
       ],
-      "extra": [
-        "Select a Criminal Specialty",
-        "Blackmailer",
-        "Burglar",
-        "Enforcer",
-        "Fence",
-        "Highway robber",
-        "Hired killer",
-        "Pickpocket",
-        "Smuggler",
-        "Spy"
-      ],
-      "toolProfs": [
-        [ "Gaming set", 1 ],
-        [ "Thieves' tools", "Dex" ]
-      ],
+      "extraChoice": {
+        "name": "Select a Criminal Specialty",
+        "choices": [
+          "Blackmailer",
+          "Burglar",
+          "Enforcer",
+          "Fence",
+          "Highway robber",
+          "Hired killer",
+          "Pickpocket",
+          "Smuggler",
+          "Spy"
+        ]
+      },
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Gaming set"
+          },
+          {
+            "name": "Thieves' tools",
+            "ability": "Dexterity"
+          }
+        ]
+      },
       "lifestyle": "poor"
     },
     {
-      "regExpSearch": "/(entertainer|actor|dancer|fire.?eater|jester|juggler|instrumentalist|poet|singer|storyteller|tumbler)/i",
+      "regExpSearch":
+        "/(entertainer|actor|dancer|fire.?eater|jester|juggler|instrumentalist|poet|singer|storyteller|tumbler)/i",
       "name": "Entertainer",
       "source": "PHB",
-      "skills": [ "Acrobatics", "Performance" ],
+      "skillChoices": ["Acrobatics", "Performance"],
+      "skillNumber": 2,
       "gold": 15,
       "equipment": [
         {
@@ -264,10 +301,13 @@
           "weight": 0
         }
       ],
-      "features": [{
-        "name": "By Popular Demand",
-        "description": "I can always find a place to perform (inn/tavern/circus/etc.), where I receive free lodging and food of a modest or comfortable standard, as long as I perform each night. In addition, my performance makes me something of a local figure. When strangers recognize me in a town where I have performed, they typically take a liking to me."
-      }],
+      "features": [
+        {
+          "name": "By Popular Demand",
+          "description":
+            "I can always find a place to perform (inn/tavern/circus/etc.), where I receive free lodging and food of a modest or comfortable standard, as long as I perform each night. In addition, my performance makes me something of a local figure. When strangers recognize me in a town where I have performed, they typically take a liking to me."
+        }
+      ],
       "trait": [
         "I know a story relevant to almost every situation.",
         "Whenever I come to a new place, I collect local rumors and spread gossip.",
@@ -302,30 +342,40 @@
         "I have trouble keeping my true feelings hidden. My sharp tongue lands me in trouble.",
         "Despite my best efforts, I am unreliable to my friends."
       ],
-      "extra": [
-        "Select an Entertainer Routine",
-        "Actor",
-        "Dancer",
-        "Fire-eater",
-        "Jester",
-        "Juggler",
-        "Instrumentalist",
-        "Poet",
-        "Singer",
-        "Storyteller",
-        "Tumbler"
-      ],
-      "toolProfs": [
-        "Disguise kit",
-        [ "Musical instrument", 1 ]
-      ],
+      "extraChoice": {
+        "name": "Select an Entertainer Routine",
+        "choices": [
+          "Actor",
+          "Dancer",
+          "Fire-eater",
+          "Jester",
+          "Juggler",
+          "Instrumentalist",
+          "Poet",
+          "Singer",
+          "Storyteller",
+          "Tumbler"
+        ]
+      },
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Disguise kit"
+          },
+          {
+            "name": "Musical instrument",
+            "numChoices": 1
+          }
+        ]
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/^(?=.*folk)(?=.*hero).*$/i",
       "name": "Folk Hero",
       "source": "PHB",
-      "skills": [ "Animal Handling", "Survival" ],
+      "skillChoices": ["Animal Handling", "Survival"],
+      "skillNumber": 2,
       "gold": 10,
       "equipment": [
         {
@@ -354,10 +404,13 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Rustic Hospitality",
-        "description": "Since I come from the ranks of the common folk, I fit in among them with ease. I can find a place to hide, rest, or recuperate among other commoners, unless I have shown myself to be a danger to them. They will shield me from the law or anyone else searching for me, though they will not risk their lives for me."
-      }],
+      "features": [
+        {
+          "name": "Rustic Hospitality",
+          "description":
+            "Since I come from the ranks of the common folk, I fit in among them with ease. I can find a place to hide, rest, or recuperate among other commoners, unless I have shown myself to be a danger to them. They will shield me from the law or anyone else searching for me, though they will not risk their lives for me."
+        }
+      ],
       "trait": [
         "I judge people by their actions, not their words.",
         "If someone is in trouble, I'm always ready to lend help.",
@@ -392,30 +445,40 @@
         "Secretly, I believe that things would be better if I were a tyrant lording over the land.",
         "I have trouble trusting in my allies."
       ],
-      "extra": [
-        "Select a Defining Event",
-        "I stood up to a tyrant's agents",
-        "I saved people during a natural disaster",
-        "I stood alone against a terrible monster",
-        "I stole from a corrupt merchant for the poor",
-        "I led a militia to fight off an invading army",
-        "I stole weapons from a tyrant to arm the people",
-        "I trained peasantry to fight a tyrant with farm tools",
-        "A decree was rescinded after I led a protest against it",
-        "A magical creature gave me a blessing or insight",
-        "I rose to leadership in a lord's army"
-      ],
-      "toolProfs": [
-        [ "Artisan's tools", 1 ],
-        "Vehicles (land)"
-      ],
+      "extraChoice": {
+        "name": "Defining Event",
+        "choices": [
+          "I stood up to a tyrant's agents",
+          "I saved people during a natural disaster",
+          "I stood alone against a terrible monster",
+          "I stole from a corrupt merchant for the poor",
+          "I led a militia to fight off an invading army",
+          "I stole weapons from a tyrant to arm the people",
+          "I trained peasantry to fight a tyrant with farm tools",
+          "A decree was rescinded after I led a protest against it",
+          "A magical creature gave me a blessing or insight",
+          "I rose to leadership in a lord's army"
+        ]
+      },
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Artisan's tools",
+            "numChoices": 1
+          },
+          {
+            "name": "Vehicles (land)"
+          }
+        ]
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/^(?=.*guild)(?=.*artisan).*$/i",
       "name": "Guild Artisan",
       "source": "PHB",
-      "skills": [ "Insight", "Persuasion" ],
+      "skillChoices": ["Insight", "Persuasion"],
+      "skillNumber": 2,
       "gold": 15,
       "equipment": [
         {
@@ -439,10 +502,13 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Guild Membership",
-        "description": "5 gp membership fees per month: The guild offers lodging if possible. In case of being accused of a crime, the guild will support me if a good case can be made for my innocence or the crime is justifiable. I can also gain access to powerful political figures through the guild, as long as I'm in good standing and the guild is paid enough."
-      }],
+      "features": [
+        {
+          "name": "Guild Membership",
+          "description":
+            "5 gp membership fees per month: The guild offers lodging if possible. In case of being accused of a crime, the guild will support me if a good case can be made for my innocence or the crime is justifiable. I can also gain access to powerful political figures through the guild, as long as I'm in good standing and the guild is paid enough."
+        }
+      ],
       "trait": [
         "I believe that anything worth doing is worth doing right. I can't help it― I'm a perfectionist.",
         "I'm a snob who looks down on those who can't appreciate fine art.",
@@ -477,38 +543,50 @@
         "I would kill to acquire a noble title.",
         "I'm horribly jealous of anyone who can outshine my handiwork. Everywhere I go, I'm surrounded by rivals."
       ],
-      "extra": [
-        "Select a Guild Business",
-        "Alchemists and apothecaries",
-        "Armorers, locksmiths, and finesmiths",
-        "Brewers, distillers, and vintners",
-        "Calligraphers, scribes, and scriveners",
-        "Carpenters, roofers, and plasterers",
-        "Cartographers, surveyors, and chart-makers",
-        "Cobblers and shoemakers",
-        "Cooks and bakers",
-        "Glassblowers and glaziers",
-        "Jewelers and gemcutters",
-        "Leatherworkers, skinners, and tanners",
-        "Masons and stonecutters",
-        "Painters, limners, and sign-makers",
-        "Potters and tile-makers",
-        "Shipwrights and sailmakers",
-        "Smiths and metal-forgers",
-        "Tinkers, pewterers, and casters",
-        "Wagon-makers and wheelwrights",
-        "Weavers and dyers",
-        "Woodcarvers, coopers, and bowyers"
-      ],
-      "toolProfs": [ [ "Artisan's tools", 1 ] ],
-      "languageProfs": [ 1 ],
+      "extraChoice": {
+        "name": "Guild Business",
+        "choices": [
+          "Alchemists and apothecaries",
+          "Armorers, locksmiths, and finesmiths",
+          "Brewers, distillers, and vintners",
+          "Calligraphers, scribes, and scriveners",
+          "Carpenters, roofers, and plasterers",
+          "Cartographers, surveyors, and chart-makers",
+          "Cobblers and shoemakers",
+          "Cooks and bakers",
+          "Glassblowers and glaziers",
+          "Jewelers and gemcutters",
+          "Leatherworkers, skinners, and tanners",
+          "Masons and stonecutters",
+          "Painters, limners, and sign-makers",
+          "Potters and tile-makers",
+          "Shipwrights and sailmakers",
+          "Smiths and metal-forgers",
+          "Tinkers, pewterers, and casters",
+          "Wagon-makers and wheelwrights",
+          "Weavers and dyers",
+          "Woodcarvers, coopers, and bowyers"
+        ]
+      },
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Artisan's tools",
+            "numChoices": 1
+          }
+        ]
+      },
+      "languageProfs": {
+        "additionalChoices": 1
+      },
       "lifestyle": "comfortable"
     },
     {
       "regExpSearch": "/hermit/i",
       "name": "Hermit",
       "source": "PHB",
-      "skills": [ "Medicine", "Religion" ],
+      "skillChoices": ["Medicine", "Religion"],
+      "skillNumber": 2,
       "gold": 5,
       "equipment": [
         {
@@ -532,10 +610,13 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Discovery",
-        "description": "The quiet seclusion of my extended hermitage gave me access to a unique and powerful discovery. The exact nature of this revelation depends on the nature of my seclusion. It might be a great truth, a hidden site, a long forgotten fact, or unearthed some relic of the past that could rewrite history."
-      }],
+      "features": [
+        {
+          "name": "Discovery",
+          "description":
+            "The quiet seclusion of my extended hermitage gave me access to a unique and powerful discovery. The exact nature of this revelation depends on the nature of my seclusion. It might be a great truth, a hidden site, a long forgotten fact, or unearthed some relic of the past that could rewrite history."
+        }
+      ],
       "trait": [
         "I've been isolated for so long that I rarely speak, preferring gestures and the occasional grunt.",
         "I am utterly serene, even in the face of disaster.",
@@ -570,26 +651,37 @@
         "I'd risk too much to uncover a lost bit of knowledge.",
         "I like keeping secrets and won't share them with anyone."
       ],
-      "extra": [
-        "Select a Life of Seclusion",
-        "Searching for spiritual enlightenment",
-        "Living in accordance with a religious order",
-        "Exiled for a crime I didn't commit",
-        "Retreated from society after a life-altering event",
-        "Worked on my art, literature, music, or manifesto",
-        "Commune with nature, far from civilization",
-        "Caretaker of an ancient ruin or relic",
-        "Pilgrim in search of a thing of spiritual significance"
-      ],
-      "toolProfs": [ "Herbalism kit" ],
-      "languageProfs": [ 1 ],
+      "extraChoice": {
+        "name": "Life of Seclusion",
+        "choices": [
+          "Searching for spiritual enlightenment",
+          "Living in accordance with a religious order",
+          "Exiled for a crime I didn't commit",
+          "Retreated from society after a life-altering event",
+          "Worked on my art, literature, music, or manifesto",
+          "Commune with nature, far from civilization",
+          "Caretaker of an ancient ruin or relic",
+          "Pilgrim in search of a thing of spiritual significance"
+        ]
+      },
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Herbalism kit"
+          }
+        ] 
+      },
+      "languageProfs": {
+        "additionalChoices": 1 
+      },
       "lifestyle": "poor"
     },
     {
       "regExpSearch": "/^(?!.*(waterdhavian|waterdeep|knight))(?=.*noble).*$/i",
       "name": "Noble",
       "source": "PHB",
-      "skills": [ "History", "Persuasion" ],
+      "skillChoices": [ "History", "Persuasion" ],
+      "skillNumber": 2, 
       "gold": 25,
       "equipment": [
         {
@@ -613,10 +705,12 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Position of Privilege",
-        "description": "I am welcome in high society, and people assume I have the right to be wherever I am. The common folk make every effort to accommodate me and avoid my displeasure, and other people of high birth treat me as a member of the same social sphere. I can secure an audience with a local noble if I need to."
-      }],
+      "features": [
+        {
+          "name": "Position of Privilege",
+          "description": "I am welcome in high society, and people assume I have the right to be wherever I am. The common folk make every effort to accommodate me and avoid my displeasure, and other people of high birth treat me as a member of the same social sphere. I can secure an audience with a local noble if I need to."
+        }
+      ],
       "trait": [
         "My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.",
         "The common folk love me for my kindness and generosity.",
@@ -651,15 +745,26 @@
         "In fact, the world does revolve around me.",
         "By my words and actions, I often bring shame to my family."
       ],
-      "toolProfs": [ [ "Gaming set", 1 ] ],
-      "languageProfs": [ 1 ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Gaming set",
+            "numChoices": 1 
+          }
+        ] 
+      },
+      "languageProfs": {
+        "additionalChoices": 1 
+      },
       "lifestyle": "wealthy"
     },
     {
-      "regExpSearch": "/^(?!.*urban)(?=.*(outlander|forester|trapper|homesteader|guide|exile|outcast|bounty.?hunter|tribal|nomad|hunter-gatherer|tribal.?marauder)).*$/i",
+      "regExpSearch":
+        "/^(?!.*urban)(?=.*(outlander|forester|trapper|homesteader|guide|exile|outcast|bounty.?hunter|tribal|nomad|hunter-gatherer|tribal.?marauder)).*$/i",
       "name": "Outlander",
       "source": "PHB",
-      "skills": [ "Athletics", "Survival" ],
+      "skillChoices": ["Athletics", "Survival"],
+      "skillNumber": 2,
       "gold": 10,
       "equipment": [
         {
@@ -688,10 +793,13 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Wanderer",
-        "description": "I have an excellent memory for maps and geography, and I can always recall the general layout of terrain, settlements, and other features around me. In addition, I can find food and fresh water for myself and up to five other people each day, provided that the land offers berries, small game, water, and so forth."
-      }],
+      "features": [
+        {
+          "name": "Wanderer",
+          "description":
+            "I have an excellent memory for maps and geography, and I can always recall the general layout of terrain, settlements, and other features around me. In addition, I can find food and fresh water for myself and up to five other people each day, provided that the land offers berries, small game, water, and so forth."
+        }
+      ],
       "trait": [
         "I'm driven by a wanderlust that led me away from home.",
         "I watch over my friends as if they were a litter of newborn pups.",
@@ -726,28 +834,40 @@
         "Violence is my answer to almost any challenge.",
         "Don't expect me to save those who can't save themselves. It is nature's way that the strong thrive and the weak perish."
       ],
-      "extra": [
-        "Select an Origin",
-        "Forester",
-        "Trapper",
-        "Homesteader",
-        "Guide",
-        "Exile or outcast",
-        "Bounty hunter",
-        "Pilgrim",
-        "Tribal nomad",
-        "Hunter-gatherer",
-        "Tribal marauder"
-      ],
-      "toolProfs": [ [ "Musical instrument", 1 ] ],
-      "languageProfs": [ 1 ],
+      "extraChoice": {
+        "name": "Origin",
+        "choices": [
+          "Forester",
+          "Trapper",
+          "Homesteader",
+          "Guide",
+          "Exile or outcast",
+          "Bounty hunter",
+          "Pilgrim",
+          "Tribal nomad",
+          "Hunter-gatherer",
+          "Tribal marauder"
+        ]
+      },
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Musical instrument",
+            "numChoices": 1 
+          }
+        ] 
+      },
+      "languageProfs": {
+        "additionalChoices": 1 
+      },
       "lifestyle": "poor"
     },
     {
       "regExpSearch": "/(sage|alchemist|astronomer|academic|librarian|professor|researcher|apprentice|scribe)/i",
       "name": "Sage",
       "source": "PHB",
-      "skills": [ "Arcana", "History" ],
+      "skillChoices": ["Arcana", "History"],
+      "skillNumber": 2,
       "gold": 10,
       "equipment": [
         {
@@ -781,10 +901,13 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Researcher",
-        "description": "When I attempt to learn or recall a piece of lore, if I do not know that information, I often know where and from whom I can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign."
-      }],
+      "features": [
+        {
+          "name": "Researcher",
+          "description":
+            "When I attempt to learn or recall a piece of lore, if I do not know that information, I often know where and from whom I can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign."
+        }
+      ],
       "trait": [
         "I use polysyllabic words that convey the impression of great erudition.",
         "I've read every book in the world's greatest libraries― or I like to boast that I have.",
@@ -819,25 +942,30 @@
         "I speak without really thinking through my words, invariably insulting others.",
         "I can't keep a secret to save my life, or anyone else's."
       ],
-      "extra": [
-        "Select a Specialty",
-        "Alchemist",
-        "Astronomer",
-        "Discredited academic",
-        "Librarian",
-        "Professor",
-        "Researcher",
-        "Wizard's apprentice",
-        "Scribe"
-      ],
-      "languageProfs": [ 2 ],
+      "extraChoice": {
+        "name": "Specialty",
+        "choices": [
+          "Alchemist",
+          "Astronomer",
+          "Discredited academic",
+          "Librarian",
+          "Professor",
+          "Researcher",
+          "Wizard's apprentice",
+          "Scribe"
+        ]
+      },
+      "languageProfs": {
+        "additionalChoices": 2 
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/sailor/i",
       "name": "Sailor",
       "source": "PHB",
-      "skills": [ "Athletics", "Perception" ],
+      "skillChoices": [ "Athletics", "Perception" ],
+      "skillNumber": 2, 
       "gold": 10,
       "equipment": [
         {
@@ -866,10 +994,12 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Ship's Passage",
-        "description": "When I need to, I can secure free passage on a sailing ship for myself and my companions. I might sail on the ship I served on, or another ship I have good relations with. Because I'm calling in a favor, I can't be certain of a schedule or route that will meet my every need. My companions and I are expected to assist the crew during the voyage."
-      }],
+      "features": [
+        {
+          "name": "Ship's Passage",
+          "description": "When I need to, I can secure free passage on a sailing ship for myself and my companions. I might sail on the ship I served on, or another ship I have good relations with. Because I'm calling in a favor, I can't be certain of a schedule or route that will meet my every need. My companions and I are expected to assist the crew during the voyage."
+        }
+      ],
       "trait": [
         "My friends know they can rely on me, no matter what.",
         "I work hard so that I can play hard when the work is done.",
@@ -904,14 +1034,24 @@
         "I can't help but pocket loose coins and other trinkets I come across.",
         "My pride will probably lead to my destruction."
       ],
-      "toolProfs": [ "Navigator's tools", "Vehicles (water)" ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Navigator's tools"
+          },
+          {
+            "name": "Vehicles (water)"
+          }
+        ]
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/^(?!.*mercenary)(?=.*soldier).*$/i",
       "name": "Soldier",
       "source": "PHB",
-      "skills": [ "Athletics", "Intimidation" ],
+      "skillChoices": ["Athletics", "Intimidation"],
+      "skillNumber": 2,
       "gold": 10,
       "equipment": [
         {
@@ -940,10 +1080,13 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Military Rank",
-        "description": "I have a military rank from my career as a soldier. Soldiers loyal to my former military organization still recognize my authority and influence. I can invoke my rank to influence soldiers and temporarily requisition simple equipment or horses. I can usually gain access to friendly military encampments and fortresses where my rank is recognized."
-      }],
+      "features": [
+        {
+          "name": "Military Rank",
+          "description":
+            "I have a military rank from my career as a soldier. Soldiers loyal to my former military organization still recognize my authority and influence. I can invoke my rank to influence soldiers and temporarily requisition simple equipment or horses. I can usually gain access to friendly military encampments and fortresses where my rank is recognized."
+        }
+      ],
       "trait": [
         "I'm always respectful and polite.",
         "I'm haunted by memories of war. I can't get the violent images out of my mind.",
@@ -978,28 +1121,38 @@
         "I uphold the law, even if the law causes suffering.",
         "I'd rather eat my weapon than admit when I'm wrong."
       ],
-      "extra": [
-        "Select a Specialty",
-        "Officer",
-        "Scout",
-        "Infantry",
-        "Cavalry",
-        "Healer",
-        "Quartermaster",
-        "Standard-bearer",
-        "Support staff"
-      ],
-      "toolProfs": [
-        [ "Gaming set", 1 ],
-        "Vehicles (land)"
-      ],
+      "extraChoice": {
+        "name": "Specialty",
+        "choices": [
+          "Officer",
+          "Scout",
+          "Infantry",
+          "Cavalry",
+          "Healer",
+          "Quartermaster",
+          "Standard-bearer",
+          "Support staff"
+        ]
+      },
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Gaming set",
+            "numChoices": 1
+          },
+          {
+            "name": "Vehicles (land)"
+          }
+        ] 
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/urchin/i",
       "name": "Urchin",
       "source": "PHB",
-      "skills": [ "Sleight of Hand", "Stealth" ],
+      "skillChoices": [ "Sleight of Hand", "Stealth" ],
+      "skillNumber": 2, 
       "gold": 10,
       "equipment": [
         {
@@ -1033,10 +1186,12 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "City Secrets",
-        "description": "I know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When I am not in combat, I (and companions I lead) can travel between any two locations in the city twice as fast as my speed would normally allow."
-      }],
+      "features": [
+        {
+          "name": "City Secrets",
+          "description": "I know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When I am not in combat, I (and companions I lead) can travel between any two locations in the city twice as fast as my speed would normally allow."
+        }
+      ],
       "trait": [
         "I keep scraps of food and trinkets hidden away in my pockets.",
         "I ask questions all the time.",
@@ -1071,17 +1226,25 @@
         "It's not theft if I have more use for it than someone else.",
         "People who are incapable of taking care of themselves get what they deserve."
       ],
-      "toolProfs": [
-        "Disguise kit",
-        [ "Thieves' tools", "Dex" ]
-      ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Disguise kit"
+          },
+          {
+            "name": "Thieves' tools",
+            "ability": "Dexterity" 
+          }
+        ] 
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/^(?=.*caravan)(?=.*specialist).*$/i",
       "name": "Caravan Specialist",
       "source": "EE",
-      "skills": [ "Animal Handling", "Survival" ],
+      "skillChoices": [ "Animal Handling", "Survival" ],
+      "skillNumber": 2, 
       "gold": 10,
       "equipment": [
         {
@@ -1105,10 +1268,12 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Wagonmaster",
-        "description": "I'm used to being in charge. My reputation has me on a short list for critical jobs, allows me to attract two more loyal workers for caravaning, and causes others to look to me for direction. I can identify the most defensible locations for camping. I have a great memory for maps and geography. While travelling, I can always find my cardinal directions."
-      }],
+      "features": [
+        {
+          "name": "Wagonmaster",
+          "description": "I'm used to being in charge. My reputation has me on a short list for critical jobs, allows me to attract two more loyal workers for caravaning, and causes others to look to me for direction. I can identify the most defensible locations for camping. I have a great memory for maps and geography. While travelling, I can always find my cardinal directions."
+        }
+      ],
       "trait": [
         "Any group is only as strong as its weakest link. Everyone has to pull their own weight.",
         "There's always someone out there trying to take what I've got. Always be vigilent.",
@@ -1143,15 +1308,24 @@
         "Once I decide on a course of action, I do not waiver.",
         "I like to explore, and my curiosity will sometimes get me into trouble."
       ],
-      "toolProfs": [ "Vehicles (land)" ],
-      "languageProfs": [ 1 ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Vehicles (land)"
+          }
+        ] 
+      },
+      "languageProfs": {
+        "additionalChoices": 1 
+      },
       "lifestyle": "poor"
     },
     {
       "regExpSearch": "/^(?=.*earthspur)(?=.*miner).*$/i",
       "name": "Earthspur Miner",
       "source": "EE",
-      "skills": [ "Athletics", "Survival" ],
+      "skillChoices": [ "Athletics", "Survival" ],
+      "skillNumber": 2,
       "gold": 5,
       "equipment": [
         {
@@ -1180,10 +1354,12 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Deep Miner",
-        "description": "I am used to navigating the deep places of the earth. I never get lost in caves or mines if I have either seen an accurate map of them or have been through them before. Furthermore, I am able to scrounge fresh water and food for myself and as many as five other people each day if I am in a mine or natural caves."
-      }],
+      "features": [
+        {
+          "name": "Deep Miner",
+          "description": "I am used to navigating the deep places of the earth. I never get lost in caves or mines if I have either seen an accurate map of them or have been through them before. Furthermore, I am able to scrounge fresh water and food for myself and as many as five other people each day if I am in a mine or natural caves."
+        }
+      ],
       "trait": [
         "Nothing bothers me for long.",
         "I hate the horrors of the Underdark with a passion. They took my friends and family and almost got me.",
@@ -1218,14 +1394,17 @@
         "I am obsessed with getting rich. I always have a scheme brewing for making it big.",
         "I'm afraid of the dark."
       ],
-      "languageProfs": [ "Dwarvish", "Undercommon" ],
+      "languageProfs": {
+        "languages": [ "Dwarvish", "Undercommon" ]
+      },
       "lifestyle": "poor"
     },
     {
       "regExpSearch": "/harborfolk/i",
       "name": "Harborfolk",
       "source": "EE",
-      "skills": [ "Athletics", "Sleight of Hand" ],
+      "skillChoices": [ "Athletics", "Sleight of Hand" ],
+      "skillNumber": 2,
       "gold": 5,
       "equipment": [
         {
@@ -1254,10 +1433,12 @@
           "weight": 100
         }
       ],
-      "features": [{
-        "name": "Harborfolk",
-        "description": "I grew up on the docks and waters of Mulmaster Harbor. The harborfolk remember me and still treat me as one of them. They welcome me and my companions. While they might charge me for it, they'll always offer what food and shelter they have; they'll even hide me if the City Watch is after me (but not if the Hawks are)."
-      }],
+      "features": [
+        {
+          "name": "Harborfolk",
+          "description": "I grew up on the docks and waters of Mulmaster Harbor. The harborfolk remember me and still treat me as one of them. They welcome me and my companions. While they might charge me for it, they'll always offer what food and shelter they have; they'll even hide me if the City Watch is after me (but not if the Hawks are)."
+        }
+      ],
       "trait": [
         "I am curious. I want to know why things are the way they are and why people do the things that they do.",
         "I can't sing, but that never stops me from doing it, loudly. Everyone loves a good sea chanty!",
@@ -1292,17 +1473,25 @@
         "I almost always cheat. I can't help myself.",
         "I am a secret informant for the Hawks. I send them reports about everything I see and hear, even what my friends and allies are up to."
       ],
-      "toolProfs": [
-        [ "Gaming set", 1 ],
-        "Vehicles (water)"
-      ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Gaming set",
+            "numChoices": 1
+          },
+          {
+            "name": "Vehicles (water)"
+          }
+        ] 
+      },
       "lifestyle": "poor"
     },
     {
       "regExpSearch": "/^(?=.*mulmaster)(?=.*aristocrat).*$/i",
       "name": "Mulmaster Aristocrat",
       "source": "EE",
-      "skills": [ "Deception", "Performance" ],
+      "skillChoices": [ "Deception", "Performance" ],
+      "skillNumber": 2,
       "gold": 10,
       "equipment": [
         {
@@ -1321,10 +1510,12 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Highborn",
-        "description": "Mulmaster is run by and for its aristoracy. Every other class of citizen in the city defers to me, and even the priesthood, Soldiery, Hawks, and Cloaks treat me with deference. Other aristocrats and nobles accept me in their circles and likely know me or of me. My connections can get me the ear of a Zor or Zora under the right circumstances."
-      }],
+      "features": [
+        {
+          "name": "Highborn",
+          "description": "Mulmaster is run by and for its aristoracy. Every other class of citizen in the city defers to me, and even the priesthood, Soldiery, Hawks, and Cloaks treat me with deference. Other aristocrats and nobles accept me in their circles and likely know me or of me. My connections can get me the ear of a Zor or Zora under the right circumstances."
+        }
+      ],
       "trait": [
         "My ambitions are boundless. I will be a Zor or Zora one day!",
         "I must alwayss look my best.",
@@ -1359,17 +1550,26 @@
         "My family has lost everything. I must keep up appearances, lest we become a laughingstock.",
         "I have no artistic sense. I hide that fact behind extreme opinons and have become a trendsetter."
       ],
-      "toolProfs": [
-        [ "Artisan's tools", 1 ],
-        [ "Musical instrument", 1 ]
-      ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Artisan's tools",
+            "numChoices": 1
+          },
+          {
+            "name": "Musical instrument",
+            "numChoices": 1 
+          }
+        ] 
+      },
       "lifestyle": "wealthy"
     },
     {
       "regExpSearch": "/^(?=.*phlan)(?=.*refugee).*$/i",
       "name": "Phlan Refugee",
       "source": "EE",
-      "skills": [ "Insight", "Athletics" ],
+      "skillChoices": [ "Insight", "Athletics" ],
+      "skillNumber": 2,
       "gold": 15,
       "equipment": [
         {
@@ -1393,10 +1593,12 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Phlan Survivor",
-        "description": "Whatever my prior standing I'm now one of the many refugees that came to Mulmaster. I'm able to find refuge with others from Phlan and those who sympathize with my plight. Within Mulmaster this means that I can find a place to sleep, recover, and hide from the watch with either other refugees from Phlan, or the Zhents within the ghettos."
-      }],
+      "features": [
+        {
+          "name": "Phlan Survivor",
+          "description": "Whatever my prior standing I'm now one of the many refugees that came to Mulmaster. I'm able to find refuge with others from Phlan and those who sympathize with my plight. Within Mulmaster this means that I can find a place to sleep, recover, and hide from the watch with either other refugees from Phlan, or the Zhents within the ghettos."
+        }
+      ],
       "trait": [
         "I may have lost everything I worked for most of my life, but there's work to be done, no time to linger on the past.",
         "I worked hard to get where I am and I refuse to let a little hardship stop me from succeeding.",
@@ -1431,15 +1633,25 @@
         "I am unable to keep secrets. A secret is just an untold story.",
         "When something goes wrong, it's never my fault."
       ],
-      "toolProfs": [ [ "Artisan's tools", 1 ] ],
-      "languageProfs": [ 1 ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Artisan's tools",
+            "numChoices": 1 
+          }
+        ] 
+      },
+      "languageProfs": {
+        "additionalChoices": 1 
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/^(?=.*cormanthor)(?=.*refugee).*$/i",
       "name": "Cormanthor Refugee",
       "source": "RoD",
-      "skills": [ "Nature", "Survival" ],
+      "skillChoices": ["Nature", "Survival"],
+      "skillNumber": 2,
       "gold": 5,
       "equipment": [
         {
@@ -1468,53 +1680,66 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Shelter of the Elven Clergy",
-        "description": "The clerics of Elventree have vowed to care for the Cormanthor refugees. They will help me when they can, including providing me and my companions with free healing and care at temples, shrines, and other established presences in Elventree. They will also provide me (but only me) with a poor lifestyle."
-        }],
-        "trait": [
-          "I long for a home that never really existed, whether in the camps, Hillsfar, or Myth Drannor.",
-          "Though I am not an elf, I am a fervent, radical worshipper of the elven gods.",
-          "I live in the moment, knowing my life could be turned upside down any day.",
-          "I appreciate beauty in all of its forms.",
-          "I hate the dark elves and the Netherese for each driving the elves out of Cormanthyr in the past.",
-          "I am a forest bumpkin who grew up in a tent in the woods and is wholly ignorant of city life.",
-          "I was raised alongside children of many other races. I harbor no racial prejudices at all.",
-          "The elves have just the right word for so many things that cannot be expressed as well in other languages. I pepper my speech with elven words, phrases, and sayings."
-        ],
-        "ideal": [
-          "Patient: The elves have taught me to think and plan for the long-term. (Lawful)",
-          "Rebellious: Governments and politicians drove my family to the camps. I subtly defy authority whenever I think I can get away with it. (Chaotic)",
-          "Self-Absorbed: I've had to look out for number one so long that it has become second nature. (Any)",
-          "Wanderlust: I want to see as much of the world beyond the camps as I can. (Any)",
-          "Generous: I give everything I can to help those in need, regardless of who they are. (Good)",
-          "To the Abyss with Them: The people of Hillsfar cast me out. I won't risk my hide to help them. (Evil)"
-        ],
-        "bond": [
-          "The elves took me in when I had nowhere else to go. In return, I do what I can to help elves in need.",
-          "I seek revenge against the people of Hillsfar for driving my family into the forest.",
-          "My family lost everything when they were driven from Hillsfar. I strive to rebuild that fortune.",
-          "The forest has provided me with food and shelter. In return, I protect forests and those who dwell within.",
-          "I am deeply, tragically in love with someone whose racial lifespan is far longer or shorter than mine.",
-          "Members of my extended family did not make it to the camps or have been kidnapped to fight in the Arena. I search for them tirelessly."
-        ],
-        "flaw": [
-          "I am very uncomfortable indoors and underground",
-          "I am haughty. I grew up among the elves and emulate them. Other races are crude in comparison.",
-          "Elf this, elf that. I am sick and tired of the elves.",
-          "I am a miser. Having lost everything once before, I clutch my possessions and wealth very tightly.",
-          "I am a moocher. I am so used to others providing for me that I have come to expect everyone to do it.",
-          "I believe the gods have cursed me, my family, and all of the Cormanthor refugees. We are all doomed, doomed I tell you!"
-        ],
-        "toolProfs": [ [ "Artisan's tools", 1 ] ],
-        "languageProfs": [ "Elvish" ],
-        "lifestyle": "poor"
+      "features": [
+        {
+          "name": "Shelter of the Elven Clergy",
+          "description":
+            "The clerics of Elventree have vowed to care for the Cormanthor refugees. They will help me when they can, including providing me and my companions with free healing and care at temples, shrines, and other established presences in Elventree. They will also provide me (but only me) with a poor lifestyle."
+        }
+      ],
+      "trait": [
+        "I long for a home that never really existed, whether in the camps, Hillsfar, or Myth Drannor.",
+        "Though I am not an elf, I am a fervent, radical worshipper of the elven gods.",
+        "I live in the moment, knowing my life could be turned upside down any day.",
+        "I appreciate beauty in all of its forms.",
+        "I hate the dark elves and the Netherese for each driving the elves out of Cormanthyr in the past.",
+        "I am a forest bumpkin who grew up in a tent in the woods and is wholly ignorant of city life.",
+        "I was raised alongside children of many other races. I harbor no racial prejudices at all.",
+        "The elves have just the right word for so many things that cannot be expressed as well in other languages. I pepper my speech with elven words, phrases, and sayings."
+      ],
+      "ideal": [
+        "Patient: The elves have taught me to think and plan for the long-term. (Lawful)",
+        "Rebellious: Governments and politicians drove my family to the camps. I subtly defy authority whenever I think I can get away with it. (Chaotic)",
+        "Self-Absorbed: I've had to look out for number one so long that it has become second nature. (Any)",
+        "Wanderlust: I want to see as much of the world beyond the camps as I can. (Any)",
+        "Generous: I give everything I can to help those in need, regardless of who they are. (Good)",
+        "To the Abyss with Them: The people of Hillsfar cast me out. I won't risk my hide to help them. (Evil)"
+      ],
+      "bond": [
+        "The elves took me in when I had nowhere else to go. In return, I do what I can to help elves in need.",
+        "I seek revenge against the people of Hillsfar for driving my family into the forest.",
+        "My family lost everything when they were driven from Hillsfar. I strive to rebuild that fortune.",
+        "The forest has provided me with food and shelter. In return, I protect forests and those who dwell within.",
+        "I am deeply, tragically in love with someone whose racial lifespan is far longer or shorter than mine.",
+        "Members of my extended family did not make it to the camps or have been kidnapped to fight in the Arena. I search for them tirelessly."
+      ],
+      "flaw": [
+        "I am very uncomfortable indoors and underground",
+        "I am haughty. I grew up among the elves and emulate them. Other races are crude in comparison.",
+        "Elf this, elf that. I am sick and tired of the elves.",
+        "I am a miser. Having lost everything once before, I clutch my possessions and wealth very tightly.",
+        "I am a moocher. I am so used to others providing for me that I have come to expect everyone to do it.",
+        "I believe the gods have cursed me, my family, and all of the Cormanthor refugees. We are all doomed, doomed I tell you!"
+      ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Artisan's tools",
+            "numChoices": 1
+          }
+        ]
       },
+      "languageProfs": {
+        "languages": [ "Elvish" ]
+      },
+      "lifestyle": "poor"
+    },
     {
       "regExpSearch": "/^(?=.*gate)(?=.*urchin).*$/i",
       "name": "Gate Urchin",
       "source": "RoD",
-      "skills": [ "Deception", "Sleight of Hand" ],
+      "skillChoices": [ "Deception", "Sleight of Hand" ],
+      "skillNumber": 2,
       "gold": 10,
       "equipment": [
         {
@@ -1543,10 +1768,12 @@
           "weight": 0
         }
       ],
-      "features": [{
-        "name": "Red Plume and Mage Guild Contacts",
-        "description": "I made friends among the Red Plumes and Mage's Guild when I lived at the Hillsfar Gate. They remember me fondly and help me in little ways when they can. I can invoke their assistance in and around Hillsfar to obtain food, simple equipment for temporary use, and to gain access to the low-security areas of their garrisons, halls, and encampments."
-      }],
+      "features": [
+        {
+          "name": "Red Plume and Mage Guild Contacts",
+          "description": "I made friends among the Red Plumes and Mage's Guild when I lived at the Hillsfar Gate. They remember me fondly and help me in little ways when they can. I can invoke their assistance in and around Hillsfar to obtain food, simple equipment for temporary use, and to gain access to the low-security areas of their garrisons, halls, and encampments."
+        }
+      ],
       "trait": [
         "I appreciate the simple things in life: a song, a warm meal, a sunny day. I don't need any more.",
         "My problems are always caused by others. I'm never to blame.",
@@ -1581,17 +1808,26 @@
         "I am still very uncomfortable wearing nice clothes, sleeping in a warm bed, and eating fine food.",
         "I do not trust anyone who has not had a hard life."
       ],
-      "toolProfs": [
-        [ "Thieves' tools", "Dex" ],
-        [ "Musical instrument", 1 ]
-      ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Thieves' tools",
+            "ability": "Dexterity"
+          },
+          {
+            "name": "Musical instrument",
+            "numChoices": 1 
+          }
+        ] 
+      },
       "lifestyle": "poor"
     },
     {
       "regExpSearch": "/^(?=.*hillsfar)(?=.*merchant).*$/i",
       "name": "Hillsfar Merchant",
       "source": "RoD",
-      "skills": [ "Insight", "Persuasion" ],
+      "skillChoices": [ "Insight", "Persuasion" ],
+      "skillNumber": 2,
       "gold": 25,
       "equipment": [
         {
@@ -1615,11 +1851,16 @@
           "weight": 1
         }
       ],
-      "features": [{
-        "name": "Factor",
-        "description": "My family has assigned me the services of a loyal retainer from the business. This person can perform mundane tasks for me such as making purchases, delivering messages, and running errands. He or she will not fight for me or follow me into danger, and will leave if frequently endangered or abused. If killed, my family assigns me another within days."
-      }],
-      "featureAlt": "Trade Contact",
+      "features": [
+        {
+          "name": "Factor",
+          "description": "My family has assigned me the services of a loyal retainer from the business. This person can perform mundane tasks for me such as making purchases, delivering messages, and running errands. He or she will not fight for me or follow me into danger, and will leave if frequently endangered or abused. If killed, my family assigns me another within days."
+        },
+        {
+          "name": "Trade Contact",
+          "description": "My family and I have trade contacts such as caravan masters, sailors, artisans, farmers, and shopkeepers throughout the Moonsea region and all along the Sword Coast. When adventuring in either of those areas, I can use those contacts to get information about the local area or to pass a message to someone in those areas, even across great distance."
+        }
+      ],
       "trait": [
         "I fill my evenings with wine or mead and song.",
         "I greatly admire gladiators and enjoy the Arena.",
@@ -1654,14 +1895,24 @@
         "I am lazy. I want others to take care of everything.",
         "I am overconfident. I overestimate my abilities."
       ],
-      "toolProfs": [ "Vehicles (land)", "Vehicles (water)" ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Vehicles (land)"
+          },
+          {
+            "name": "Vehicles (water)"
+          }
+        ] 
+      },
       "lifestyle": "wealthy"
     },
     {
       "regExpSearch": "/^(?=.*hillsfar)(?=.*smuggler).*$/i",
       "name": "Hillsfar Smuggler",
       "source": "RoD",
-      "skills": [ "Perception", "Stealth" ],
+      "skillChoices": [ "Perception", "Stealth" ],
+      "skillNumber": 2,
       "gold": 5,
       "equipment": [
         {
@@ -1720,15 +1971,24 @@
         "I am greedy. There Isn't much I won't do for money.",
         "I'm an informant for the Red Plumes. They let me continue my activities, so long as I pass them information about illegal activity in Hillsfar."
       ],
-      "toolProfs": [ "Forgery kit" ],
-      "languageProfs": [ 1 ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Forgery kit"
+          }
+        ] 
+      },
+      "languageProfs": {
+        "additionalChoices": 1
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/^(?=.*secret)(?=.*identity).*$/i",
       "name": "Secret Identity",
       "source": "RoD",
-      "skills": [ "Deception", "Stealth" ],
+      "skillChoices": [ "Deception", "Stealth" ],
+      "skillNumber": 2,
       "gold": 5,
       "equipment": [
         {
@@ -1792,14 +2052,24 @@
         "I am struggling with maintaining my secret identity. I subconsciously want to get caught and therefore sometimes let my secret identity slip.",
         "Years of successfully deceiving others have made me cocky. I think no one can see through my lies."
       ],
-      "toolProfs": [ "Disguise kit", "Forgery kit" ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Disguise kit"
+          },
+          {
+            "name": "Forgery kit"
+          }
+        ] 
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/^(?=.*shade)(?=.*fanatic).*$/i",
       "name": "Shade Fanatic",
       "source": "RoD",
-      "skills": [ "Deception", "Intimidation" ],
+      "skillChoices": [ "Deception", "Intimidation" ],
+      "skillNumber": 2,
       "gold": 15,
       "equipment": [
         {
@@ -1868,15 +2138,26 @@
         "I always enjoy a good mug of ale … or five.",
         "I know what I do is wrong, but am afraid to speak up about it."
       ],
-      "toolProfs": [ "Forgery kit" ],
-      "languageProfs": [ "Netherese" ],
-      "lifestyle": "moderate"
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Forgery kit"
+          }
+        ] 
+      },
+      "languageProfs": {
+        "languages": [
+          "Netherese" 
+        ]
+      },
+      "lifestyle": "modest"
     },
     {
       "regExpSearch": "/^(?=.*trade)(?=.*sheriff).*$/i",
       "name": "Trade Sheriff",
       "source": "RoD",
-      "skills": [ "Investigation", "Persuasion" ],
+      "skillChoices": [ "Investigation", "Persuasion" ],
+      "skillNumber": 2,
       "gold": 17,
       "equipment": [
         {
@@ -1940,15 +2221,27 @@
         "I always enjoy a good mug of ale … or five to cover up my past.",
         "I speak for the First Lord of Hillsfar and make sure everyone knows it."
       ],
-      "toolProfs": [ [ "Thieves' tools", "Dex" ] ],
-      "languageProfs": [ "Elvish" ],
-      "lifestyle": "moderate"
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Thieves' tools",
+            "ability": "Dexterity"
+          }
+        ] 
+      },
+      "languageProfs": {
+        "languages": [
+          "Elvish"
+        ]
+      },
+      "lifestyle": "modest"
     },
     {
       "regExpSearch": "/^(?=.*far)(?=.*traveler).*$/i",
       "name": "Far Traveler",
-      "source": [ "S", 148 ],
-      "skills": [ "Insight", "Perception" ],
+      "source": "SCAG",
+      "skillChoices": [ "Insight", "Perception" ],
+      "skillNumber": 2,
       "gold": 5,
       "equipment": [
         {
@@ -2015,26 +2308,39 @@
         "I consider the adherents of other gods to be deluded innocents at best, or ignorant fools at worst.",
         "I have a weakness for the exotic beauty of the people of these lands."
       ],
-      "extra": [
-        "Select Why You Are Here",
-        "Emissary",
-        "Exile",
-        "Fugitive",
-        "Pilgrim",
-        "Sightseer",
-        "Wanderer"
-      ],
-      "toolProfs": [ [ "Gaming set or musical instrument", 1 ] ],
-      "languageProfs": [ 1 ],
+      "extraChoice": {
+        "name": "Why You Are Here",
+        "choices": [
+          "Emissary",
+          "Exile",
+          "Fugitive",
+          "Pilgrim",
+          "Sightseer",
+          "Wanderer"
+        ]
+      },
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Gaming set or musical instrument",
+            "numChoices": 1 
+          }
+        ] 
+      },
+      "languageProfs": {
+        "additionalChoices": 1 
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/haunted/i",
       "name": "Haunted One",
       "source": "CoS",
-      "skills": "",
-      "skillstxt": "Choose two from Arcana, Investigation, Religion, and Survival",
-      "languageProfs": [ 1 ],
+      "skillChoices": [ "Arcana", "Investigation", "Religion", "Survival" ],
+      "skillNumber": 2,
+      "languageProfs": {
+        "additionalChoices": 1 
+      },
       "gold": 0,
       "equipment": [
         {
@@ -2103,7 +2409,12 @@
           "weight": 0
         }
       ],
-      "feature": "Heart of Darkness",
+      "features": [
+        {
+          "name": "Heart of Darkness",
+          "description": "Those who look into my eyes can see that I have faced unimaginable horror and that I am no stranger to darkness. Though they might fear me, commoners will extend me every courtesy and do their utmost to help. Unless I have shown myself to be a danger to them, they will even take up arms to fight with me, should I find myself facing an enemy alone."
+        }
+      ],
       "trait": [
         "I don't run from evil. Evil runs from me.",
         "I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness.",
@@ -2138,25 +2449,28 @@
         "I am a purveyor of doom and gloom who lives in a world without hope.",
         "I talk to spirits that no one else can see."
       ],
-      "extra": [
-        "Select a Harrowing Event",
-        "Monster spared my life",
-        "Born under a dark star",
-        "Haunted by an apparition",
-        "Dark arts in the family",
-        "An oni took my sibling",
-        "Memory of cured lycanthropy",
-        "Raised by a hag",
-        "Studied an eldritch tome",
-        "Formerly possessed by a fiend",
-        "Avenged a murder"
-      ]
+      "extraChoice": {
+        "name": "Harrowing Event",
+        "choices": [
+          "Monster spared my life",
+          "Born under a dark star",
+          "Haunted by an apparition",
+          "Dark arts in the family",
+          "An oni took my sibling",
+          "Memory of cured lycanthropy",
+          "Raised by a hag",
+          "Studied an eldritch tome",
+          "Formerly possessed by a fiend",
+          "Avenged a murder"
+        ]
+      }
     },
     {
       "regExpSearch": "/black\\W*fist/i",
       "name": "Black Fist Double Agent",
       "source": "CoS",
-      "skills": [ "Deception", "Insight" ],
+      "skillChoices": [ "Deception", "Insight" ],
+      "skillNumber": 2,
       "gold": 15,
       "equipment": [
         {
@@ -2190,7 +2504,12 @@
           "weight": 0
         }
       ],
-      "feature": "Double Agent",
+      "features": [
+        {
+          "name": "Double Agent",
+          "description": "I have a trusty contact in the Tears of Virulence garrison in Phlan to whom I pass information. In exchange, I get away with minor criminal offenses in Phlan. My Black Fists contacts can help me get an audience with the Lord Regent, the Lord Sage, Black Fists members, or deposed nobles who are sympathetic to the Phlan refugees and insurgents."
+        }
+      ],
       "trait": [
         "People are only as trustworthy as you are valuable to them. Always strive to be the most valuable person around.",
         "My eloquence and sophistication are tools I use to avoid arousing suspicion myself.",
@@ -2225,18 +2544,32 @@
         "My desire for vengeance often gets me into trouble",
         "I am spendthrift, and share my wealth with the patrons of my favorite tavern."
       ],
-      "toolProfs": [
-        "Disguise Kit",
-        [ "Artisan's tools or gaming set", 1 ]
-      ],
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Disguise Kit"
+          },
+          {
+            "name": "Artisan's tools or gaming set",
+            "numChoices": 1 
+          }
+        ] 
+      },
       "lifestyle": "modest"
     },
     {
       "regExpSearch": "/^(?=.*dragon)(?=.*casualty).*$/i",
       "name": "Dragon Casualty",
       "source": "CoS",
-      "skills": [ "Intimidation", "Survival" ],
-      "toolProfs": [ "Based on my origin" ],
+      "skillChoices": [ "Intimidation", "Survival" ],
+      "skillNumber": 2,
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Based on my origin"
+          }
+        ] 
+      },
       "gold": 5,
       "equipment": [
         {
@@ -2265,32 +2598,37 @@
           "weight": 1
         }
       ],
-      "feature": "Dragonscarred",
-      "extra": [
-        "Select an Origin (or Disfigurement)",
-        "Dockworker",
-        "Fisherman",
-        "Tradesperson",
-        "Merchant",
-        "Black Fist Soldier",
-        "Adventurer",
-        "Visitor",
-        "Entertainer",
-        "Scholar",
-        "Healer",
-        "Criminal",
-        "Unskilled laborer",
-        "",
-        "- Disfigurements (optional):",
-        "Extensive scarring",
-        "Small non-functional wing(s)",
-        "Misshapen, wing-like membrane(s)",
-        "Elongated, claw-like hand(s) or feet",
-        "Painful green scales embedded in skin",
-        "Bulbous, reptilian eye(s)",
-        "Enlarged dorsal spines",
-        "Small irregular spines instead of hair"
+      "features": [
+        {
+          "name": "Dragonscarred",
+          "description": "My extensive scars from being tortured by Vorgansharax give me fame and notoriety, but it is difficult to disguise my appearance and hide from prying eyes. I can use this to gain access to people and places I might not otherwise have, for me and my companions. However, I fear that my afflictions are not completely mundane, as they burn and writhe."
+        }
       ],
+      "extraChoice": {
+        "name": "Origin or Disfigurement",
+        "choices": [
+          "Dockworker",
+          "Fisherman",
+          "Tradesperson",
+          "Merchant",
+          "Black Fist Soldier",
+          "Adventurer",
+          "Visitor",
+          "Entertainer",
+          "Scholar",
+          "Healer",
+          "Criminal",
+          "Unskilled laborer",
+          "Extensive scarring",
+          "Small non-functional wing(s)",
+          "Misshapen, wing-like membrane(s)",
+          "Elongated, claw-like hand(s) or feet",
+          "Painful green scales embedded in skin",
+          "Bulbous, reptilian eye(s)",
+          "Enlarged dorsal spines",
+          "Small irregular spines instead of hair"
+        ]
+      },
       "trait": [
         "I am driven to escape my past, and rarely stay in one place long.",
         "I know secrets of the Maimed Virulence, but fear the harm that may befall me should others learn them.",
@@ -2325,18 +2663,30 @@
         "I am paranoid and overly suspicious of others. Anyone may be an agent of the Maimed Virulence.",
         "Once I make up my mind, I follow my chosen course of action regardless of the consequences."
       ],
-      "languageProfs": [ "Draconic" ],
+      "languageProfs": {
+        "languages": [
+          "Draconic"
+        ] 
+      },
       "lifestyle": "wretched"
     },
     {
       "regExpSearch": "/^(?=.*iron)(?=.*route)(?=.*bandit).*$/i",
       "name": "Iron Route Bandit",
       "source": "CoS",
-      "skills": [ "Animal Handling", "Stealth" ],
-      "toolProfs": [
-        [ "Gaming set", 1 ],
-        "Vehicles (land)"
-      ],
+      "skillChoices": [ "Animal Handling", "Stealth" ],
+      "skillNumber": 2,
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Gaming set",
+            "numChoices": 1
+          },
+          {
+            "name": "Vehicles (land)"
+          }
+        ] 
+      },
       "gold": 5,
       "equipment": [
         {
@@ -2425,7 +2775,12 @@
           "weight": 0
         }
       ],
-      "feature": "Black-Market Breeder",
+      "features": [
+        {
+          "name": "Black-Market Breeder",
+          "description": "I know how to find people who are always looking for stolen animals and vehicles, for pit fights or getaways during an illegal job. This provides me with information of what such animals & vehicles are in high demand in the area, but also offer to give me favors and information (DM choice) if I bring such animals and vehicles to them."
+        }
+      ],
       "trait": [
         "If people leave their gear unsecured, they must not want it very much.",
         "I feel more comfortable sleeping under the open sky.",
@@ -2466,11 +2821,19 @@
       "regExpSearch": "/^(?=.*phlan)(?=.*insurgent).*$/i",
       "name": "Phlan Insurgent",
       "source": "CoS",
-      "skills": [ "Stealth", "Survival" ],
-      "toolProfs": [
-        [ "Artisan's tools", 1 ],
-        "Vehicles (land)"
-      ],
+      "skillChoices": [ "Stealth", "Survival" ],
+      "skillNumber": 2,
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Artisan's tools",
+            "numChoices": 1
+          },
+          {
+            "name": "Vehicles (land)"
+          }
+        ] 
+      },
       "gold": 5,
       "equipment": [
         {
@@ -2499,26 +2862,33 @@
           "weight": 0
         }
       ],
-      "feature": "Guerilla",
-      "extra": [
-        "Select an Origin",
-        "Fisher",
-        "Hunter",
-        "Craftsperson",
-        "Priest/Priestess",
-        "Cook",
-        "City Watch",
-        "Servant",
-        "Unskilled laborer",
-        "Stojanow river worker",
-        "Twilight Marsh worker",
-        "Mantor's Library scribe",
-        "Clergy of Ilmater",
-        "Laughing Goblin server",
-        "Black Fist guard",
-        "House Sokol retainer",
-        "Bay of Phlan dockworker"
+      "features": [
+        {
+          "name": "Guerilla",
+          "description": "I've come to know the surrounding other natural features in which I can take refuge--or set up ambushes. I can quickly survey my environment for advantageous features. Additionally, I can scavenge around my natural surroundings to cobble together simple supplies (such as improvised torches, rope, patches of fabric, etc.) that are consumed after use."
+        }
       ],
+      "extraChoice": {
+        "name": "Origin",
+        "choices": [
+          "Fisher",
+          "Hunter",
+          "Craftsperson",
+          "Priest/Priestess",
+          "Cook",
+          "City Watch",
+          "Servant",
+          "Unskilled laborer",
+          "Stojanow river worker",
+          "Twilight Marsh worker",
+          "Mantor's Library scribe",
+          "Clergy of Ilmater",
+          "Laughing Goblin server",
+          "Black Fist guard",
+          "House Sokol retainer",
+          "Bay of Phlan dockworker"
+        ]
+      },
       "trait": [
         "My patience knows no bounds, so long as my goal is in sight.",
         "In life and in struggle, the ends justify my actions.",
@@ -2559,11 +2929,20 @@
       "regExpSearch": "/^(?=.*stojanow)(?=.*prisoner).*$/i",
       "name": "Stojanow Prisoner",
       "source": "CoS",
-      "skills": [ "Deception", "Perception" ],
-      "toolProfs": [
-        [ "Gaming set", 1 ],
-        [ "Thieves' tools", "Dex" ]
-      ],
+      "skillChoices": [ "Deception", "Perception" ],
+      "skillNumber": 2,
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Gaming set",
+            "numChoices": 1
+          },
+          {
+            "name": "Thieves' tools",
+            "ability": "Dexterity"
+          }
+        ] 
+      },
       "gold": 10,
       "equipment": [
         {
@@ -2587,7 +2966,12 @@
           "weight": 0
         }
       ],
-      "feature": "Ex-Convict",
+      "features": [
+        {
+          "name": "Ex-Convict",
+          "description": "The knowledge gained during my incarceration lets me gain insight into local guards and jailors. I know which will accept bribes, or look the other way for me. I can also seek shelter for myself from authorities with other criminals in the area."
+        }
+      ],
       "trait": [
         "I am a bully; others will suffer as I have.",
         "I always say yes even when I mean no; it's just easier.",
@@ -2628,8 +3012,15 @@
       "regExpSearch": "/^(?=.*ticklebelly)(?=.*nomad).*$/i",
       "name": "Ticklebelly Nomad",
       "source": "CoS",
-      "skills": [ "Animal Handling", "Nature" ],
-      "toolProfs": [ "Herbalism Kit" ],
+      "skillChoices": [ "Animal Handling", "Nature" ],
+      "skillNumber": 2,
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Herbalism Kit"
+          }
+        ] 
+      },
       "gold": 5,
       "equipment": [
         {
@@ -2658,7 +3049,12 @@
           "weight": 0
         }
       ],
-      "feature": "At Home in the Wild",
+      "features": [
+        {
+          "name": "At Home in the Wild",
+          "description": "In the wilderness, my home, I can find a place to hide, rest, or recuperate that is secure enough to conceal me from most natural threats, but not all supernatural, magical, or threats that actively seek me out. However, this feature doesn't shield or conceal me from scrying, mental probing, nor from threats that don't need the five senses to find me."
+        }
+      ],
       "trait": [
         "I eagerly inject myself into the unknown.",
         "Villages, towns, and cities do not suit me. I'd rather be out in the wilderness any day.",
@@ -2693,14 +3089,15 @@
         "I am overly protective of nature, sometimes to the detriment of my companions and myself.",
         "My lack of worldliness often proves my undoing in social, commercial, and hostile situations."
       ],
-      "languageProfs": [ "Giant" ],
+      "languageProfs": { "languages":  [ "Giant" ] },
       "lifestyle": "poor"
     },
     {
       "regExpSearch": "/anthropologist/i",
       "name": "Anthropologist",
       "source": "ToA",
-      "skills": [ "Insight", "Religion" ],
+      "skillChoices": [ "Insight", "Religion" ],
+      "skillNumber": 2,
       "gold": 10,
       "equipment": [
         {
@@ -2734,7 +3131,12 @@
           "weight": 1
         }
       ],
-      "feature": "Adept Linguist",
+      "features": [
+        {
+          "name": "Adept Linguist",
+          "description": "I can communicate with humanoids who don't speak any language I know. I must observe the humanoids interacting with one another for at least one day, after which I learn a handful of important words, expressions, and gestures ― enough to communicate on a rudimentary level."
+        }
+      ],
       "trait": [
         "I prefer the company of those who aren't like me, including people of other races.",
         "I'm a stickler when it comes to observing proper etiquette and local customs.",
@@ -2744,12 +3146,12 @@
         "When I arrive at a new settlement for the first time, I must learn all its customs."
       ],
       "ideal": [
-          "Discovery: I want to be the first person to discover a lost culture. (Any)",
-          "Distance: One must not interfere with the affairs of another culture ― even one in need of aid. (Lawful)",
-          "Knowledge: By understanding other races and cultures, we learn to understand ourselves. (Any)",
-          "Power: Common people crave strong leadership, and I do my utmost to provide it. (Lawful)",
-          "Protection: I must do everything possible to save a society facing extinction. (Good)",
-          "Indifferent: Life is cruel. What's the point in saving people if they're going to die anyway? (Chaotic)"
+        "Discovery: I want to be the first person to discover a lost culture. (Any)",
+        "Distance: One must not interfere with the affairs of another culture ― even one in need of aid. (Lawful)",
+        "Knowledge: By understanding other races and cultures, we learn to understand ourselves. (Any)",
+        "Power: Common people crave strong leadership, and I do my utmost to provide it. (Lawful)",
+        "Protection: I must do everything possible to save a society facing extinction. (Good)",
+        "Indifferent: Life is cruel. What's the point in saving people if they're going to die anyway? (Chaotic)"
       ],
       "bond": [
         "My mentor gave me a journal filled with lore and wisdom. Losing it would devastate me.",
@@ -2767,24 +3169,30 @@
         "I complain about everything.",
         "I wear a tribal mask and never take it off."
       ],
-      "extra": [
-        "Select an Adopted Culture",
-        "Aarakocra",
-        "Dwarf",
-        "Elf",
-        "Goblin",
-        "Halfling",
-        "Human",
-        "Lizardfolk",
-        "Orc"
-      ],
-      "languageProfs": [ 2 ]
+      "extraChoice": {
+        "name": "Adopted Culture",
+        "choices": [
+          "Select an ",
+          "Aarakocra",
+          "Dwarf",
+          "Elf",
+          "Goblin",
+          "Halfling",
+          "Human",
+          "Lizardfolk",
+          "Orc"
+        ]
+      },
+      "languageProfs": {
+        "additionalChoices": 2 
+      }
     },
     {
       "regExpSearch": "/archa?eologist/i",
       "name": "Archaeologist",
       "source": "ToA",
-      "skills": [ "History", "Survival" ],
+      "skillChoices": [ "History", "Survival" ],
+      "skillNumber": 2,
       "gold": 25,
       "equipment": [
         {
@@ -2828,7 +3236,12 @@
           "weight": 1
         }
       ],
-      "feature": "Historical Knowledge",
+      "features": [
+        {
+          "name": "Historical Knowledge",
+          "description": "When I enter a ruin or dungeon, I can correctly ascertain its original purpose and determine its builders, whether those were dwarves, elves, humans, yuan-ti, or some other known race. In addition, I can determine the monetary value of art objects more than a century old."
+        }
+      ],
       "trait": [
         "I love a good puzzle or mystery.",
         "I'm a pack rat who never throws anything away.",
@@ -2841,11 +3254,11 @@
       ],
       "ideal": [
         "Preservation: That artifact belongs in a museum. (Good)",
-          "Greed: I won't risk my life for nothing. I expect some kind of payment. (Any)",
-          "Death Wish: Nothing is more exhilarating than a narrow escape from the jaws of death. (Chaotic)",
-          "Dignity: The dead and their belongings deserve to be treated with respect. (Lawful)",
-          "Immortality: All my exploring is part of a plan to find the secret of everlasting life. (Any)",
-          "Danger: With every great discovery comes grave danger. The two walk hand in hand. (Any)"
+        "Greed: I won't risk my life for nothing. I expect some kind of payment. (Any)",
+        "Death Wish: Nothing is more exhilarating than a narrow escape from the jaws of death. (Chaotic)",
+        "Dignity: The dead and their belongings deserve to be treated with respect. (Lawful)",
+        "Immortality: All my exploring is part of a plan to find the secret of everlasting life. (Any)",
+        "Danger: With every great discovery comes grave danger. The two walk hand in hand. (Any)"
       ],
       "bond": [
         "Ever since I was a child, I've heard stories about a lost city. I aim to find it, learn its secrets, and earn my place in the history books.",
@@ -2863,19 +3276,30 @@
         "When given the choice of going left or right, I always go left.",
         "I can't sleep except in total darkness."
       ],
-      "extra": [
-        "Select a Signature Item",
-        "10-foot pole",
-        "Crowbar",
-        "Hat",
-        "Hooded lantern",
-        "Medallion",
-        "Shovel",
-        "Sledgehammer",
-        "Whip"
-      ],
-      "toolProfs": [ [ "Cartographer or navigator tools", 1 ] ],
-      "languageProfs": [ 1 ]
+      "extraChoice": {
+        "name": "Select a Signature Item",
+        "choices": [
+          "10-foot pole",
+          "Crowbar",
+          "Hat",
+          "Hooded lantern",
+          "Medallion",
+          "Shovel",
+          "Sledgehammer",
+          "Whip"
+        ]
+      },
+      "toolProfs": {
+        "primary": [
+          {
+            "name": "Cartographer or navigator tools",
+            "numChoices": 1 
+          }
+        ] 
+      },
+      "languageProfs": {
+        "additionalChoices": 1 
+      }
     }
   ],
   "BackgroundFeatures": [
@@ -2907,12 +3331,6 @@
       "dragon scholar": {
         "description": "I have studied dragons and their lore for many years. I can automatically identify locations built or used by dragons, and I can identify dragon eggs and scales by sight. If I fail an Intelligence check to recall lore relating to dragons, I know someone or some book that I can consult for the answer unless the DM rules that the lore is unknown.",
         "source": [ "HotDQ", 87 ]
-      }
-    },
-    {
-      "trade contact": {
-        "description": "My family and I have trade contacts such as caravan masters, sailors, artisans, farmers, and shopkeepers throughout the Moonsea region and all along the Sword Coast. When adventuring in either of those areas, I can use those contacts to get information about the local area or to pass a message to someone in those areas, even across great distance.",
-        "source": [ "AL:RoD", 7 ]
       }
     },
     {
@@ -2992,60 +3410,6 @@
         "description": "My experience in enforcing the law, and dealing with lawbreakers, gives me a feel for local laws and criminals. I can easily find the local outpost of the watch, guards or a similar organization, and just as easily pick out the dens of criminal activity in a community. I am far more likely to be welcome in the former locations rather than the latter, however.",
         "source": [ "S", 145 ]
       }
-    },
-    {
-      "at home in the wild": {
-        "description": "In the wilderness, my home, I can find a place to hide, rest, or recuperate that is secure enough to conceal me from most natural threats, but not all supernatural, magical, or threats that actively seek me out. However, this feature doesn't shield or conceal me from scrying, mental probing, nor from threats that don't need the five senses to find me.",
-        "source": [ "AL:CoS", 9 ]
-      }
-    },
-    {
-      "black-market breeder": {
-        "description": "I know how to find people who are always looking for stolen animals and vehicles, for pit fights or getaways during an illegal job. This provides me with information of what such animals & vehicles are in high demand in the area, but also offer to give me favors and information (DM choice) if I bring such animals and vehicles to them.",
-        "source": [ "AL:CoS", 5 ]
-      }
-    },
-    {
-      "double agent": {
-        "description": "I have a trusty contact in the Tears of Virulence garrison in Phlan to whom I pass information. In exchange, I get away with minor criminal offenses in Phlan. My Black Fists contacts can help me get an audience with the Lord Regent, the Lord Sage, Black Fists members, or deposed nobles who are sympathetic to the Phlan refugees and insurgents.",
-        "source": [ "AL:CoS", 2 ]
-      }
-    },
-    {
-      "dragonscarred": {
-        "description": "My extensive scars from being tortured by Vorgansharax give me fame and notoriety, but it is difficult to disguise my appearance and hide from prying eyes. I can use this to gain access to people and places I might not otherwise have, for me and my companions. However, I fear that my afflictions are not completely mundane, as they burn and writhe.",
-        "source": [ "AL:CoS", 3 ]
-      }
-    },
-    {
-      "ex-convict": {
-        "description": "The knowledge gained during my incarceration lets me gain insight into local guards and jailors. I know which will accept bribes, or look the other way for me. I can also seek shelter for myself from authorities with other criminals in the area.",
-        "source": [ "AL:CoS", 8 ]
-      }
-    },
-    {
-      "guerilla": {
-        "description": "I've come to know the surrounding other natural features in which I can take refuge--or set up ambushes. I can quickly survey my environment for advantageous features. Additionally, I can scavenge around my natural surroundings to cobble together simple supplies (such as improvised torches, rope, patches of fabric, etc.) that are consumed after use.",
-        "source": [ "AL:CoS", 6 ]
-      }
-    },
-    {
-      "heart of darkness": {
-        "description": "Those who look into my eyes can see that I have faced unimaginable horror and that I am no stranger to darkness. Though they might fear me, commoners will extend me every courtesy and do their utmost to help. Unless I have shown myself to be a danger to them, they will even take up arms to fight with me, should I find myself facing an enemy alone.",
-        "source": [ "CoS", 209 ]
-      }
-    },
-    {
-      "adept linguist": {
-        "description": "I can communicate with humanoids who don't speak any language I know. I must observe the humanoids interacting with one another for at least one day, after which I learn a handful of important words, expressions, and gestures ― enough to communicate on a rudimentary level.",
-        "source": [ "ToA", 191 ]
-      }
-    },
-    {
-      "historical knowledge": {
-        "description": "When I enter a ruin or dungeon, I can correctly ascertain its original purpose and determine its builders, whether those were dwarves, elves, humans, yuan-ti, or some other known race. In addition, I can determine the monetary value of art objects more than a century old.",
-        "source": [ "ToA", 192 ]
-      }
     }
   ],
   "FightingStyles": [
@@ -3106,20 +3470,23 @@
       "removeeval": "AddACMisc(0, 'Mariner Fighting Style', 'When not wearing heavy armor or using a shield, the class feature Mariner Fighting Style gives a +1 bonus to AC')"
     }
   ],
-  "Classes": [
+  "classes": [
     {
       "regExpSearch": "/^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*(warrior|fighter))(?=.*(feral|tribal)))).*$/i",
       "name": "Barbarian",
-      "source": [
-        [ "SRD", 8 ],
-        [ "P", 46 ]
+      "source": "PHB",
+      "primaryAbility": [{ "ability": "Strength", "minimum": 13 }],
+      "prereqs": [
+        {
+          "ability": "Strength",
+          "value": 13 
+        }
       ],
-      "primaryAbility": " Barbarian: Strength;",
-      "prereqs": " Barbarian: Strength 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
-      "die": 12,
-      "saves": [ "Str", "Con" ],
-      "skills": [ "Choose two from Animal Handling, Athletics, Intimidation, Nature, Perception, and Survival." ],
+      "hitdice": 12,
+      "saves": [ "Strength", "Constitution" ],
+      "skillChoices": [ "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival" ],
+      "skillNumber": { "primary": 2 },
       "armor": [
         [ true, true, false, true ],
         [ false, false, false, true ]
@@ -3681,20 +4048,54 @@
     {
       "regExpSearch": "/(bard|minstrel|troubadour|jongleur)/i",
       "name": "Bard",
-      "source": [
-        [ "SRD", 11 ],
-        [ "P", 51 ]
+      "source": "PHB",
+      "primaryAbility": [
+        {
+          "ability": "Charisma",
+          "minimum": 13
+        }
       ],
-      "primaryAbility": " Bard: Charisma;",
       "abilitySave": 6,
-      "prereqs": " Bard: Charisma 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
-      "die": 8,
-      "saves": [ "Dex", "Cha" ],
-      "skills": [ "Choose any three skills.", "Choose any one skill." ],
+      "hitdice": 8,
+      "saves": [ "Dexterity", "Charisma" ],
+      "skillChoices": [
+        "Acrobatics",
+        "Animal Handling",
+        "Arcana",
+        "Athletics",
+        "Deception",
+        "History",
+        "Insight",
+        "Intimidation",
+        "Investigation",
+        "Medicine",
+        "Nature",
+        "Perception",
+        "Performance",
+        "Persuasion",
+        "Religion",
+        "Sleight of Hand",
+        "Stealth",
+        "Survival"
+      ],
+      "skillNumber": {
+        "primary": 3,
+        "secondary": 1
+      },
       "toolProfs": {
-        "primary": [ [ "Musical instrument", 3 ] ],
-        "secondary": [ [ "Musical instrument", 1 ] ]
+        "primary": [
+          {
+            "name": "Musical instrument",
+            "numChoices": 3
+          }
+        ],
+        "secondary": [
+          {
+            "name": "Musical instrument",
+            "numChoices": 1
+          }
+        ]
       },
       "armor": [
         [ true, false, false, false ],
@@ -4043,17 +4444,21 @@
     {
       "regExpSearch": "/(cleric|priest|clergy|acolyte)/i",
       "name": "Cleric",
-      "source": [
-        [ "SRD", 15 ],
-        [ "P", 56 ]
+      "source": "PHB",
+      "primaryAbility": [
+        {
+          "ability": "Wisdom",
+          "minimum": 13
+        }
       ],
-      "primaryAbility": " Cleric: Wisdom;",
       "abilitySave": 5,
-      "prereqs": " Cleric: Wisdom 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
       "die": 8,
-      "saves": [ "Wis", "Cha" ],
-      "skills": [ "Choose two from History, Insight, Medicine, Persuasion, and Religion." ],
+      "saves": [ "Wisdom", "Charisma" ],
+      "skillChoices": [ "History", "Insight", "Medicine", "Persuasion", "Religion" ],
+      "skillNumber": {
+        "primary": 2
+      },
       "armor": [
         [ true, true, false, true ],
         [ true, true, false, true ]
@@ -4868,19 +5273,23 @@
     {
       "regExpSearch": "/(druid|shaman)/i",
       "name": "Druid",
-      "source": [
-        [ "SRD", 19 ],
-        [ "P", 61 ]
+      "source": "PHB",
+      "primaryAbility": [
+        {
+          "ability": "Wisdom",
+          "minimum": 13
+        }
       ],
-      "primaryAbility": " Druid: Wisdom;",
       "abilitySave": 5,
-      "prereqs": " Druid: Wisdom 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
       "die": 8,
-      "saves": [ "Wis", "Int" ],
-      "skills": [ "Choose two from Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, and Survival." ],
+      "saves": [ "Wisdom", "Intelligence" ],
+      "skillChoices": [ "Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival" ],
+      "skillNumber": {
+        "primary": 2
+      },
       "toolProfs": {
-        "primary": [ "Herbalism kit" ]
+        "primary": [ { "name": "Herbalism kit" } ]
       },
       "armor": [
         [ true, true, false, true ],
@@ -5264,15 +5673,20 @@
     {
       "regExpSearch": "/^(?!.*(dark|green|fey|horned|totem|spiritual|exalted|sacred|holy|divine|nature|odin|thor|nature|natural|green))(?=.*(fighter|warrior|militant|warlord|phalanx|gladiator|trooper)).*$/i",
       "name": "Fighter",
-      "source": [
-        [ "SRD", 24 ],
-        [ "P", 70 ]
+      "source": "PHB",
+      "primaryAbility": [
+        {
+          "ability": "Strength",
+          "minimum": 13
+        },
+        {
+          "ability": "Dexterity",
+          "minimum": 13
+        }
       ],
-      "primaryAbility": " Fighter: Strength or Dexterity;",
-      "prereqs": " Fighter: Strength 13 or Dexterity 13;",
       "die": 10,
       "improvements": [ 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 7, 7 ],
-      "saves": [ "Str", "Con" ],
+      "saves": [ "Strength", "Constitution" ],
       "skills": [ "Choose two from Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, and Survival." ],
       "armor": [
         [ true, true, true, true ],
@@ -5899,20 +6313,35 @@
     {
       "regExpSearch": "/^((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i",
       "name": "Monk",
-      "source": [
-        [ "SRD", 26 ],
-        [ "P", 76 ]
+      "source": "PHB",
+      "primaryAbility": [
+        {
+          "ability": "Dexterity",
+          "minimum": 13,
+          "required": true 
+        },
+        {
+          "ability": "Wisdom",
+          "minimum": 13,
+          "required": true 
+        }
       ],
-      "primaryAbility": " Monk: Dexterity and Wisdom;",
       "abilitySave": 5,
-      "prereqs": " Monk: Dexterity 13 and Wisdom 13;",
       "die": 8,
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
-      "saves": [ "Str", "Dex" ],
+      "saves": [ "Strength", "Dexterity" ],
       "toolProfs": {
-        "primary": [ [ "Artisan's tool or musical instrument", 1 ] ]
+        "primary": [
+          {
+            "name": "Artisan's tool or musical instrument",
+            "numChoices": 1
+          }
+        ]
       },
-      "skills": [ "Choose two from Acrobatics, Athletics, History, Insight, Religion, and Stealth." ],
+      "skillChoices": [ "Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth" ],
+      "skillNumber": {
+        "primary": 2 
+      },
       "armor": [
         [ false, false, false, false ]
       ],
@@ -6701,17 +7130,27 @@
     {
       "regExpSearch": "/^((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i",
       "name": "Paladin",
-      "source": [
-        [ "SRD", 30 ],
-        [ "P", 82 ]
+      "source": "PHB",
+      "primaryAbility": [
+        {
+          "ability": "Strength",
+          "minimum": 13,
+          "required": true
+        },
+        {
+          "ability": "Charisma",
+          "minimum": 13,
+          "required": true
+        }
       ],
-      "primaryAbility": " Paladin: Strength and Charisma;",
       "abilitySave": 6,
-      "prereqs": " Paladin: Strength 13 and Charisma 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
       "die": 10,
-      "saves": [ "Wis", "Cha" ],
-      "skills": [ "Choose two from Athletics, Insight, Intimidation, Medicine, Persuasion, and Religion." ],
+      "saves": [ "Wisdom", "Charisma" ],
+      "skillChoices": [ "Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion" ],
+      "skillNumber": {
+        "primary": 2 
+      },
       "armor": [
         [ true, true, true, true ],
         [ true, true, false, true ]
@@ -7210,16 +7649,23 @@
     {
       "regExpSearch": "/^((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i",
       "name": "Ranger",
-      "source": [
-        [ "SRD", 35 ],
-        [ "P", 89 ]
+      "source": "PHB",
+      "primaryAbility": [
+        {
+          "ability": "Dexterity",
+          "minimum": 13,
+          "required": true
+        },
+        {
+          "ability": "Wisdom",
+          "minimum": 13,
+          "required": true
+        }
       ],
-      "primaryAbility": " Ranger: Dexterity and Wisdom;",
       "abilitySave": 5,
-      "prereqs": " Ranger: Dexterity 13 and Wisdom 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
       "die": 10,
-      "saves": [ "Str", "Dex" ],
+      "saves": [ "Strength", "Dexterity" ],
       "skills": [ "Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival", "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival" ],
       "armor": [
         [ true, true, false, true ],
@@ -7857,19 +8303,24 @@
     {
       "regExpSearch": "/(rogue|miscreant)/i",
       "name": "Rogue",
-      "source": [
-        [ "SRD", 39 ],
-        [ "P", 94 ]
+      "source": "PHB",
+      "primaryAbility": [
+        {
+          "ability": "Dexterity",
+          "minimum": 13
+        }
       ],
-      "primaryAbility": " Rogue: Dexterity;",
-      "prereqs": " Rogue: Dexterity 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6 ],
       "die": 8,
-      "saves": [ "Int", "Dex" ],
-      "skills": [ "Choose four from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth.", "Choose one from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth." ],
+      "saves": [ "Intelligence", "Dexterity" ],
+      "skillChoices": [ "Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth" ],
+      "skillNumber": {
+        "primary": 4,
+        "secondary": 1 
+      },
       "toolProfs": {
-        "primary": [ [ "Thieves' tools", "Dex" ] ],
-        "secondary": [ [ "Thieves' tools", "Dex" ] ]
+        "primary": [{ "name": "Thieves' tools", "ability": "Dexterity" } ],
+        "secondary": [{ "name": "Thieves' tools", "ability": "Dexterity" }]
       },
       "armor": [
         [ true, false, false, false ],
@@ -8426,16 +8877,13 @@
     {
       "regExpSearch": "/(sorcerer|witch)/i",
       "name": "Sorcerer",
-      "source": [
-        [ "SRD", 42 ],
-        [ "P", 99 ]
-      ],
-      "primaryAbility": " Sorcerer: Charisma;",
+      "source": "PHB",
+      "primaryAbility": [{"ability": "Charisma", "minimum": 13  }],
       "abilitySave": 6,
       "prereqs": " Sorcerer: Charisma 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
       "die": 6,
-      "saves": [ "Con", "Cha" ],
+      "saves": [ "Constitution", "Charisma" ],
       "skills": [ "Choose two from Arcana, Deception, Insight, Intimidation, Persuasion, and Religion." ],
       "armor": [
         [ false, false, false, false ]
@@ -9055,11 +9503,13 @@
     {
       "regExpSearch": "/warlock/i",
       "name": "Warlock",
-      "source": [
-        [ "SRD", 46 ],
-        [ "P", 105 ]
+      "source": "PHB",
+      "primaryAbility": [
+        {
+          "ability": "Charisma",
+          "minimum": 13
+        }
       ],
-      "primaryAbility": " Warlock: Charisma;",
       "abilitySave": 6,
       "prereqs": " Warlock: Charisma 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],

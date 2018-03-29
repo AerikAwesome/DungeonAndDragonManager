@@ -37,6 +37,6 @@
     <None Include="ImportFiles\GearList.json" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties ImportFiles_4ImportFile_1json__JSONSchema="ImportFiles/5e-schema.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

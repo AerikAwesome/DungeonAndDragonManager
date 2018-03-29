@@ -14,6 +14,7 @@ using Microsoft.Extensions.Options;
 using DungeonAndDragonManager.Models;
 using DungeonAndDragonManager.Models.ManageViewModels;
 using DungeonAndDragonManager.Services;
+// ReSharper disable ConsiderUsingConfigureAwait
 
 namespace DungeonAndDragonManager.Controllers
 {

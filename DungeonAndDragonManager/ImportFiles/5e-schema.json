@@ -2,8 +2,104 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "title": "5e import schema",
 
-  "type": "object",
+  "definitions": {
+    "source": {
+      "type": "string",
+      "enum": ["PHB", "CoS", "EE", "RoD", "SCAG", "ToA"]
+    },
+    "skill": {
+      "type": "string",
+      "enum": [
+        "Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation",
+        "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand",
+        "Stealth", "Survival"
+      ]
+    },
+    "ability": {
+      "type": "string",
+      "enum": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma", ""]
+    },
+    "feature": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/definitions/source"
+        },
+        "minlevel": {
+          "type": "integer",
+          "enum": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "source", "minlevel", "description"]
+    },
+    "toolProf": {
+      "type": "object",
+      "properties": {
+        "primary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "ability": {
+                "$ref": "#/definitions/ability"
+              },
+              "numChoices": {
+                "type": "integer"
+              } 
+            },
+            "required": [ "name" ],
+            "additionalProperties": false
+          }
+        },
+        "secondary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "ability": {
+                "$ref": "#/definitions/ability"
+              },
+              "numChoices": {
+                "type": "integer"
+              }
+            },
+            "required": [ "name" ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [ "primary" ]
+    },
+    "languageProf": {
+      "type": "object",
+      "properties": {
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "additionalChoices": {
+          "type": "integer"
+        } 
+      },
+      "additionalProperties": false
+    } 
+  },
 
+  "type": "object",
   "properties": {
     "backgrounds": {
       "type": "array",
@@ -15,16 +111,19 @@
             "type": "string"
           },
           "source": {
-            "type": "string"
+            "$ref": "#/definitions/source" 
           },
           "regExpSearch": {
             "type": "string"
           },
-          "skills": {
+          "skillChoices": {
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "5e-schema.json#/definitions/skill" 
             }
+          },
+          "skillNumber": {
+            "type": "integer"
           },
           "gold": {
             "type": "integer"
@@ -44,7 +143,7 @@
                   "type": "number"
                 }
               },
-              "required": ["name", "amount", "weight"]
+              "required": [ "name", "amount", "weight" ]
             }
           },
           "features": {
@@ -85,10 +184,265 @@
             "items": {
               "type": "string"
             }
-          }
+          },
+          "extraChoice": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              } 
+            }
+          },
+          "toolProfs": {
+            "$ref": "#/definitions/toolProf"
+          },
+          "languageProfs": {
+            "$ref": "#/definitions/languageProf"
+          },
+          "lifestyle": {
+            "type": "string",
+            "enum": ["wretched", "squalid", "poor", "modest", "comfortable", "wealthy", "aristocratic"]
+          } 
         },
-        "required": ["name", "source", "regExpSearch", "skills", "gold", "equipment", "features", "trait", "ideal", "bond", "flaw"] 
+        "required": [ "name", "source", "regExpSearch", "skillChoices", "skillNumber", "gold", "equipment", "features", "trait", "ideal", "bond", "flaw" ],
+        "additionalProperties": false
+      }
+    },
+    "classes": {
+      "type": "array",
+      "description": "List of classes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/definitions/source" 
+          },
+          "regExpSearch": {
+            "type": "string"
+          },
+          "primaryAbility": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ability": {
+                  "$ref": "#/definitions/ability"
+                },
+                "minimum": {
+                  "type": "integer"
+                },
+                "required": {
+                  "type": "boolean"
+                } 
+              },
+              "additionalProperties": false,
+              "required": ["ability"]
+            }
+          },
+          "hitdice": {
+            "type": "integer"
+          },
+          "improvements": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "enum": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+            }
+          },
+          "saves": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ability"
+            }
+          },
+          "skillChoices": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [ "Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival" ]
+            }
+          },
+          "skillNumber": {
+            "type": "object",
+            "properties": {
+              "primary": {
+                "type": "integer"
+              },
+              "secondary": {
+                "type": "integer"
+              } 
+            }
+          },
+          "toolProfs": {
+            "$ref": "#/definitions/toolProf" 
+          }
+          },
+          "armor": {
+            "type": "object",
+            "properties": {
+              "primary": {
+                "type": "object",
+                "properties": {
+                  "light": {
+                    "type": "boolean"
+                  },
+                  "medium": {
+                    "type": "boolean"
+                  },
+                  "heavy": {
+                    "type": "boolean"
+                  },
+                  "shields": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalItems": false,
+                "required": [ "light", "medium", "heavy", "shields" ]
+              },
+              "secondary": {
+                "type": "object",
+                "properties": {
+                  "light": {
+                    "type": "boolean"
+                  },
+                  "medium": {
+                    "type": "boolean"
+                  },
+                  "heavy": {
+                    "type": "boolean"
+                  },
+                  "shields": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalItems": false,
+                "required": [ "light", "medium", "heavy", "shields" ]
+              }
+            },
+            "additionalItems": false,
+            "required": [ "primary", "secondary" ]
+          },
+          "weapons": {
+            "type": "object",
+            "properties": {
+              "primary": {
+                "type": "object",
+                "properties": {
+                  "simple": {
+                    "type": "boolean"
+                  },
+                  "martial": {
+                    "type": "boolean"
+                  },
+                  "other": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalItems": false,
+                "required": [ "simple", "martial" ]
+              },
+              "secondary": {
+                "type": "object",
+                "properties": {
+                  "simple": {
+                    "type": "boolean"
+                  },
+                  "martial": {
+                    "type": "boolean"
+                  },
+                  "other": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalItems": false,
+                "required": [ "simple", "martial" ]
+              }
+            },
+            "additionalItems": false,
+            "required": [ "primary", "secondary" ]
+          },
+          "equipment": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type:": "number"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": [ "name", "amount", "weight" ]
+            }
+          },
+          "subclassName": {
+            "type": "string"
+          },
+          "subclasses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "subname": {
+                  "type": "string"
+                },
+                "fullname": {
+                  "type": "string"
+                },
+                "regExpSearch": {
+                  "type": "string"
+                },
+                "source": {
+                  "$ref": "#/definitions/source"
+                },
+                "abilitySave": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ability"
+                  }
+                },
+                "spellcastingFactor": {
+                  "type": "integer"
+                },
+                "features": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/feature"
+                  }
+                }
+              },
+              "required": [ "subname", "fullname", "regExpSearch", "source" ],
+              "additionalItems": false
+            }
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/feature"
+            }
+          } 
+        },
+        "required": [ "name", "source", "regExpSearch", "primaryAbility", "hitdice", "improvements", "saves", "skillChoices", "skillNumber", "toolProfs", "armor", "weapons", "equipment", "subclassName", "subclasses" ],
+        "additionalItems": false
       }
     }
-  }
 }
