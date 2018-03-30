@@ -1354,9 +1354,6 @@
   // Also note that there is no automation for the companion page included in this.
   //
   // You will have to chose the ranger's animal spirit from the companion race drop-down list and add the Wisdom modifier bonus to attacks and saves manually.
-  "var",
-  "iFileName" "=",
-  "\"ua_20150909_Ranger.js\";" "RequiredSheetVersion(12.999);",
   // This file adds the content from the Unearthed Arcana: Ranger article to MPMB's Character Record Sheet
 
   // Define the source
@@ -8285,6 +8282,7 @@
   ");"
 
   // Add many new Warlock invocations
+/*
   "AddWarlockInvocation(\"Aspect of the Moon (prereq: the Archfey patron)\"",
   {
     "name": "Aspect of the Moon",
@@ -8637,6 +8635,7 @@
     }
   },
   ");"
+    */
 
   // Weapons specific to Warlock Invocations
   "WeaponsList",
@@ -9496,6 +9495,7 @@
   ";"
 
   // The Psionic Talents for the Mystic (with contributions by rabidknave)
+    /*
   "PsionicsList",
   [ "beacon" ],
   : {
@@ -13490,7 +13490,9 @@
     "description": "Finesse, light",
     "abilitytodamage": true
   },
-  ";" "var",
+  ";"
+    */
+    "var",
   "iFileName" "=",
   "\"ua_20170320_Wizard-Revisited.js\";" "RequiredSheetVersion(12.999);",
   // This file adds the content from the Unearthed Arcana: Wizard Revisited article to MPMB's Character Record Sheet
@@ -14204,10 +14206,8 @@
   },
   ";"
 
-  /*	Adds 17 spells of lower levels to all class' spell lists
-	
-	This code was contributed by SoilentBrad
-*/
+  //	Adds 17 spells of lower levels to all class' spell lists
+	/*
   "SpellsList",
   [ "cause fear" ],
   : {
@@ -14579,6 +14579,7 @@
     "+" "In addition, the first time you make a weapon attack on your turn before the spell ends, you make the attack roll with advantage, and your speed increases by 30 feet until the end of that turn."
   },
   ";"
+    */
 
   // Weapons (attack cantrips)
   "WeaponsList",
@@ -14657,6 +14658,7 @@
   ";"
 
   // Add 18 feats, corresponding with the 18 skills
+    /*
   "FeatsList",
   [ "acrobat" ],
   : {
@@ -15388,7 +15390,7 @@
     ]
   },
   ";"
-
+    */
   // Add weapon for the Dragon Hide feat
   "WeaponsList",
   [ "claws" ],

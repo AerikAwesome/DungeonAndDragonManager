@@ -3475,11 +3475,16 @@
       "regExpSearch": "/^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*(warrior|fighter))(?=.*(feral|tribal)))).*$/i",
       "name": "Barbarian",
       "source": "PHB",
-      "primaryAbility": [{ "ability": "Strength", "minimum": 13 }],
+      "primaryAbility": [
+        {
+          "ability": "Strength",
+          "minimum": 13
+        }
+      ],
       "prereqs": [
         {
           "ability": "Strength",
-          "value": 13 
+          "value": 13
         }
       ],
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
@@ -3487,14 +3492,30 @@
       "saves": [ "Strength", "Constitution" ],
       "skillChoices": [ "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival" ],
       "skillNumber": { "primary": 2 },
-      "armor": [
-        [ true, true, false, true ],
-        [ false, false, false, true ]
-      ],
-      "weapons": [
-        [ true, true ],
-        [ true, true ]
-      ],
+      "armor": {
+        "primary": {
+          "light": true,
+          "medium": true,
+          "heavy": false,
+          "shields": true
+        },
+        "secondary": {
+          "light": false,
+          "medium": false,
+          "heavy": false,
+          "shields": true
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": true,
+          "martial": true
+        },
+        "secondary": {
+          "simple": true,
+          "martial": true
+        }
+      },
       "equipment": "Barbarian starting equipment: A greataxe -or- any martial melee weapon; Two handaxes -or- any simple weapon; An explorer's pack and four javelins.Alternatively, choose 2d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Primal Path",
       "subclasses": [
@@ -3502,11 +3523,10 @@
           "regExpSearch": "/^((?=.*\b(berserker|berserk|berserkr|ulfheoinn|ulfheonar)s?\b)|((?=.*(warrior|fighter))(?=.*(odin|thor)))).*$/i",
           "subname": "Path of the Berserker",
           "fullname": "Berserker",
-          "source": [
-            [ "SRD", 9 ],
-            [ "P", 49 ]
+          "source": "PHB",
+          "abilitySave": [
+            "Charisma"
           ],
-          "abilitySave": 6,
           "features": {
             "subclassfeature3": {
               "name": "Frenzy",
@@ -3554,7 +3574,7 @@
           "regExpSearch": "/^(?=.*totem)(?=.*(warrior|fighter|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i",
           "subname": "Path of the Totem Warrior",
           "fullname": "Totem Warrior",
-          "source": [ "P", 50 ],
+          "source": "PHB",
           "features": {
             "subclassfeature3": {
               "name": "Spirit Seeker",
@@ -4097,17 +4117,27 @@
           }
         ]
       },
-      "armor": [
-        [ true, false, false, false ],
-        [ true, false, false, false ]
-      ],
-      "weapons": [
-        [
-          true,
-          false,
-          [ "hand crossbow", "longsword", "rapier", "shortsword" ]
-        ]
-      ],
+      "armor": {
+        "primary": {
+          "light": true,
+          "medium": false,
+          "heavy": false,
+          "shields": false
+        },
+        "secondary": {
+          "light": true,
+          "medium": false,
+          "heavy": false,
+          "shields": false
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": true,
+          "martial": false,
+          "other": [ "hand crossbow", "longsword", "rapier", "shortsword" ]
+        }
+      },
       "equipment": "Bard starting equipment: A rapier -or- a longsword -or- any simple weapon; A diplomat's pack -or- an entertainer's pack; A lute -or- any other musical instrument; Leather armor and a dagger. Alternatively, choose 5d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Bard College",
       "subclasses": [
@@ -4459,13 +4489,26 @@
       "skillNumber": {
         "primary": 2
       },
-      "armor": [
-        [ true, true, false, true ],
-        [ true, true, false, true ]
-      ],
-      "weapons": [
-        [ true, false ]
-      ],
+      "armor": {
+        "primary": {
+          "light": true,
+          "medium": true,
+          "heavy": false,
+          "shields": true
+        },
+        "secondary": {
+          "light": true,
+          "medium": true,
+          "heavy": false,
+          "shields": true
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": true,
+          "martial": false
+        }
+      },
       "equipment": "Cleric starting equipment: A mace -or- a warhammer (if proficient); Scale mail -or- leather armor -or- chain mail (if proficient); A light crossbow and 20 bolts -or- any simple weapon; A priest's pack -or- an explorer's pack; A shield and a holy symbol. Alternatively, choose 5d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Divine Domain",
       "subclasses": [
@@ -5291,17 +5334,27 @@
       "toolProfs": {
         "primary": [ { "name": "Herbalism kit" } ]
       },
-      "armor": [
-        [ true, true, false, true ],
-        [ true, true, false, true ]
-      ],
-      "weapons": [
-        [
-          false,
-          false,
-          [ "club", "dagger", "dart", "javelin", "mace", "quarterstaff", "scimitar", "sickle", "sling", "spear" ]
-        ]
-      ],
+      "armor": {
+        "primary": {
+          "light": true,
+          "medium": true,
+          "heavy": false,
+          "shields": true
+        },
+        "secondary": {
+          "light": true,
+          "medium": true,
+          "heavy": false,
+          "shields": true
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": false,
+          "martial": false,
+          "other": [ "club", "dagger", "dart", "javelin", "mace", "quarterstaff", "scimitar", "sickle", "sling", "spear" ]
+        }
+      },
       "equipment": "Druid starting equipment: A wooden shield -or- any simple weapon; A scimitar -or- any simple melee weapon; Leather armor, an explorer's pack, and a druidic focus. Alternatively, choose 2d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Druid Circle",
       "subclasses": [
@@ -5688,14 +5741,30 @@
       "improvements": [ 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 7, 7 ],
       "saves": [ "Strength", "Constitution" ],
       "skills": [ "Choose two from Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, and Survival." ],
-      "armor": [
-        [ true, true, true, true ],
-        [ true, true, false, true ]
-      ],
-      "weapons": [
-        [ true, true ],
-        [ true, true ]
-      ],
+      "armor": {
+        "primary": {
+          "light": true,
+          "medium": true,
+          "heavy": true,
+          "shields": true
+        },
+        "secondary": {
+          "light": true,
+          "medium": true,
+          "heavy": false,
+          "shields": true
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": true,
+          "martial": true
+        },
+        "secondary": {
+          "simple": true,
+          "martial": true
+        }
+      },
       "equipment": "Fighter starting equipment: Chain mail -or- leather armor, a longbow, and 20 arrows; A martial weapon and a shield -or- two martial weapons; A light crossbow and 20 bolts -or- two handaxes; A dungeoneer's pack -or- an explorer's pack. Alternatively, choose 5d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Martial Archetype",
       "subclasses": [
@@ -6318,12 +6387,12 @@
         {
           "ability": "Dexterity",
           "minimum": 13,
-          "required": true 
+          "required": true
         },
         {
           "ability": "Wisdom",
           "minimum": 13,
-          "required": true 
+          "required": true
         }
       ],
       "abilitySave": 5,
@@ -6340,23 +6409,28 @@
       },
       "skillChoices": [ "Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth" ],
       "skillNumber": {
-        "primary": 2 
+        "primary": 2
       },
-      "armor": [
-        [ false, false, false, false ]
-      ],
-      "weapons": [
-        [
-          true,
-          false,
-          [ "shortsword" ]
-        ],
-        [
-          true,
-          false,
-          [ "shortsword" ]
-        ]
-      ],
+      "armor": {
+        "primary": {
+          "light": false,
+          "medium": false,
+          "heavy": false,
+          "shields": false
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": true,
+          "martial": false,
+          "other": [ "shortsword" ]
+        },
+        "secondary": {
+          "simple": true,
+          "martial": false,
+          "other": [ "shortsword" ]
+        }
+      },
       "equipment": "Monk starting equipment: A shortsword -or- any simple weapon; A dungeoneer's pack -or- an explorer's pack; 10 darts.\n\nAlternatively, choose 5d4 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Monastic Tradition",
       "subclasses": [
@@ -7149,16 +7223,32 @@
       "saves": [ "Wisdom", "Charisma" ],
       "skillChoices": [ "Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion" ],
       "skillNumber": {
-        "primary": 2 
+        "primary": 2
       },
-      "armor": [
-        [ true, true, true, true ],
-        [ true, true, false, true ]
-      ],
-      "weapons": [
-        [ true, true ],
-        [ true, true ]
-      ],
+      "armor": {
+        "primary": {
+          "light": true,
+          "medium": true,
+          "heavy": true,
+          "shields": true
+        },
+        "secondary": {
+          "light": true,
+          "medium": true,
+          "heavy": false,
+          "shields": true
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": true,
+          "martial": true
+        },
+        "secondary": {
+          "simple": true,
+          "martial": true
+        }
+      },
       "equipment": "Paladin starting equipment: A martial weapon and a shield -or- two martial weapons; Five javelins -or- any simple melee weapon; A priest's pack -or- an explorer's pack; Chain mail and a holy symbol. Alternatively, choose 5d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Sacred Oath",
       "subclasses": [
@@ -7667,14 +7757,30 @@
       "die": 10,
       "saves": [ "Strength", "Dexterity" ],
       "skills": [ "Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival", "Choose one from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival" ],
-      "armor": [
-        [ true, true, false, true ],
-        [ true, true, false, true ]
-      ],
-      "weapons": [
-        [ true, true ],
-        [ true, true ]
-      ],
+      "armor": {
+        "primary": {
+          "light": true,
+          "medium": true,
+          "heavy": false,
+          "shields": true
+        },
+        "secondary": {
+          "light": true,
+          "medium": true,
+          "heavy": false,
+          "shields": true
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": true,
+          "martial": true
+        },
+        "secondary": {
+          "simple": true,
+          "martial": true
+        }
+      },
       "equipment": "Ranger starting equipment: Scale mail -or- leather armor; Two shortswords -or- two simple melee weapons; A dungeoneer's pack -or- an explorer's pack; A longbow and a quiver of 20 arrows. Alternatively, choose 5d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Ranger Archetype",
       "subclasses": [
@@ -8316,23 +8422,43 @@
       "skillChoices": [ "Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth" ],
       "skillNumber": {
         "primary": 4,
-        "secondary": 1 
+        "secondary": 1
       },
       "toolProfs": {
-        "primary": [{ "name": "Thieves' tools", "ability": "Dexterity" } ],
-        "secondary": [{ "name": "Thieves' tools", "ability": "Dexterity" }]
-      },
-      "armor": [
-        [ true, false, false, false ],
-        [ true, false, false, false ]
-      ],
-      "weapons": [
-        [
-          true,
-          false,
-          [ "hand crossbow", "longsword", "rapier", "shortsword" ]
+        "primary": [
+          {
+            "name": "Thieves' tools",
+            "ability": "Dexterity"
+          }
+        ],
+        "secondary": [
+          {
+            "name": "Thieves' tools",
+            "ability": "Dexterity"
+          }
         ]
-      ],
+      },
+      "armor": {
+        "primary": {
+          "light": true,
+          "medium": false,
+          "heavy": false,
+          "shields": false
+        },
+        "secondary": {
+          "light": true,
+          "medium": false,
+          "heavy": false,
+          "shields": false
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": true,
+          "martial": false,
+          "other": [ "hand crossbow", "longsword", "rapier", "shortsword" ]
+        }
+      },
       "equipment": "Rogue starting equipment: A rapier -or- a shortsword; A shortbow and a quiver of 20 arrows -or- a shortswords; A burglar's pack -or- dungeoneer's pack -or- an explorer's pack; Leather armor, two daggers, and thieves' tools. Alternatively, choose 4d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Roguish Archetype",
       "subclasses": [
@@ -8878,23 +9004,33 @@
       "regExpSearch": "/(sorcerer|witch)/i",
       "name": "Sorcerer",
       "source": "PHB",
-      "primaryAbility": [{"ability": "Charisma", "minimum": 13  }],
+      "primaryAbility": [
+        {
+          "ability": "Charisma",
+          "minimum": 13
+        }
+      ],
       "abilitySave": 6,
       "prereqs": " Sorcerer: Charisma 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
       "die": 6,
       "saves": [ "Constitution", "Charisma" ],
       "skills": [ "Choose two from Arcana, Deception, Insight, Intimidation, Persuasion, and Religion." ],
-      "armor": [
-        [ false, false, false, false ]
-      ],
-      "weapons": [
-        [
-          false,
-          false,
-          [ "dagger", "dart", "light crossbow", "quarterstaff", "sling" ]
-        ]
-      ],
+      "armor": {
+        "primary": {
+          "light": false,
+          "medium": false,
+          "heavy": false,
+          "shields": false
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": false,
+          "martial": false,
+          "other": [ "dagger", "dart", "light crossbow", "quarterstaff", "sling" ]
+        }
+      },
       "equipment": "Sorcerer starting equipment: A light crossbow and 20 bolts -or- any simple weapon; A component pouch -or- an arcane focus; A dungeoneer's pack -or- an explorer's pack; Two daggers. Alternatively, choose 3d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Sorcerous Origin",
       "subclasses": [
@@ -9514,16 +9650,32 @@
       "prereqs": " Warlock: Charisma 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
       "die": 8,
-      "saves": [ "Wis", "Cha" ],
+      "saves": [ "Wisdom", "Charisma" ],
       "skills": [ "Choose two from Arcana, Deception, History, Intimidation, Investigation, Nature, and Religion." ],
-      "armor": [
-        [ true, false, false, false ],
-        [ true, false, false, false ]
-      ],
-      "weapons": [
-        [ true, false ],
-        [ true, false ]
-      ],
+      "armor": {
+        "primary": {
+          "light": true,
+          "medium": false,
+          "heavy": false,
+          "shields": false
+        },
+        "secondary": {
+          "light": true,
+          "medium": false,
+          "heavy": false,
+          "shields": false
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": true,
+          "martial": false
+        },
+        "secondary": {
+          "simple": true,
+          "martial": false
+        }
+      },
       "equipment": "Warlock starting equipment: A light crossbow and 20 bolts -or- any simple weapon; A component pouch -or- an arcane focus; A scholar's pack -or- a dungeoneer's pack Leather armor, any simple weapon, and two daggers. Alternatively, choose 4d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Otherworldly Patron",
       "subclasses": [
@@ -10408,27 +10560,33 @@
     {
       "regExpSearch": "/^(?=.*(wizard|mage|magus))(?!.*wild mage).*$/i",
       "name": "Wizard",
-      "source": [
-        [ "SRD", 52 ],
-        [ "P", 112 ]
+      "source": "PHB",
+      "primaryAbility": [
+        {
+          "ability": "Intelligence",
+          "minimum": 13
+        }
       ],
-      "primaryAbility": " Wizard: Intelligence;",
       "abilitySave": 4,
-      "prereqs": " Wizard: Intelligence 13;",
       "improvements": [ 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5 ],
       "die": 6,
-      "saves": [ "Int", "Wis" ],
+      "saves": [ "Intelligence", "Wisdom" ],
       "skills": [ "Choose two from Arcana, History, Insight, Investigation, Medicine, and Religion." ],
-      "armor": [
-        [ false, false, false, false ]
-      ],
-      "weapons": [
-        [
-          false,
-          false,
-          [ "dagger", "dart", "light crossbow", "quarterstaff", "sling" ]
-        ]
-      ],
+      "armor": {
+        "primary": {
+          "light": false,
+          "medium": false,
+          "heavy": false,
+          "shields": false
+        }
+      },
+      "weapons": {
+        "primary": {
+          "simple": false,
+          "martial": false,
+          "other": [ "dagger", "dart", "light crossbow", "quarterstaff", "sling" ]
+        }
+      },
       "equipment": "Wizard starting equipment: A quarterstaff -or- a dagger; A component pouch -or- an arcane focus; A scholar's pack -or- an explorer's pack; A spellbook.\n\nAlternatively, choose 4d4 x 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
       "subclassname": "Arcane Tradition",
       "subclasses": [

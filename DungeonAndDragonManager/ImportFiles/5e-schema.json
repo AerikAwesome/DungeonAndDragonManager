@@ -111,7 +111,7 @@
             "type": "string"
           },
           "source": {
-            "$ref": "#/definitions/source" 
+            "$ref": "#/definitions/source"
           },
           "regExpSearch": {
             "type": "string"
@@ -119,7 +119,7 @@
           "skillChoices": {
             "type": "array",
             "items": {
-              "$ref": "5e-schema.json#/definitions/skill" 
+              "$ref": "5e-schema.json#/definitions/skill"
             }
           },
           "skillNumber": {
@@ -143,7 +143,7 @@
                   "type": "number"
                 }
               },
-              "required": [ "name", "amount", "weight" ]
+              "required": ["name", "amount", "weight"]
             }
           },
           "features": {
@@ -158,7 +158,7 @@
                   "type": "string"
                 }
               },
-              "required": [ "name", "description" ]
+              "required": ["name", "description"]
             }
           },
           "trait": {
@@ -196,7 +196,7 @@
                 "items": {
                   "type": "string"
                 }
-              } 
+              }
             }
           },
           "toolProfs": {
@@ -208,9 +208,12 @@
           "lifestyle": {
             "type": "string",
             "enum": ["wretched", "squalid", "poor", "modest", "comfortable", "wealthy", "aristocratic"]
-          } 
+          }
         },
-        "required": [ "name", "source", "regExpSearch", "skillChoices", "skillNumber", "gold", "equipment", "features", "trait", "ideal", "bond", "flaw" ],
+        "required": [
+          "name", "source", "regExpSearch", "skillChoices", "skillNumber", "gold", "equipment", "features", "trait",
+          "ideal", "bond", "flaw"
+        ],
         "additionalProperties": false
       }
     },
@@ -224,7 +227,7 @@
             "type": "string"
           },
           "source": {
-            "$ref": "#/definitions/source" 
+            "$ref": "#/definitions/source"
           },
           "regExpSearch": {
             "type": "string"
@@ -242,7 +245,7 @@
                 },
                 "required": {
                   "type": "boolean"
-                } 
+                }
               },
               "additionalProperties": false,
               "required": ["ability"]
@@ -255,7 +258,7 @@
             "type": "array",
             "items": {
               "type": "integer",
-              "enum": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+              "enum": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
             }
           },
           "saves": {
@@ -268,7 +271,11 @@
             "type": "array",
             "items": {
               "type": "string",
-              "enum": [ "Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival" ]
+              "enum": [
+                "Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight",
+                "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion",
+                "Religion", "Sleight of Hand", "Stealth", "Survival"
+              ]
             }
           },
           "skillNumber": {
@@ -279,12 +286,11 @@
               },
               "secondary": {
                 "type": "integer"
-              } 
+              }
             }
           },
           "toolProfs": {
-            "$ref": "#/definitions/toolProf" 
-          }
+            "$ref": "#/definitions/toolProf"
           },
           "armor": {
             "type": "object",
@@ -306,7 +312,7 @@
                   }
                 },
                 "additionalItems": false,
-                "required": [ "light", "medium", "heavy", "shields" ]
+                "required": ["light", "medium", "heavy", "shields"]
               },
               "secondary": {
                 "type": "object",
@@ -325,11 +331,11 @@
                   }
                 },
                 "additionalItems": false,
-                "required": [ "light", "medium", "heavy", "shields" ]
+                "required": ["light", "medium", "heavy", "shields"]
               }
             },
             "additionalItems": false,
-            "required": [ "primary", "secondary" ]
+            "required": ["primary"]
           },
           "weapons": {
             "type": "object",
@@ -351,7 +357,7 @@
                   }
                 },
                 "additionalItems": false,
-                "required": [ "simple", "martial" ]
+                "required": ["simple", "martial"]
               },
               "secondary": {
                 "type": "object",
@@ -370,11 +376,11 @@
                   }
                 },
                 "additionalItems": false,
-                "required": [ "simple", "martial" ]
+                "required": ["simple", "martial"]
               }
             },
             "additionalItems": false,
-            "required": [ "primary", "secondary" ]
+            "required": ["primary"]
           },
           "equipment": {
             "type": "array",
@@ -391,10 +397,10 @@
                   "type": "number"
                 }
               },
-              "required": [ "name", "amount", "weight" ]
+              "required": ["name", "amount", "weight"]
             }
           },
-          "subclassName": {
+          "subclassname": {
             "type": "string"
           },
           "subclasses": {
@@ -430,7 +436,7 @@
                   }
                 }
               },
-              "required": [ "subname", "fullname", "regExpSearch", "source" ],
+              "required": ["subname", "fullname", "regExpSearch", "source"],
               "additionalItems": false
             }
           },
@@ -439,10 +445,14 @@
             "items": {
               "$ref": "#/definitions/feature"
             }
-          } 
+          }
         },
-        "required": [ "name", "source", "regExpSearch", "primaryAbility", "hitdice", "improvements", "saves", "skillChoices", "skillNumber", "toolProfs", "armor", "weapons", "equipment", "subclassName", "subclasses" ],
+        "required": [
+          "name", "source", "regExpSearch", "primaryAbility", "hitdice", "improvements", "saves", "skillChoices",
+          "skillNumber", "armor", "weapons", "equipment", "subclassname", "subclasses"
+        ],
         "additionalItems": false
       }
     }
+  }
 }
